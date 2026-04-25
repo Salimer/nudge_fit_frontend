@@ -15,14 +15,17 @@ class AppTheme {
 
   Locale get locale => ref.watch(localeStateProvider).requireValue;
 
-  String? get _fontFamily => locale.languageCode == 'ar'
+  static String? _fontFamily(Locale locale) => locale.languageCode == 'ar'
       ? GoogleFonts.cairo().fontFamily
       : GoogleFonts.poppins().fontFamily;
 
-  ThemeData _buildTheme() {
-    return ThemeData(useMaterial3: true, fontFamily: _fontFamily);
+  ThemeData buildTheme() {
+    return ThemeData(
+      useMaterial3: true,
+      fontFamily: _fontFamily(locale),
+    );
   }
 
-  ThemeData get lightTheme => _buildTheme();
-  ThemeData get darkTheme => _buildTheme();
+  ThemeData get lightTheme => buildTheme();
+  ThemeData get darkTheme => buildTheme();
 }

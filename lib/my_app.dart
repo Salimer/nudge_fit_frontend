@@ -11,11 +11,12 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final appTheme = ref.read(appThemeProvider);
     return MaterialApp.router(
       routerConfig: ref.read(routesProvider),
       debugShowCheckedModeBanner: false,
-      theme: ref.read(appThemeProvider).lightTheme,
-      darkTheme: ref.read(appThemeProvider).darkTheme,
+      theme: appTheme.lightTheme,
+      darkTheme: appTheme.darkTheme,
       themeMode: ThemeMode.system,
       title: 'Nudge Fit',
       locale: ref.watch(localeStateProvider).requireValue,
