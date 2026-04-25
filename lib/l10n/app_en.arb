@@ -1,6 +1,10 @@
 {
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "welcomeTo": "Welcome to",
+  "nudgeFit": "Nudge Fit",
+  "weDoOnlyOneThing": "We do only one thing:",
+  "makeSureYouShowUp": "Make sure you show up",
+  "youHaveThePlanWeProvideTheDiscipline": "You have the plan.\nWe provide the decipline.",
+  "arabic": "Arabic",
+  "english": "English",
+  "getStarted": "Get Started"
 }

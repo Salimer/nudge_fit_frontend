@@ -33,7 +33,7 @@ final class LocaleStateProvider
   LocaleState create() => LocaleState();
 }
 
-String _$localeStateHash() => r'89b938c1158e0a2ed73a68812cde6218a75bbf9b';
+String _$localeStateHash() => r'a7186342db1f04fbb8df0cb60f4cfc483940e2c7';
 
 abstract class _$LocaleState extends $AsyncNotifier<Locale> {
   FutureOr<Locale> build();

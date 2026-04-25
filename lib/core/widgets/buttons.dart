@@ -4,6 +4,7 @@ class CustomButton1 extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
   final bool isLoading;
+
   const CustomButton1({
     super.key,
     required this.text,
@@ -17,9 +18,7 @@ class CustomButton1 extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
-        child: isLoading
-            ? const CircularProgressIndicator()
-            : Text(text),
+        child: isLoading ? const CircularProgressIndicator() : Text(text),
       ),
     );
   }

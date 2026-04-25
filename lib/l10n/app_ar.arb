@@ -1,3 +1,10 @@
 {
-    "helloWorld": "مرحبا بالعالم!"
+    "welcomeTo": "أهلا بك في",
+    "nudgeFit": "Nudge Fit",
+    "weDoOnlyOneThing": "نحن نقوم بشيء واحد فقط:",
+    "makeSureYouShowUp": "نتأكد من حضورك",
+    "youHaveThePlanWeProvideTheDiscipline": "لديك الخطة.\nنحن نقدم الانضباط.",
+    "arabic": "العربية",
+    "english": "الإنجليزية",
+    "getStarted": "ابدأ"
 }

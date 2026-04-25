@@ -9,5 +9,27 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get helloWorld => 'Hello World!';
+  String get welcomeTo => 'Welcome to';
+
+  @override
+  String get nudgeFit => 'Nudge Fit';
+
+  @override
+  String get weDoOnlyOneThing => 'We do only one thing:';
+
+  @override
+  String get makeSureYouShowUp => 'Make sure you show up';
+
+  @override
+  String get youHaveThePlanWeProvideTheDiscipline =>
+      'You have the plan.\nWe provide the decipline.';
+
+  @override
+  String get arabic => 'Arabic';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get getStarted => 'Get Started';
 }

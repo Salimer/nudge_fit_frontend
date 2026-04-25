@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:nudge_fit_frontend/core/assets/mighty.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/state/locale_state.dart';
@@ -11,27 +13,68 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: .center,
-        children: [
-          Consumer(
-            builder: (context, ref, _) {
-              return DropdownButton(
-                items: [
-                  DropdownMenuItem(value: 'ar', child: Text('Arabic')),
-                  DropdownMenuItem(value: 'en', child: Text('English')),
-                ],
-                onChanged: (value) {
-                  ref.read(localeStateProvider.notifier).changeLocale(value!);
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: .start,
+          mainAxisSize: .max,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Consumer(
+                builder: (context, ref, _) {
+                  return DropdownButton(
+                    items: [
+                      DropdownMenuItem(
+                        value: 'ar',
+                        child: Text(context.l10n.arabic),
+                      ),
+                      DropdownMenuItem(
+                        value: 'en',
+                        child: Text(context.l10n.english),
+                      ),
+                    ],
+                    onChanged: (value) {
+                      ref
+                          .read(localeStateProvider.notifier)
+                          .changeLocale(value!);
+                    },
+                    value: ref
+                        .watch(localeStateProvider)
+                        .requireValue
+                        .languageCode,
+                    style: TextStyle(color: Colors.red),
+                  );
                 },
-                value: ref.watch(localeStateProvider).requireValue.languageCode,
-                style: TextStyle(color: Colors.red)
-              );
-            },
-          ),
-          Text(context.l10n.helloWorld),
-          CustomButton1(text: context.l10n.helloWorld, onPressed: () {}),
-        ],
+              ),
+            ),
+            Expanded(
+              child: Column(
+                mainAxisSize: .min,
+                mainAxisAlignment: .spaceBetween,
+                children: [
+                  SvgPicture.asset(MightyAssets.neutral, height: 100),
+                  Text(context.l10n.welcomeTo),
+                  Text(context.l10n.nudgeFit),
+                  Column(
+                    mainAxisSize: .min,
+                    children: [
+                      Text(context.l10n.weDoOnlyOneThing),
+                      Text(context.l10n.makeSureYouShowUp),
+                    ],
+                  ),
+
+                  Text(
+                    context.l10n.youHaveThePlanWeProvideTheDiscipline,
+                    maxLines: 2,
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                    textAlign: .center,
+                  ),
+                  CustomButton1(text: context.l10n.getStarted, onPressed: () {}),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

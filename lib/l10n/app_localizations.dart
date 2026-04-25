@@ -98,11 +98,53 @@ abstract class AppLocalizations {
     Locale('en'),
   ];
 
-  /// The conventional newborn programmer greeting
+  /// No description provided for @welcomeTo.
   ///
   /// In en, this message translates to:
-  /// **'Hello World!'**
-  String get helloWorld;
+  /// **'Welcome to'**
+  String get welcomeTo;
+
+  /// No description provided for @nudgeFit.
+  ///
+  /// In en, this message translates to:
+  /// **'Nudge Fit'**
+  String get nudgeFit;
+
+  /// No description provided for @weDoOnlyOneThing.
+  ///
+  /// In en, this message translates to:
+  /// **'We do only one thing:'**
+  String get weDoOnlyOneThing;
+
+  /// No description provided for @makeSureYouShowUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Make sure you show up'**
+  String get makeSureYouShowUp;
+
+  /// No description provided for @youHaveThePlanWeProvideTheDiscipline.
+  ///
+  /// In en, this message translates to:
+  /// **'You have the plan.\nWe provide the decipline.'**
+  String get youHaveThePlanWeProvideTheDiscipline;
+
+  /// No description provided for @arabic.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic'**
+  String get arabic;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getStarted;
 }
 
 class _AppLocalizationsDelegate
