@@ -6,5 +6,15 @@
     "youHaveThePlanWeProvideTheDiscipline": "لديك الخطة.\nنحن نقدم الانضباط.",
     "arabic": "العربية",
     "english": "الإنجليزية",
-    "getStarted": "ابدأ"
+    "getStarted": "ابدأ",
+    "whyDoYouUsuallySkip": "ليش غالبا تكنسل؟",
+    "feelsLikeAChore": "متكاسل وأحسه مشوار",
+    "ateTooMuch": "ثقّلت بالأكل",
+    "tooStressed": "تعبان ومضغوط",
+    "wokeUpLateAndRushed": "قمت متأخر ومستعجل",
+    "notEnoughTime": "وقتي ضيق ومافي مجال",
+    "isNotFunAnymore": "طفشت وراح الحماس",
+    "other": "أخرى",
+    "next": "التالي",
+    "back": "السابق"
 }

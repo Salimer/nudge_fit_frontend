@@ -32,4 +32,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get getStarted => 'Get Started';
+
+  @override
+  String get whyDoYouUsuallySkip => 'Why do you usually skip?';
+
+  @override
+  String get feelsLikeAChore => 'Feels like a chore';
+
+  @override
+  String get ateTooMuch => 'Ate too much';
+
+  @override
+  String get tooStressed => 'Too stressed';
+
+  @override
+  String get wokeUpLateAndRushed => 'Woke up late & rushed';
+
+  @override
+  String get notEnoughTime => 'Not enough time';
+
+  @override
+  String get isNotFunAnymore => 'Is not fun anymore';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get back => 'Back';
 }

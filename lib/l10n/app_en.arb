@@ -6,5 +6,15 @@
   "youHaveThePlanWeProvideTheDiscipline": "You have the plan.\nWe provide the decipline.",
   "arabic": "Arabic",
   "english": "English",
-  "getStarted": "Get Started"
+  "getStarted": "Get Started",
+  "whyDoYouUsuallySkip": "Why do you usually skip?",
+  "feelsLikeAChore": "Feels like a chore",
+  "ateTooMuch": "Ate too much",
+  "tooStressed": "Too stressed",
+  "wokeUpLateAndRushed": "Woke up late & rushed",
+  "notEnoughTime": "Not enough time",
+  "isNotFunAnymore": "Is not fun anymore",
+  "other": "Other",
+  "next": "Next",
+  "back": "Back"
 }

@@ -25,8 +25,11 @@ class LocaleState extends _$LocaleState {
       decode: (value) => Locale(value),
     ).future;
 
-    return state.value ?? PlatformDispatcher.instance.locale;
-  }
+    return state.value ??
+        (PlatformDispatcher.instance.locale.languageCode == 'ar'
+            ? Locale('ar')
+            : Locale('en'));
+}
 
   void changeLocale(String languageCode) {
     final code = languageCode == 'ar' ? 'ar' : 'en';

@@ -145,6 +145,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get Started'**
   String get getStarted;
+
+  /// No description provided for @whyDoYouUsuallySkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Why do you usually skip?'**
+  String get whyDoYouUsuallySkip;
+
+  /// No description provided for @feelsLikeAChore.
+  ///
+  /// In en, this message translates to:
+  /// **'Feels like a chore'**
+  String get feelsLikeAChore;
+
+  /// No description provided for @ateTooMuch.
+  ///
+  /// In en, this message translates to:
+  /// **'Ate too much'**
+  String get ateTooMuch;
+
+  /// No description provided for @tooStressed.
+  ///
+  /// In en, this message translates to:
+  /// **'Too stressed'**
+  String get tooStressed;
+
+  /// No description provided for @wokeUpLateAndRushed.
+  ///
+  /// In en, this message translates to:
+  /// **'Woke up late & rushed'**
+  String get wokeUpLateAndRushed;
+
+  /// No description provided for @notEnoughTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Not enough time'**
+  String get notEnoughTime;
+
+  /// No description provided for @isNotFunAnymore.
+  ///
+  /// In en, this message translates to:
+  /// **'Is not fun anymore'**
+  String get isNotFunAnymore;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
 }
 
 class _AppLocalizationsDelegate

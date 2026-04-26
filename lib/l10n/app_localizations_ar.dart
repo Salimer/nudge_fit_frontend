@@ -32,4 +32,34 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get getStarted => 'ابدأ';
+
+  @override
+  String get whyDoYouUsuallySkip => 'ليش غالبا تكنسل؟';
+
+  @override
+  String get feelsLikeAChore => 'متكاسل وأحسه مشوار';
+
+  @override
+  String get ateTooMuch => 'ثقّلت بالأكل';
+
+  @override
+  String get tooStressed => 'تعبان ومضغوط';
+
+  @override
+  String get wokeUpLateAndRushed => 'قمت متأخر ومستعجل';
+
+  @override
+  String get notEnoughTime => 'وقتي ضيق ومافي مجال';
+
+  @override
+  String get isNotFunAnymore => 'طفشت وراح الحماس';
+
+  @override
+  String get other => 'أخرى';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get back => 'السابق';
 }
