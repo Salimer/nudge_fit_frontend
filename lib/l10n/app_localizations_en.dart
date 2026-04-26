@@ -62,4 +62,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get back => 'Back';
+
+  @override
+  String get whenAreWeDoingThis => 'When are we doing this?';
+
+  @override
+  String get workoutDays => 'Workout days';
+
+  @override
+  String get startTime => 'Start Time';
+
+  @override
+  String get questionMark => '?';
+
+  @override
+  String get hours => 'hours';
+
+  @override
+  String get minutes => 'minutes';
+
+  @override
+  String get pmLabel => 'PM';
+
+  @override
+  String get amLabel => 'AM';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get saturday => 'Sat';
+
+  @override
+  String get sunday => 'Sun';
+
+  @override
+  String get monday => 'Mon';
+
+  @override
+  String get tuesday => 'Tue';
+
+  @override
+  String get wednesday => 'Wed';
+
+  @override
+  String get thursday => 'Thu';
+
+  @override
+  String get friday => 'Fri';
 }

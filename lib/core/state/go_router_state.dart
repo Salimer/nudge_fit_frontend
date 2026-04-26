@@ -36,6 +36,18 @@ GoRouter routes(Ref ref) {
                 pageBuilder: (context, state) {
                   return _adaptivePageBuilder(state, OnboardingThirdScreen());
                 },
+                routes: [
+                  GoRoute(
+                    name: RouteNames.onboardingFourth,
+                    path: 'onboarding-fourth',
+                    pageBuilder: (context, state) {
+                      return _adaptivePageBuilder(
+                        state,
+                        OnboardingFourthScreen(),
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -55,4 +67,5 @@ class RouteNames {
   static const onboarding = 'onBorading';
   static const onboardingSecond = 'onBoradingSecond';
   static const onboardingThird = 'onBoradingThird';
+  static const onboardingFourth = 'onBoradingFourth';
 }

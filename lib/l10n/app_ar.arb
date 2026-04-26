@@ -16,5 +16,22 @@
     "isNotFunAnymore": "طفشت وراح الحماس",
     "other": "أخرى",
     "next": "التالي",
-    "back": "السابق"
+    "back": "السابق",
+    "whenAreWeDoingThis": "متى بنسوي هذا؟",
+    "workoutDays": "أيام التمرين",
+    "startTime": "وقت البداية",
+    "questionMark" : "؟",
+    "hours": "ساعة",
+    "minutes": "دقيقة",
+    "pmLabel": "م",
+    "amLabel": "ص",
+    "cancel": "الغاء",
+    "ok": "تأكيد",
+    "saturday": "سبت",
+    "sunday": "أحد",
+    "monday": "اثنين",
+    "tuesday": "ثلاثاء",
+    "wednesday": "أربعاء",
+    "thursday": "خميس",
+    "friday": "جمعة"
 }

@@ -62,4 +62,55 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get back => 'السابق';
+
+  @override
+  String get whenAreWeDoingThis => 'متى بنسوي هذا؟';
+
+  @override
+  String get workoutDays => 'أيام التمرين';
+
+  @override
+  String get startTime => 'وقت البداية';
+
+  @override
+  String get questionMark => '؟';
+
+  @override
+  String get hours => 'ساعة';
+
+  @override
+  String get minutes => 'دقيقة';
+
+  @override
+  String get pmLabel => 'م';
+
+  @override
+  String get amLabel => 'ص';
+
+  @override
+  String get cancel => 'الغاء';
+
+  @override
+  String get ok => 'تأكيد';
+
+  @override
+  String get saturday => 'سبت';
+
+  @override
+  String get sunday => 'أحد';
+
+  @override
+  String get monday => 'اثنين';
+
+  @override
+  String get tuesday => 'ثلاثاء';
+
+  @override
+  String get wednesday => 'أربعاء';
+
+  @override
+  String get thursday => 'خميس';
+
+  @override
+  String get friday => 'جمعة';
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nudge_fit_frontend/core/widgets/buttons.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/state/go_router_state.dart';
@@ -57,6 +58,7 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
     final allOptions = [..._getInitialOptions(context), ..._customOptions];
 
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
@@ -132,13 +134,20 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
       // Fixed Navigation Buttons
       bottomNavigationBar: Consumer(
         builder: (context, ref, _) {
-          return OnboardingNavigationWidget(
-            canGoNext: _selectedOptions.isNotEmpty,
-            onNext: () {
-              ref.read(routesProvider).goNamed(RouteNames.onboardingThird);
-            },
+          return Padding(
+            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
+            child: CustomButton1(
+              text: context.l10n.next,
+              onPressed: _selectedOptions.isNotEmpty
+                  ? () {
+                      ref
+                          .read(routesProvider)
+                          .goNamed(RouteNames.onboardingThird);
+                    }
+                  : null,
+            ),
           );
-        }
+        },
       ),
     );
   }

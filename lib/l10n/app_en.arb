@@ -16,5 +16,22 @@
   "isNotFunAnymore": "Is not fun anymore",
   "other": "Other",
   "next": "Next",
-  "back": "Back"
+  "back": "Back",
+  "whenAreWeDoingThis": "When are we doing this?",
+  "workoutDays": "Workout days",
+  "startTime": "Start Time",
+  "questionMark": "?",
+  "hours": "hours",
+  "minutes": "minutes",
+  "pmLabel": "PM",
+  "amLabel": "AM",
+  "cancel": "Cancel",
+  "ok": "OK",
+  "saturday": "Sat",
+  "sunday": "Sun",
+  "monday": "Mon",
+  "tuesday": "Tue",
+  "wednesday": "Wed",
+  "thursday": "Thu",
+  "friday": "Fri"
 }
