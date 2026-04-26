@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
+import '../../features/onboarding/presentation/screens/onboarding_fourth_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_second_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
 

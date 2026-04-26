@@ -4,7 +4,7 @@ import 'package:nudge_fit_frontend/core/widgets/buttons.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/state/go_router_state.dart';
-import '../../../../core/widgets/mighty.dart';
+import '../../../../core/widgets/mighty_onboarding.dart';
 import '../widgets/onboarding_navigation_widget.dart';
 
 class OnboardingSecondScreen extends StatefulWidget {

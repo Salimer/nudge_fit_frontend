@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/state/go_router_state.dart';
 import '../../../../core/widgets/buttons.dart';
-import '../../../../core/widgets/mighty.dart';
+import '../../../../core/widgets/mighty_onboarding.dart';
 import '../../data/models/day_in_week_model.dart';
 import '../widgets/select_week_days.dart';
 
