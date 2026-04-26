@@ -3,22 +3,31 @@ import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/state/go_router_state.dart';
 import '../../../../core/widgets/buttons.dart';
 import '../../../../core/widgets/mighty_onboarding.dart';
 import '../../data/models/day_in_week_model.dart';
+import '../../use_cases/onboarding_use_case.dart';
+import '../state/onboarding_data_state.dart';
 import '../widgets/select_week_days.dart';
 
-class OnboardingThirdScreen extends StatefulWidget {
+class OnboardingThirdScreen extends ConsumerStatefulWidget {
   const OnboardingThirdScreen({super.key});
 
   @override
-  State<OnboardingThirdScreen> createState() => _OnboardingThirdScreenState();
+  ConsumerState<OnboardingThirdScreen> createState() =>
+      _OnboardingThirdScreenState();
 }
 
-class _OnboardingThirdScreenState extends State<OnboardingThirdScreen> {
-  Time _time = Time(hour: 08, minute: 00);
-  List<String> _selectedDays = [];
+class _OnboardingThirdScreenState extends ConsumerState<OnboardingThirdScreen> {
+  late Time _time;
+  late List<String> _selectedDays;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDays = ref.read(onboardingDataStateProvider).selectedDays;
+    _time = ref.read(onboardingDataStateProvider).selectedTimeConverted;
+  }
 
   void _showTimePicker() {
     Navigator.of(context).push(
@@ -65,20 +74,28 @@ class _OnboardingThirdScreenState extends State<OnboardingThirdScreen> {
     List<DayInWeekModel> days = [
       DayInWeekModel(
         dayName: locale.saturday,
-        dayKey: "saturday",
+        dayKey: "Saturday",
         isSelected: true,
       ),
       DayInWeekModel(
         dayName: locale.sunday,
-        dayKey: "sunday",
+        dayKey: "Sunday",
         isSelected: true,
       ),
-      DayInWeekModel(dayName: locale.monday, dayKey: "monday"),
-      DayInWeekModel(dayName: locale.tuesday, dayKey: "tuesday"),
-      DayInWeekModel(dayName: locale.wednesday, dayKey: "wednesday"),
-      DayInWeekModel(dayName: locale.thursday, dayKey: "thursday"),
-      DayInWeekModel(dayName: locale.friday, dayKey: "friday"),
+      DayInWeekModel(dayName: locale.monday, dayKey: "Monday"),
+      DayInWeekModel(dayName: locale.tuesday, dayKey: "Tuesday"),
+      DayInWeekModel(dayName: locale.wednesday, dayKey: "Wednesday"),
+      DayInWeekModel(dayName: locale.thursday, dayKey: "Thursday"),
+      DayInWeekModel(dayName: locale.friday, dayKey: "Friday"),
     ];
+
+    List<String> selectedDays = ref
+        .read(onboardingDataStateProvider)
+        .selectedDays;
+
+    List<DayInWeekModel> actualDays = days.map((day) {
+      return day.copyWith(isSelected: selectedDays.contains(day.dayKey));
+    }).toList();
 
     return Scaffold(
       appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
@@ -101,10 +118,12 @@ class _OnboardingThirdScreenState extends State<OnboardingThirdScreen> {
               SelectWeekDays(
                 fontSize: 12,
                 fontWeight: FontWeight.w900,
-                days: days,
+                days: actualDays,
                 border: false,
                 onSelect: (List<String> values) {
-                  _selectedDays = values;
+                  setState(() {
+                    _selectedDays = values;
+                  });
                 },
               ),
 
@@ -173,9 +192,13 @@ class _OnboardingThirdScreenState extends State<OnboardingThirdScreen> {
             padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
             child: CustomButton1(
               text: context.l10n.next,
-              onPressed: () {
-                ref.read(routesProvider).goNamed(RouteNames.onboardingFourth);
-              },
+              onPressed: _selectedDays.isNotEmpty
+                  ? () {
+                      ref
+                          .read(onboardingUseCaseProvider)
+                          .leaveThirdOnboardingScreen(_selectedDays, _time);
+                    }
+                  : null,
             ),
           );
         },

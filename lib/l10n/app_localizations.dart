@@ -307,6 +307,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fri'**
   String get friday;
+
+  /// No description provided for @commitmentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'THE COMMITMENT.'**
+  String get commitmentTitle;
+
+  /// No description provided for @commitmentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'We provide the discipline. That means we will nudge you before your workout, and nag you incessantly after your start time until you show up.'**
+  String get commitmentBody;
+
+  /// No description provided for @nudgeFriendly.
+  ///
+  /// In en, this message translates to:
+  /// **'Friendly Nudge (30 mins before)'**
+  String get nudgeFriendly;
+
+  /// No description provided for @nudgeLate.
+  ///
+  /// In en, this message translates to:
+  /// **'Late Nag (15 mins after)'**
+  String get nudgeLate;
+
+  /// No description provided for @nudgePersistent.
+  ///
+  /// In en, this message translates to:
+  /// **'Persistent Nags (until you finish)'**
+  String get nudgePersistent;
+
+  /// No description provided for @btnUnderstandNag.
+  ///
+  /// In en, this message translates to:
+  /// **'I UNDERSTAND. NAG ME.'**
+  String get btnUnderstandNag;
+
+  /// No description provided for @btnMaybeLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Maybe later'**
+  String get btnMaybeLater;
+
+  /// No description provided for @excuseAlreadyExists.
+  ///
+  /// In en, this message translates to:
+  /// **'Excuse already exists'**
+  String get excuseAlreadyExists;
+
+  /// No description provided for @at.
+  ///
+  /// In en, this message translates to:
+  /// **'at'**
+  String get at;
+
+  /// No description provided for @holdToSeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to Seal'**
+  String get holdToSeal;
 }
 
 class _AppLocalizationsDelegate

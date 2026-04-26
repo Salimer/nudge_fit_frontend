@@ -33,5 +33,15 @@
     "tuesday": "ثلاثاء",
     "wednesday": "أربعاء",
     "thursday": "خميس",
-    "friday": "جمعة"
+    "friday": "جمعة",
+    "commitmentTitle": "الالتزام.",
+    "commitmentBody": "إحنا علينا الانضباط. يعني بنذكرك قبل التمرين، وبنزعجك بالرسايل بعد ما يبدأ وقتك لحد ما تقوم وتتمرن.",
+    "nudgeFriendly": "تذكير خفيف (قبلها بـ 30 دقيقة)",
+    "nudgeLate": "زن وتنبيه (بعدها بـ 15 دقيقة)",
+    "nudgePersistent": "إزعاج متواصل (لحد ما تخلص)",
+    "btnUnderstandNag": "فهمت. أزعجوني.",
+    "btnMaybeLater": "ممكن بعدين",
+    "excuseAlreadyExists": "عذر موجود",
+    "at": "عند الـ",
+    "holdToSeal": "اضغط لختم التزامك"
 }

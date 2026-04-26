@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../features/onboarding/presentation/screens/onboarding_fifth_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_fourth_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_second_screen.dart';
@@ -47,6 +48,18 @@ GoRouter routes(Ref ref) {
                         OnboardingFourthScreen(),
                       );
                     },
+                    routes: [
+                      GoRoute(
+                        name: RouteNames.onboardingFifth,
+                        path: 'onboarding-fifth',
+                        pageBuilder: (context, state) {
+                          return _adaptivePageBuilder(
+                            state,
+                            OnboardingFifthScreen(),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -69,4 +82,5 @@ class RouteNames {
   static const onboardingSecond = 'onBoradingSecond';
   static const onboardingThird = 'onBoradingThird';
   static const onboardingFourth = 'onBoradingFourth';
+  static const onboardingFifth = 'onBoradingFifth';
 }

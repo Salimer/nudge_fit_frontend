@@ -113,4 +113,35 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get friday => 'Fri';
+
+  @override
+  String get commitmentTitle => 'THE COMMITMENT.';
+
+  @override
+  String get commitmentBody =>
+      'We provide the discipline. That means we will nudge you before your workout, and nag you incessantly after your start time until you show up.';
+
+  @override
+  String get nudgeFriendly => 'Friendly Nudge (30 mins before)';
+
+  @override
+  String get nudgeLate => 'Late Nag (15 mins after)';
+
+  @override
+  String get nudgePersistent => 'Persistent Nags (until you finish)';
+
+  @override
+  String get btnUnderstandNag => 'I UNDERSTAND. NAG ME.';
+
+  @override
+  String get btnMaybeLater => 'Maybe later';
+
+  @override
+  String get excuseAlreadyExists => 'Excuse already exists';
+
+  @override
+  String get at => 'at';
+
+  @override
+  String get holdToSeal => 'Hold to Seal';
 }

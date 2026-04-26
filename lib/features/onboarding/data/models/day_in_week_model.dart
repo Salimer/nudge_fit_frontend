@@ -16,4 +16,12 @@ class DayInWeekModel {
 
   /// Toggle the boolean `isSelected` to `true` or `false`.
   void toggleIsSelected() => isSelected = !isSelected;
+
+  void setSelected() => isSelected = true;
+
+  DayInWeekModel copyWith({bool? isSelected}) => DayInWeekModel(
+    dayKey: dayKey,
+    dayName: dayName,
+    isSelected: isSelected ?? this.isSelected,
+  );
 }

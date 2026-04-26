@@ -1,28 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nudge_fit_frontend/core/widgets/buttons.dart';
 
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/state/go_router_state.dart';
+import '../../../../core/widgets/buttons.dart';
 import '../../../../core/widgets/mighty_onboarding.dart';
-import '../widgets/onboarding_navigation_widget.dart';
+import '../../use_cases/onboarding_use_case.dart';
+import '../state/onboarding_data_state.dart';
 
-class OnboardingSecondScreen extends StatefulWidget {
+class OnboardingSecondScreen extends ConsumerStatefulWidget {
   const OnboardingSecondScreen({super.key});
 
   @override
-  State<OnboardingSecondScreen> createState() => _OnboardingSecondScreenState();
+  ConsumerState<OnboardingSecondScreen> createState() =>
+      _OnboardingSecondScreenState();
 }
 
-class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
+class _OnboardingSecondScreenState
+    extends ConsumerState<OnboardingSecondScreen> {
   late final TextEditingController _controller;
-  final Set<String> _selectedOptions = {};
-  final List<String> _customOptions = [];
+  late final Set<String> _selectedExcuses;
+  final List<String> _customExcuses = [];
+  late List<String> allExcuses;
 
   @override
   void initState() {
     super.initState();
     _controller = TextEditingController();
+    _selectedExcuses = ref
+        .read(onboardingDataStateProvider)
+        .selectedExcuses
+        .toSet();
   }
 
   @override
@@ -31,23 +38,34 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
     super.dispose();
   }
 
-  List<String> _getInitialOptions(BuildContext context) {
-    return [
+  List<String> _getInitialExcuses(BuildContext context) {
+    return {
       context.l10n.feelsLikeAChore,
       context.l10n.ateTooMuch,
       context.l10n.tooStressed,
       context.l10n.wokeUpLateAndRushed,
       context.l10n.notEnoughTime,
       context.l10n.isNotFunAnymore,
-    ];
+      ...ref.read(onboardingDataStateProvider).selectedExcuses,
+    }.toList();
   }
 
-  void _addCustomOption(String value) {
+  void _addCustomExcuse(String value) {
     final text = value.trim();
-    if (text.isNotEmpty && !_selectedOptions.contains(text)) {
+    if (allExcuses.contains(text)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(context.l10n.excuseAlreadyExists),
+          backgroundColor: Colors.red,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
+    if (text.isNotEmpty) {
       setState(() {
-        _customOptions.add(text);
-        _selectedOptions.add(text);
+        _customExcuses.add(text);
+        _selectedExcuses.add(text);
         _controller.clear();
       });
     }
@@ -55,7 +73,7 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final allOptions = [..._getInitialOptions(context), ..._customOptions];
+    allExcuses = {..._getInitialExcuses(context), ..._customExcuses}.toList();
 
     return Scaffold(
       appBar: AppBar(),
@@ -66,6 +84,7 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(child: NeutralMighty()),
+              SizedBox(height: 20),
               Text(
                 context.l10n.whyDoYouUsuallySkip,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -76,16 +95,16 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
               Wrap(
                 spacing: 10,
                 runSpacing: 10,
-                children: allOptions.map((option) {
-                  final isSelected = _selectedOptions.contains(option);
+                children: allExcuses.map((excuse) {
+                  final isSelected = _selectedExcuses.contains(excuse);
                   return ChoiceChip(
-                    label: Text(option),
+                    label: Text(excuse),
                     selected: isSelected,
                     onSelected: (bool selected) {
                       setState(() {
                         selected
-                            ? _selectedOptions.add(option)
-                            : _selectedOptions.remove(option);
+                            ? _selectedExcuses.add(excuse)
+                            : _selectedExcuses.remove(excuse);
                       });
                     },
                     selectedColor: Theme.of(
@@ -123,10 +142,10 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
                   filled: true,
                   fillColor: Colors.grey.shade50,
                 ),
-                onSubmitted: _addCustomOption,
+                onSubmitted: _addCustomExcuse,
               ),
               // Extra space so content doesn't get hidden behind the bottom buttons
-              const SizedBox(height: 100),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -138,11 +157,13 @@ class _OnboardingSecondScreenState extends State<OnboardingSecondScreen> {
             padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
             child: CustomButton1(
               text: context.l10n.next,
-              onPressed: _selectedOptions.isNotEmpty
+              onPressed: _selectedExcuses.isNotEmpty
                   ? () {
                       ref
-                          .read(routesProvider)
-                          .goNamed(RouteNames.onboardingThird);
+                          .read(onboardingUseCaseProvider)
+                          .leaveSecondOnboardingScreen(
+                            _selectedExcuses.toList(),
+                          );
                     }
                   : null,
             ),

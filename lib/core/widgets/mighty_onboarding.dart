@@ -36,3 +36,12 @@ class SeriousMighty extends StatelessWidget {
     return MightyOnboarding(assetName: MightyAssets.serious);
   }
 }
+
+class FlexMighty extends StatelessWidget {
+  const FlexMighty({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MightyOnboarding(assetName: MightyAssets.flex);
+  }
+}

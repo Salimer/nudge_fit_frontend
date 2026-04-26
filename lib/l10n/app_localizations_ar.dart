@@ -113,4 +113,35 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get friday => 'جمعة';
+
+  @override
+  String get commitmentTitle => 'الالتزام.';
+
+  @override
+  String get commitmentBody =>
+      'إحنا علينا الانضباط. يعني بنذكرك قبل التمرين، وبنزعجك بالرسايل بعد ما يبدأ وقتك لحد ما تقوم وتتمرن.';
+
+  @override
+  String get nudgeFriendly => 'تذكير خفيف (قبلها بـ 30 دقيقة)';
+
+  @override
+  String get nudgeLate => 'زن وتنبيه (بعدها بـ 15 دقيقة)';
+
+  @override
+  String get nudgePersistent => 'إزعاج متواصل (لحد ما تخلص)';
+
+  @override
+  String get btnUnderstandNag => 'فهمت. أزعجوني.';
+
+  @override
+  String get btnMaybeLater => 'ممكن بعدين';
+
+  @override
+  String get excuseAlreadyExists => 'عذر موجود';
+
+  @override
+  String get at => 'عند الـ';
+
+  @override
+  String get holdToSeal => 'اضغط لختم التزامك';
 }

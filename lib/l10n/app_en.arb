@@ -33,5 +33,15 @@
   "tuesday": "Tue",
   "wednesday": "Wed",
   "thursday": "Thu",
-  "friday": "Fri"
+  "friday": "Fri",
+  "commitmentTitle": "THE COMMITMENT.",
+  "commitmentBody": "We provide the discipline. That means we will nudge you before your workout, and nag you incessantly after your start time until you show up.",
+  "nudgeFriendly": "Friendly Nudge (30 mins before)",
+  "nudgeLate": "Late Nag (15 mins after)",
+  "nudgePersistent": "Persistent Nags (until you finish)",
+  "btnUnderstandNag": "I UNDERSTAND. NAG ME.",
+  "btnMaybeLater": "Maybe later",
+  "excuseAlreadyExists": "Excuse already exists",
+  "at": "at",
+  "holdToSeal": "Hold to Seal"
 }
