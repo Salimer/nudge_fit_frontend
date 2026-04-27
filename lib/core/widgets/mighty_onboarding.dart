@@ -45,3 +45,12 @@ class FlexMighty extends StatelessWidget {
     return MightyOnboarding(assetName: MightyAssets.flex);
   }
 }
+
+class ProudMighty extends StatelessWidget {
+  const ProudMighty({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MightyOnboarding(assetName: MightyAssets.proud);
+  }
+}

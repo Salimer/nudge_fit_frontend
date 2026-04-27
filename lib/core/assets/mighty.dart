@@ -5,4 +5,5 @@ class MightyAssets {
   static const neutral = '${mightyDir}neutral.svg';
   static const serious = '${mightyDir}serious.svg';
   static const flex = '${mightyDir}flex.svg';
+  static const proud = '${mightyDir}proud.svg';
 }

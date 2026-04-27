@@ -25,6 +25,10 @@ class OnboardingUseCase {
     ref.read(routesProvider).goNamed(RouteNames.onboardingFourth);
   }
 
+  void leaveFifthOnboardingScreen() {
+    ref.read(routesProvider).goNamed(RouteNames.onboardingSixth);
+  }
+
   List<String> getLocalizedSelectedDays(BuildContext context) {
     final days = ref.read(onboardingDataStateProvider).selectedDays;
     return days.map((day) {

@@ -9,6 +9,7 @@ import '../../features/onboarding/presentation/screens/onboarding_fifth_screen.d
 import '../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_fourth_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_second_screen.dart';
+import '../../features/onboarding/presentation/screens/onboarding_sixth_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
 
 part 'go_router_state.g.dart';
@@ -58,6 +59,18 @@ GoRouter routes(Ref ref) {
                             OnboardingFifthScreen(),
                           );
                         },
+                        routes: [
+                          GoRoute(
+                            name: RouteNames.onboardingSixth,
+                            path: 'onboarding-sixth',
+                            pageBuilder: (context, state) {
+                              return _adaptivePageBuilder(
+                                state,
+                                OnboardingSixthScreen(),
+                              );
+                            },
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -83,4 +96,5 @@ class RouteNames {
   static const onboardingThird = 'onBoradingThird';
   static const onboardingFourth = 'onBoradingFourth';
   static const onboardingFifth = 'onBoradingFifth';
+  static const onboardingSixth = 'onBoradingSixth';
 }
