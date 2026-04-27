@@ -54,3 +54,12 @@ class ProudMighty extends StatelessWidget {
     return MightyOnboarding(assetName: MightyAssets.proud);
   }
 }
+
+class PremiumMighty extends StatelessWidget {
+  const PremiumMighty({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MightyOnboarding(assetName: MightyAssets.premium);
+  }
+}

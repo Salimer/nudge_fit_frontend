@@ -74,7 +74,7 @@ class OnboardingFourthScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: .min,
               children: [
-                CustomButton1(
+                CustomElevatedButton1(
                   text: context.l10n.btnUnderstandNag,
                   onPressed: () {
                     ref

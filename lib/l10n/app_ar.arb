@@ -47,5 +47,19 @@
     "contractSealed": "تم ختم التزامك.",
     "createAccountText": "أنشئ حسابك لحفظ جدولك الزمني وإطلاق العنان لقوة مايتي.",
     "signInWithApple": "سجل الدخول باستخدام Apple",
-    "continueWithGoogle": "سجل الدخول باستخدام Google"
+    "continueWithGoogle": "سجل الدخول باستخدام Google",
+    "paywallHeader": "وصل التزامك للآخر يا {name}.",
+    "tierFreeTitle": "مجاني",
+    "tierFreeSub": "(زن أساسي)",
+    "freeFeature1": "جدول أسبوعي ثابت",
+    "freeFeature2": "مقفول بدون تعديل وسط الأسبوع",
+    "freeFeature3": "تنبيهات عادية",
+    "tierPremiumTitle": "بريميوم",
+    "tierPremiumSub": "(مدربك الخاص)",
+    "premiumFeature1": "تعديل الجدول وسط الأسبوع",
+    "premiumFeature2": "مرونة بتسجيل الأيام اللي راحت",
+    "premiumFeature3": "زن ذكي ومفصل على مقاسك",
+    "trialText": "جرب 7 أيام مجاناً.",
+    "btnUpgrade": "ابدأ 7 أيام مجاناً واشترك",
+    "btnContinueFree": "كمل على الخطة المجانية (المحدودة)"
 }

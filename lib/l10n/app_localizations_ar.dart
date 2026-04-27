@@ -157,4 +157,48 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get continueWithGoogle => 'سجل الدخول باستخدام Google';
+
+  @override
+  String paywallHeader(Object name) {
+    return 'وصل التزامك للآخر يا $name.';
+  }
+
+  @override
+  String get tierFreeTitle => 'مجاني';
+
+  @override
+  String get tierFreeSub => '(زن أساسي)';
+
+  @override
+  String get freeFeature1 => 'جدول أسبوعي ثابت';
+
+  @override
+  String get freeFeature2 => 'مقفول بدون تعديل وسط الأسبوع';
+
+  @override
+  String get freeFeature3 => 'تنبيهات عادية';
+
+  @override
+  String get tierPremiumTitle => 'بريميوم';
+
+  @override
+  String get tierPremiumSub => '(مدربك الخاص)';
+
+  @override
+  String get premiumFeature1 => 'تعديل الجدول وسط الأسبوع';
+
+  @override
+  String get premiumFeature2 => 'مرونة بتسجيل الأيام اللي راحت';
+
+  @override
+  String get premiumFeature3 => 'زن ذكي ومفصل على مقاسك';
+
+  @override
+  String get trialText => 'جرب 7 أيام مجاناً.';
+
+  @override
+  String get btnUpgrade => 'ابدأ 7 أيام مجاناً واشترك';
+
+  @override
+  String get btnContinueFree => 'كمل على الخطة المجانية (المحدودة)';
 }

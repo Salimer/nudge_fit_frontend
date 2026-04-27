@@ -143,6 +143,7 @@ class _HoldToConfirmButtonState extends State<HoldToConfirmButton>
                 color: widget.color ?? Theme.of(context).colorScheme.primary,
               ),
               child: Container(
+                height: 250,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,

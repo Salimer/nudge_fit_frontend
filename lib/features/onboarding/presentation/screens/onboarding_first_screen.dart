@@ -22,75 +22,77 @@ class OnboardingFirstScreen extends StatelessWidget {
             children: [
               LanguageSwitchWidget(),
               Expanded(
-                child: Column(
-                  mainAxisSize: .min,
-                  mainAxisAlignment: .spaceBetween,
-                  children: [
-                    NeutralMighty(),
-                    Column(
-                      mainAxisSize: .min,
-                      children: [
-                        Text(
-                          context.l10n.welcomeTo,
-                          style: Theme.of(context).textTheme.headlineLarge
-                              ?.copyWith(
-                                fontSize: 50,
-                                fontWeight: FontWeight.w400,
-                              ),
-                        ),
-                        Text(
-                          context.l10n.nudgeFit.toUpperCase(),
-                          style: Theme.of(context).textTheme.headlineLarge
-                              ?.copyWith(
-                                fontSize: 50,
-                                fontWeight: FontWeight.bold,
-                              ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisSize: .min,
-                      children: [
-                        Text(
-                          context.l10n.weDoOnlyOneThing,
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        Text(
-                          context.l10n.makeSureYouShowUp,
-                          style: Theme.of(context).textTheme.titleLarge
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-
-                    Text(
-                      context.l10n.youHaveThePlanWeProvideTheDiscipline,
-                      maxLines: 2,
-                      style: Theme.of(context).textTheme.titleMedium,
-                      textAlign: .center,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                      child: Divider(
-                        height: 6,
-                        thickness: 6,
-                        color: Colors.grey[300],
-                        radius: BorderRadius.all(Radius.circular(15)),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: .min,
+                    mainAxisAlignment: .spaceBetween,
+                    children: [
+                      NeutralMighty(),
+                      Column(
+                        mainAxisSize: .min,
+                        children: [
+                          Text(
+                            context.l10n.welcomeTo,
+                            style: Theme.of(context).textTheme.headlineLarge
+                                ?.copyWith(
+                                  fontSize: 50,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                          ),
+                          Text(
+                            context.l10n.nudgeFit.toUpperCase(),
+                            style: Theme.of(context).textTheme.headlineLarge
+                                ?.copyWith(
+                                  fontSize: 50,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ],
                       ),
-                    ),
-                    Consumer(
-                      builder: (context, ref, _) {
-                        return CustomButton1(
-                          text: context.l10n.getStarted,
-                          onPressed: () {
-                            ref
-                                .read(routesProvider)
-                                .goNamed(RouteNames.onboardingSecond);
-                          },
-                        );
-                      },
-                    ),
-                  ],
+                      Column(
+                        mainAxisSize: .min,
+                        children: [
+                          Text(
+                            context.l10n.weDoOnlyOneThing,
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          Text(
+                            context.l10n.makeSureYouShowUp,
+                            style: Theme.of(context).textTheme.titleLarge
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+
+                      Text(
+                        context.l10n.youHaveThePlanWeProvideTheDiscipline,
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.titleMedium,
+                        textAlign: .center,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Divider(
+                          height: 6,
+                          thickness: 6,
+                          color: Colors.grey[300],
+                          radius: BorderRadius.all(Radius.circular(15)),
+                        ),
+                      ),
+                      Consumer(
+                        builder: (context, ref, _) {
+                          return CustomElevatedButton1(
+                            text: context.l10n.getStarted,
+                            onPressed: () {
+                              ref
+                                  .read(routesProvider)
+                                  .goNamed(RouteNames.onboardingSecond);
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

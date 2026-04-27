@@ -157,4 +157,48 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get continueWithGoogle => 'Continue with Google';
+
+  @override
+  String paywallHeader(Object name) {
+    return 'Max your accountability, $name.';
+  }
+
+  @override
+  String get tierFreeTitle => 'FREE';
+
+  @override
+  String get tierFreeSub => '(BASIC NAGS)';
+
+  @override
+  String get freeFeature1 => 'Fixed weekly plan';
+
+  @override
+  String get freeFeature2 => 'Non-editable mid-week';
+
+  @override
+  String get freeFeature3 => 'Standard AI prompts';
+
+  @override
+  String get tierPremiumTitle => 'PREMIUM';
+
+  @override
+  String get tierPremiumSub => '(YOUR COACH)';
+
+  @override
+  String get premiumFeature1 => 'Mid-week plan edits';
+
+  @override
+  String get premiumFeature2 => 'Retroactive log editing';
+
+  @override
+  String get premiumFeature3 => 'Hyper-personalized AI nudges';
+
+  @override
+  String get trialText => 'Start with a 7-day free trial.';
+
+  @override
+  String get btnUpgrade => 'TRY 7 DAYS FREE & UPGRADE';
+
+  @override
+  String get btnContinueFree => 'Continue with Free (limited) plan';
 }

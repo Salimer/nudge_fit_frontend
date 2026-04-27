@@ -47,5 +47,19 @@
   "contractSealed": "CONTRACT SEALED.",
   "createAccountText": "Create your account to save your schedule and unleash Mighty.",
   "signInWithApple": "Sign In with Apple",
-  "continueWithGoogle": "Continue with Google"
+  "continueWithGoogle": "Continue with Google",
+  "paywallHeader": "Max your accountability, {name}.",
+  "tierFreeTitle": "FREE",
+  "tierFreeSub": "(BASIC NAGS)",
+  "freeFeature1": "Fixed weekly plan",
+  "freeFeature2": "Non-editable mid-week",
+  "freeFeature3": "Standard AI prompts",
+  "tierPremiumTitle": "PREMIUM",
+  "tierPremiumSub": "(YOUR COACH)",
+  "premiumFeature1": "Mid-week plan edits",
+  "premiumFeature2": "Retroactive log editing",
+  "premiumFeature3": "Hyper-personalized AI nudges",
+  "trialText": "Start with a 7-day free trial.",
+  "btnUpgrade": "TRY 7 DAYS FREE & UPGRADE",
+  "btnContinueFree": "Continue with Free (limited) plan"
 }

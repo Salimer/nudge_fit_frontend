@@ -190,7 +190,7 @@ class _OnboardingThirdScreenState extends ConsumerState<OnboardingThirdScreen> {
         builder: (context, ref, _) {
           return Padding(
             padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
-            child: CustomButton1(
+            child: CustomElevatedButton1(
               text: context.l10n.next,
               onPressed: _selectedDays.isNotEmpty
                   ? () {

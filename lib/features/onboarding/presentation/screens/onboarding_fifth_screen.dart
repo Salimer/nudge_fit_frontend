@@ -18,40 +18,40 @@ class OnboardingFifthScreen extends StatelessWidget {
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
-          child: Column(
-            children: [
-              FlexMighty(),
-              Text(
-                context.l10n.commitmentTitle,
-                style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                FlexMighty(),
+                Text(
+                  context.l10n.commitmentTitle,
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: .center,
                 ),
-                textAlign: .center,
-              ),
-              SizedBox(height: 20),
-              Consumer(
-                builder: (context, ref, _) {
-                  final selectedDays = ref
-                      .read(onboardingUseCaseProvider)
-                      .getLocalizedSelectedDays(context);
-                  final selectedTime = ref
-                      .read(onboardingDataStateProvider)
-                      .selectedTime;
+                SizedBox(height: 20),
+                Consumer(
+                  builder: (context, ref, _) {
+                    final selectedDays = ref
+                        .read(onboardingUseCaseProvider)
+                        .getLocalizedSelectedDays(context);
+                    final selectedTime = ref
+                        .read(onboardingDataStateProvider)
+                        .selectedTime;
 
-                  return Text(
-                    "${selectedDays.map((e) => e.toUpperCase())} ${context.l10n.at} ${selectedTime.format(context)}",
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      // fontSize: 25,
-                      // fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: .center,
-                  );
-                },
-              ),
-              SizedBox(height: 20),
-              Expanded(
-                child: Consumer(
+                    return Text(
+                      "${selectedDays.map((e) => e.toUpperCase())} ${context.l10n.at} ${selectedTime.format(context)}",
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        // fontSize: 25,
+                        // fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: .center,
+                    );
+                  },
+                ),
+                SizedBox(height: 20),
+                Consumer(
                   builder: (context, ref, _) {
                     return HoldToConfirmButton(
                       onConfirm: () {
@@ -71,9 +71,8 @@ class OnboardingFifthScreen extends StatelessWidget {
                     );
                   },
                 ),
-              ),
-              SizedBox(height: 20),
-            ],
+              ],
+            ),
           ),
         ),
       ),

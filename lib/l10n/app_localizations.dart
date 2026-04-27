@@ -391,6 +391,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue with Google'**
   String get continueWithGoogle;
+
+  /// No description provided for @paywallHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Max your accountability, {name}.'**
+  String paywallHeader(Object name);
+
+  /// No description provided for @tierFreeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'FREE'**
+  String get tierFreeTitle;
+
+  /// No description provided for @tierFreeSub.
+  ///
+  /// In en, this message translates to:
+  /// **'(BASIC NAGS)'**
+  String get tierFreeSub;
+
+  /// No description provided for @freeFeature1.
+  ///
+  /// In en, this message translates to:
+  /// **'Fixed weekly plan'**
+  String get freeFeature1;
+
+  /// No description provided for @freeFeature2.
+  ///
+  /// In en, this message translates to:
+  /// **'Non-editable mid-week'**
+  String get freeFeature2;
+
+  /// No description provided for @freeFeature3.
+  ///
+  /// In en, this message translates to:
+  /// **'Standard AI prompts'**
+  String get freeFeature3;
+
+  /// No description provided for @tierPremiumTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'PREMIUM'**
+  String get tierPremiumTitle;
+
+  /// No description provided for @tierPremiumSub.
+  ///
+  /// In en, this message translates to:
+  /// **'(YOUR COACH)'**
+  String get tierPremiumSub;
+
+  /// No description provided for @premiumFeature1.
+  ///
+  /// In en, this message translates to:
+  /// **'Mid-week plan edits'**
+  String get premiumFeature1;
+
+  /// No description provided for @premiumFeature2.
+  ///
+  /// In en, this message translates to:
+  /// **'Retroactive log editing'**
+  String get premiumFeature2;
+
+  /// No description provided for @premiumFeature3.
+  ///
+  /// In en, this message translates to:
+  /// **'Hyper-personalized AI nudges'**
+  String get premiumFeature3;
+
+  /// No description provided for @trialText.
+  ///
+  /// In en, this message translates to:
+  /// **'Start with a 7-day free trial.'**
+  String get trialText;
+
+  /// No description provided for @btnUpgrade.
+  ///
+  /// In en, this message translates to:
+  /// **'TRY 7 DAYS FREE & UPGRADE'**
+  String get btnUpgrade;
+
+  /// No description provided for @btnContinueFree.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Free (limited) plan'**
+  String get btnContinueFree;
 }
 
 class _AppLocalizationsDelegate
