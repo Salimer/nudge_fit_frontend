@@ -9,10 +9,11 @@ import '../../features/onboarding/presentation/screens/onboarding_fifth_screen.d
 import '../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_fourth_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_second_screen.dart';
+import '../../features/onboarding/presentation/screens/onboarding_seventh_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_sixth_screen.dart';
 import '../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
 
-part 'go_router_state.g.dart';
+part 'routes_state.g.dart';
 
 @Riverpod(keepAlive: true)
 GoRouter routes(Ref ref) {
@@ -69,6 +70,18 @@ GoRouter routes(Ref ref) {
                                 OnboardingSixthScreen(),
                               );
                             },
+                            routes: [
+                              GoRoute(
+                                name: RouteNames.onboardingSeventh,
+                                path: 'onbaording-seventh',
+                                pageBuilder: (context, state) {
+                                  return _adaptivePageBuilder(
+                                    state,
+                                    OnboardingSeventhScreen(),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -97,4 +110,5 @@ class RouteNames {
   static const onboardingFourth = 'onBoradingFourth';
   static const onboardingFifth = 'onBoradingFifth';
   static const onboardingSixth = 'onBoradingSixth';
+  static const onboardingSeventh = 'onbaordingSeventh';
 }

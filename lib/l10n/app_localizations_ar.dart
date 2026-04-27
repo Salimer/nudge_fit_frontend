@@ -144,4 +144,17 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get holdToSeal => 'اضغط لختم التزامك';
+
+  @override
+  String get contractSealed => 'تم ختم التزامك.';
+
+  @override
+  String get createAccountText =>
+      'أنشئ حسابك لحفظ جدولك الزمني وإطلاق العنان لقوة مايتي.';
+
+  @override
+  String get signInWithApple => 'سجل الدخول باستخدام Apple';
+
+  @override
+  String get continueWithGoogle => 'سجل الدخول باستخدام Google';
 }

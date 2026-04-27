@@ -43,5 +43,9 @@
     "btnMaybeLater": "ممكن بعدين",
     "excuseAlreadyExists": "عذر موجود",
     "at": "عند الـ",
-    "holdToSeal": "اضغط لختم التزامك"
+    "holdToSeal": "اضغط لختم التزامك",
+    "contractSealed": "تم ختم التزامك.",
+    "createAccountText": "أنشئ حسابك لحفظ جدولك الزمني وإطلاق العنان لقوة مايتي.",
+    "signInWithApple": "سجل الدخول باستخدام Apple",
+    "continueWithGoogle": "سجل الدخول باستخدام Google"
 }

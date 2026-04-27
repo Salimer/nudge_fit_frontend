@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'go_router_state.dart';
+part of 'routes_state.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -48,4 +48,4 @@ final class RoutesProvider
   }
 }
 
-String _$routesHash() => r'0da75ed9134996c9b5d023568bd837555635f837';
+String _$routesHash() => r'3fe4fd70cb3cd4da5580b829d52eadb734cd02aa';

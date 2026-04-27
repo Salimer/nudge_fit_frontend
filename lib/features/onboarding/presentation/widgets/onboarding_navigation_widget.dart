@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/state/go_router_state.dart';
+import '../../../../core/state/routes_state.dart';
 
 class OnboardingNavigationWidget extends StatelessWidget {
   const OnboardingNavigationWidget({

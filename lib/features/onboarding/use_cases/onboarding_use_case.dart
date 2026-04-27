@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/extensions/build_context.dart';
-import '../../../core/state/go_router_state.dart';
+import '../../../core/state/routes_state.dart';
 import '../presentation/state/onboarding_data_state.dart';
 
 part 'onboarding_use_case.g.dart';

@@ -43,5 +43,9 @@
   "btnMaybeLater": "Maybe later",
   "excuseAlreadyExists": "Excuse already exists",
   "at": "at",
-  "holdToSeal": "Hold to Seal"
+  "holdToSeal": "Hold to Seal",
+  "contractSealed": "CONTRACT SEALED.",
+  "createAccountText": "Create your account to save your schedule and unleash Mighty.",
+  "signInWithApple": "Sign In with Apple",
+  "continueWithGoogle": "Continue with Google"
 }

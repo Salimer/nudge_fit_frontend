@@ -367,6 +367,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hold to Seal'**
   String get holdToSeal;
+
+  /// No description provided for @contractSealed.
+  ///
+  /// In en, this message translates to:
+  /// **'CONTRACT SEALED.'**
+  String get contractSealed;
+
+  /// No description provided for @createAccountText.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account to save your schedule and unleash Mighty.'**
+  String get createAccountText;
+
+  /// No description provided for @signInWithApple.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In with Apple'**
+  String get signInWithApple;
+
+  /// No description provided for @continueWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get continueWithGoogle;
 }
 
 class _AppLocalizationsDelegate

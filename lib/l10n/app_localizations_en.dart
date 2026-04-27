@@ -144,4 +144,17 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get holdToSeal => 'Hold to Seal';
+
+  @override
+  String get contractSealed => 'CONTRACT SEALED.';
+
+  @override
+  String get createAccountText =>
+      'Create your account to save your schedule and unleash Mighty.';
+
+  @override
+  String get signInWithApple => 'Sign In with Apple';
+
+  @override
+  String get continueWithGoogle => 'Continue with Google';
 }
