@@ -7,4 +7,5 @@ class MightyAssets {
   static const flex = '${mightyDir}flex.svg';
   static const proud = '${mightyDir}proud.svg';
   static const premium = '${mightyDir}premium.svg';
+  static const reading = '${mightyDir}reading.svg';
 }

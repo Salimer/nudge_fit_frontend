@@ -48,4 +48,4 @@ final class RoutesProvider
   }
 }
 
-String _$routesHash() => r'3fe4fd70cb3cd4da5580b829d52eadb734cd02aa';
+String _$routesHash() => r'c0e77c6499fc6e024781b0911d97e7d7f9910d0f';

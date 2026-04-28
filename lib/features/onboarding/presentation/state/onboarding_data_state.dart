@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nudge_fit_frontend/core/common/models/days_and_time_picker_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../data/models/onboarding_data_model.dart';
@@ -17,11 +18,17 @@ class OnboardingDataState extends _$OnboardingDataState {
     debugPrint("excuses: ${state.selectedExcuses}");
   }
 
-  void setDays(List<String> days) {
-    state = state.copyWith(selectedDays: days);
+  DaysAndTimePickerModel getDaysAndTime() {
+    return DaysAndTimePickerModel(
+      selectedDays: state.selectedDays,
+      selectedTime: state.selectedTimeConverted,
+    );
   }
 
-  void setTime(TimeOfDay time) {
-    state = state.copyWith(selectedTime: time);
+  void setDaysAndTime(DaysAndTimePickerModel daysAndTime) {
+    state = state.copyWith(
+      selectedDays: daysAndTime.selectedDays,
+      selectedTime: daysAndTime.selectedTime,
+    );
   }
 }

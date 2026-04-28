@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'core/state/locale_state.dart';
+import 'core/common/state/locale_state.dart';
 import 'my_app.dart';
 
 void main() async {

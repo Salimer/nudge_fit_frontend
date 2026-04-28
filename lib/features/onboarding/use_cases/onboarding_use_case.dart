@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:nudge_fit_frontend/core/common/state/days_and_time_picker_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/extensions/build_context.dart';
-import '../../../core/state/routes_state.dart';
+import '../../../core/common/state/routes_state.dart';
 import '../presentation/state/onboarding_data_state.dart';
 
 part 'onboarding_use_case.g.dart';
@@ -16,12 +17,12 @@ class OnboardingUseCase {
 
   void leaveSecondOnboardingScreen(List<String> excuses) {
     ref.read(onboardingDataStateProvider.notifier).setExcuses(excuses);
+    syncSelectedDaysAndTimeWidget();
     ref.read(routesProvider).goNamed(RouteNames.onboardingThird);
   }
 
-  void leaveThirdOnboardingScreen(List<String> days, TimeOfDay time) {
-    ref.read(onboardingDataStateProvider.notifier).setDays(days);
-    ref.read(onboardingDataStateProvider.notifier).setTime(time);
+  void leaveThirdOnboardingScreen() {
+    syncSelectedDaysAndTimeToOnboardingState();
     ref.read(routesProvider).goNamed(RouteNames.onboardingFourth);
   }
 
@@ -51,5 +52,23 @@ class OnboardingUseCase {
           return day;
       }
     }).toList();
+  }
+
+  void syncSelectedDaysAndTimeToOnboardingState() {
+    final selectedDaysAndTime = ref.read(daysAndTimePickerStateProvider);
+
+    ref
+        .read(onboardingDataStateProvider.notifier)
+        .setDaysAndTime(selectedDaysAndTime);
+  }
+
+  void syncSelectedDaysAndTimeWidget() {
+    final onboardingDaysAndTime = ref
+        .read(onboardingDataStateProvider.notifier)
+        .getDaysAndTime();
+
+    ref
+        .read(daysAndTimePickerStateProvider.notifier)
+        .setDaysAndTime(onboardingDaysAndTime);
   }
 }

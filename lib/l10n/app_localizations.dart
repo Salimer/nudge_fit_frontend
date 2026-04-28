@@ -475,6 +475,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Continue with Free (limited) plan'**
   String get btnContinueFree;
+
+  /// No description provided for @section1.
+  ///
+  /// In en, this message translates to:
+  /// **'// Home Screen Setup'**
+  String get section1;
+
+  /// No description provided for @homeSetupGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi {name}, we\'re missing something...'**
+  String homeSetupGreeting(Object name);
+
+  /// No description provided for @homeSetupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'CONTRACT REQUIRED.'**
+  String get homeSetupTitle;
+
+  /// No description provided for @homeSetupDaysLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Workout Days:'**
+  String get homeSetupDaysLabel;
+
+  /// No description provided for @homeSetupTimeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Time:'**
+  String get homeSetupTimeLabel;
+
+  /// No description provided for @homeSetupBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'CREATE THE CONTRACT'**
+  String get homeSetupBtn;
 }
 
 class _AppLocalizationsDelegate

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nudge_fit_frontend/core/common/state/routes_state.dart';
 
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/widgets/buttons.dart';
-import '../../../../core/widgets/mighty_onboarding.dart';
+import '../../../../core/common/widgets/buttons.dart';
+import '../../../../core/common/widgets/mighty_onboarding.dart';
 
 class OnboardingSeventhScreen extends StatelessWidget {
   const OnboardingSeventhScreen({super.key});
@@ -117,9 +119,15 @@ class OnboardingSeventhScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 0),
-              CustomTextButtonWidget(
-                onTap: () {},
-                text: context.l10n.btnContinueFree,
+              Consumer(
+                builder: (context, ref, _) {
+                  return CustomTextButtonWidget(
+                    onTap: () {
+                      ref.read(routesProvider).goNamed(RouteNames.homeScreen);
+                    },
+                    text: context.l10n.btnContinueFree,
+                  );
+                },
               ),
             ],
           ),

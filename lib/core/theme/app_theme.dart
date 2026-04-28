@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../state/locale_state.dart';
+import '../common/state/locale_state.dart';
 
 part 'app_theme.g.dart';
 

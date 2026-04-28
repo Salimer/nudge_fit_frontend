@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../assets/mighty.dart';
+import '../../assets/mighty.dart';
 
 class MightyOnboarding extends StatelessWidget {
   const MightyOnboarding({super.key, required this.assetName});
@@ -61,5 +61,14 @@ class PremiumMighty extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MightyOnboarding(assetName: MightyAssets.premium);
+  }
+}
+
+class ReadingMighty extends StatelessWidget {
+  const ReadingMighty({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MightyOnboarding(assetName: MightyAssets.reading);
   }
 }

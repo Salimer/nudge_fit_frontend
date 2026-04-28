@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/state/routes_state.dart';
+import '../../../../core/common/state/routes_state.dart';
 
 class AppleSignInWidget extends StatelessWidget {
   const AppleSignInWidget({

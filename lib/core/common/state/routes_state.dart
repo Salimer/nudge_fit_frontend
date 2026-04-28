@@ -5,45 +5,46 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../features/onboarding/presentation/screens/onboarding_fifth_screen.dart';
-import '../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
-import '../../features/onboarding/presentation/screens/onboarding_fourth_screen.dart';
-import '../../features/onboarding/presentation/screens/onboarding_second_screen.dart';
-import '../../features/onboarding/presentation/screens/onboarding_seventh_screen.dart';
-import '../../features/onboarding/presentation/screens/onboarding_sixth_screen.dart';
-import '../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
+import '../../../features/home/presentation/screens/home_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_fifth_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_fourth_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_second_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_seventh_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_sixth_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
 
 part 'routes_state.g.dart';
 
 @Riverpod(keepAlive: true)
 GoRouter routes(Ref ref) {
   return GoRouter(
-    initialLocation: '/onboarding-first',
+    initialLocation: '/onboarding_first',
     routes: [
       GoRoute(
         name: RouteNames.onboarding,
-        path: '/onboarding-first',
+        path: '/onboarding_first',
         pageBuilder: (context, state) {
           return _adaptivePageBuilder(state, OnboardingFirstScreen());
         },
         routes: [
           GoRoute(
             name: RouteNames.onboardingSecond,
-            path: 'onboarding-second',
+            path: 'onboarding_second',
             pageBuilder: (context, state) {
               return _adaptivePageBuilder(state, OnboardingSecondScreen());
             },
             routes: [
               GoRoute(
                 name: RouteNames.onboardingThird,
-                path: 'onboarding-third',
+                path: 'onboarding_third',
                 pageBuilder: (context, state) {
                   return _adaptivePageBuilder(state, OnboardingThirdScreen());
                 },
                 routes: [
                   GoRoute(
                     name: RouteNames.onboardingFourth,
-                    path: 'onboarding-fourth',
+                    path: 'onboarding_fourth',
                     pageBuilder: (context, state) {
                       return _adaptivePageBuilder(
                         state,
@@ -53,7 +54,7 @@ GoRouter routes(Ref ref) {
                     routes: [
                       GoRoute(
                         name: RouteNames.onboardingFifth,
-                        path: 'onboarding-fifth',
+                        path: 'onboarding_fifth',
                         pageBuilder: (context, state) {
                           return _adaptivePageBuilder(
                             state,
@@ -63,7 +64,7 @@ GoRouter routes(Ref ref) {
                         routes: [
                           GoRoute(
                             name: RouteNames.onboardingSixth,
-                            path: 'onboarding-sixth',
+                            path: 'onboarding_sixth',
                             pageBuilder: (context, state) {
                               return _adaptivePageBuilder(
                                 state,
@@ -73,7 +74,7 @@ GoRouter routes(Ref ref) {
                             routes: [
                               GoRoute(
                                 name: RouteNames.onboardingSeventh,
-                                path: 'onbaording-seventh',
+                                path: 'onbaording_seventh',
                                 pageBuilder: (context, state) {
                                   return _adaptivePageBuilder(
                                     state,
@@ -93,6 +94,13 @@ GoRouter routes(Ref ref) {
           ),
         ],
       ),
+      GoRoute(
+        name: RouteNames.homeScreen,
+        path: '/home_screen',
+        pageBuilder: (context, state) {
+          return _adaptivePageBuilder(state, HomeScreen());
+        },
+      ),
     ],
   );
 }
@@ -111,4 +119,5 @@ class RouteNames {
   static const onboardingFifth = 'onBoradingFifth';
   static const onboardingSixth = 'onBoradingSixth';
   static const onboardingSeventh = 'onbaordingSeventh';
+  static const homeScreen = 'homeScreen';
 }

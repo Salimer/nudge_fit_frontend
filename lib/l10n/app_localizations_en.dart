@@ -201,4 +201,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get btnContinueFree => 'Continue with Free (limited) plan';
+
+  @override
+  String get section1 => '// Home Screen Setup';
+
+  @override
+  String homeSetupGreeting(Object name) {
+    return 'Hi $name, we\'re missing something...';
+  }
+
+  @override
+  String get homeSetupTitle => 'CONTRACT REQUIRED.';
+
+  @override
+  String get homeSetupDaysLabel => 'Workout Days:';
+
+  @override
+  String get homeSetupTimeLabel => 'Start Time:';
+
+  @override
+  String get homeSetupBtn => 'CREATE THE CONTRACT';
 }

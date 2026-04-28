@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/widgets/buttons.dart';
-import '../../../../core/widgets/mighty_onboarding.dart';
+import '../../../../core/common/widgets/buttons.dart';
+import '../../../../core/common/widgets/mighty_onboarding.dart';
 import '../../use_cases/onboarding_use_case.dart';
 import '../state/onboarding_data_state.dart';
 
@@ -153,6 +154,7 @@ class _OnboardingSecondScreenState
       // Fixed Navigation Buttons
       bottomNavigationBar: Consumer(
         builder: (context, ref, _) {
+          ref.listen(daysAndTimePickerStateProvider, ((_, _) {}));
           return Padding(
             padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
             child: CustomElevatedButton1(

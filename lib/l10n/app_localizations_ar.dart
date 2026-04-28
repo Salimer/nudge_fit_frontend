@@ -201,4 +201,24 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get btnContinueFree => 'كمل على الخطة المجانية (المحدودة)';
+
+  @override
+  String get section1 => '// Home Screen Setup';
+
+  @override
+  String homeSetupGreeting(Object name) {
+    return 'أهلاً يا $name، كأنه في شيء ناقص...';
+  }
+
+  @override
+  String get homeSetupTitle => 'الالتزام مطلوب.';
+
+  @override
+  String get homeSetupDaysLabel => 'أيام التمرين:';
+
+  @override
+  String get homeSetupTimeLabel => 'وقت البداية:';
+
+  @override
+  String get homeSetupBtn => 'ختم الالتزام';
 }

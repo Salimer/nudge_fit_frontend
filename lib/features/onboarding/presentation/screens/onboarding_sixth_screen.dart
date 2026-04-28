@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/widgets/mighty_onboarding.dart';
+import '../../../../core/common/widgets/mighty_onboarding.dart';
 import '../widgets/apple_sign_in_widget.dart';
 import '../widgets/google_sign_in_widget.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/state/locale_state.dart';
+import '../../../../core/common/state/locale_state.dart';
 
 class LanguageSwitchWidget extends StatelessWidget {
   const LanguageSwitchWidget({super.key});

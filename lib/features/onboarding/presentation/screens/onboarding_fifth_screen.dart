@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/state/routes_state.dart';
-import '../../../../core/widgets/mighty_onboarding.dart';
+import '../../../../core/common/state/routes_state.dart';
+import '../../../../core/common/widgets/mighty_onboarding.dart';
 import '../../use_cases/onboarding_use_case.dart';
 import '../state/onboarding_data_state.dart';
 import '../widgets/hold_confirm_btn.dart';
