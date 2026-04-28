@@ -62,12 +62,19 @@
     "trialText": "جرب 7 أيام مجاناً.",
     "btnUpgrade": "ابدأ 7 أيام مجاناً واشترك",
     "btnContinueFree": "كمل على الخطة المجانية (المحدودة)",
+    "streak": "الاستمرارية",
 
-    "section1": "// Home Screen Setup",
-
+    "section1": "// Home Setup Required",
     "homeSetupGreeting": "أهلاً يا {name}، كأنه في شيء ناقص...",
     "homeSetupTitle": "الالتزام مطلوب.",
     "homeSetupDaysLabel": "أيام التمرين:",
     "homeSetupTimeLabel": "وقت البداية:",
-    "homeSetupBtn": "ختم الالتزام"
+    "homeSetupBtn": "ختم الالتزام",
+
+    "section2": "// Home Rest Day",
+    "homeRestGreeting": "أهلاً يا {name}،",
+    "homeRestTitle": "استمتع براحتك.",
+    "homeRestLabel": "يوم راحة.",
+    "homeRestBody": "مايتي جالس يشحن. تأكد إنك ترتاح بالشكل الكافي انت كمان.\n\nجسمك يحتاج للتعافي.",
+    "daysStrong": "أيام من القوة"
 }

@@ -63,12 +63,3 @@ class PremiumMighty extends StatelessWidget {
     return MightyOnboarding(assetName: MightyAssets.premium);
   }
 }
-
-class ReadingMighty extends StatelessWidget {
-  const ReadingMighty({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MightyOnboarding(assetName: MightyAssets.reading);
-  }
-}

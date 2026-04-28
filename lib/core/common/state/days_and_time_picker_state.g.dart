@@ -42,7 +42,7 @@ final class DaysAndTimePickerStateProvider
 }
 
 String _$daysAndTimePickerStateHash() =>
-    r'52aee1308eaa8dcf06a57bc76bff6a243b2acdfa';
+    r'3cda72bf509c985e79f4ef7dd07d6f302caa86fc';
 
 abstract class _$DaysAndTimePickerState
     extends $Notifier<DaysAndTimePickerModel> {

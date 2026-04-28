@@ -476,10 +476,16 @@ abstract class AppLocalizations {
   /// **'Continue with Free (limited) plan'**
   String get btnContinueFree;
 
+  /// No description provided for @streak.
+  ///
+  /// In en, this message translates to:
+  /// **'Streak'**
+  String get streak;
+
   /// No description provided for @section1.
   ///
   /// In en, this message translates to:
-  /// **'// Home Screen Setup'**
+  /// **'// Home Setup Required'**
   String get section1;
 
   /// No description provided for @homeSetupGreeting.
@@ -511,6 +517,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'CREATE THE CONTRACT'**
   String get homeSetupBtn;
+
+  /// No description provided for @section2.
+  ///
+  /// In en, this message translates to:
+  /// **'// Home Rest Day'**
+  String get section2;
+
+  /// No description provided for @homeRestGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi {name},'**
+  String homeRestGreeting(Object name);
+
+  /// No description provided for @homeRestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'ENJOY YOUR REST.'**
+  String get homeRestTitle;
+
+  /// No description provided for @homeRestLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Rest Day.'**
+  String get homeRestLabel;
+
+  /// No description provided for @homeRestBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Mighty is recharging. Make sure you do too.\n\nYour body needs to recover.'**
+  String get homeRestBody;
+
+  /// No description provided for @daysStrong.
+  ///
+  /// In en, this message translates to:
+  /// **'days strong'**
+  String get daysStrong;
 }
 
 class _AppLocalizationsDelegate

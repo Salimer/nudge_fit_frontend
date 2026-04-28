@@ -1,22 +1,22 @@
-enum HomeScreenStateEnum {
+enum HomeScreenEnum {
   setupRequired, // Maps to "setup_required"
   restDay, // Maps to "rest_day"
   actionRequired, // Maps to "action_required"
   completed, // Maps to "completed"
   skipped; // Maps to "skipped"
 
-  factory HomeScreenStateEnum.fromJsonKey(String jsonKey) {
+  factory HomeScreenEnum.fromJsonKey(String jsonKey) {
     switch (jsonKey) {
       case 'setup_required':
-        return HomeScreenStateEnum.setupRequired;
+        return HomeScreenEnum.setupRequired;
       case 'rest_day':
-        return HomeScreenStateEnum.restDay;
+        return HomeScreenEnum.restDay;
       case 'action_required':
-        return HomeScreenStateEnum.actionRequired;
+        return HomeScreenEnum.actionRequired;
       case 'completed':
-        return HomeScreenStateEnum.completed;
+        return HomeScreenEnum.completed;
       case 'skipped':
-        return HomeScreenStateEnum.skipped;
+        return HomeScreenEnum.skipped;
       default:
         throw Exception('Unknown HomeScreenStateEnum: $jsonKey');
     }

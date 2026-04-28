@@ -203,7 +203,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get btnContinueFree => 'Continue with Free (limited) plan';
 
   @override
-  String get section1 => '// Home Screen Setup';
+  String get streak => 'Streak';
+
+  @override
+  String get section1 => '// Home Setup Required';
 
   @override
   String homeSetupGreeting(Object name) {
@@ -221,4 +224,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeSetupBtn => 'CREATE THE CONTRACT';
+
+  @override
+  String get section2 => '// Home Rest Day';
+
+  @override
+  String homeRestGreeting(Object name) {
+    return 'Hi $name,';
+  }
+
+  @override
+  String get homeRestTitle => 'ENJOY YOUR REST.';
+
+  @override
+  String get homeRestLabel => 'Rest Day.';
+
+  @override
+  String get homeRestBody =>
+      'Mighty is recharging. Make sure you do too.\n\nYour body needs to recover.';
+
+  @override
+  String get daysStrong => 'days strong';
 }

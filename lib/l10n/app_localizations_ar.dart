@@ -203,7 +203,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get btnContinueFree => 'كمل على الخطة المجانية (المحدودة)';
 
   @override
-  String get section1 => '// Home Screen Setup';
+  String get streak => 'الاستمرارية';
+
+  @override
+  String get section1 => '// Home Setup Required';
 
   @override
   String homeSetupGreeting(Object name) {
@@ -221,4 +224,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get homeSetupBtn => 'ختم الالتزام';
+
+  @override
+  String get section2 => '// Home Rest Day';
+
+  @override
+  String homeRestGreeting(Object name) {
+    return 'أهلاً يا $name،';
+  }
+
+  @override
+  String get homeRestTitle => 'استمتع براحتك.';
+
+  @override
+  String get homeRestLabel => 'يوم راحة.';
+
+  @override
+  String get homeRestBody =>
+      'مايتي جالس يشحن. تأكد إنك ترتاح بالشكل الكافي انت كمان.\n\nجسمك يحتاج للتعافي.';
+
+  @override
+  String get daysStrong => 'أيام من القوة';
 }

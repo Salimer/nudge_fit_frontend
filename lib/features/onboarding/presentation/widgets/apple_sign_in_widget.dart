@@ -7,9 +7,7 @@ import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 
 class AppleSignInWidget extends StatelessWidget {
-  const AppleSignInWidget({
-    super.key,
-  });
+  const AppleSignInWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +19,11 @@ class AppleSignInWidget extends StatelessWidget {
         builder: (context, ref, _) {
           return FilledButton.icon(
             onPressed: () {
-              ref
-                  .read(routesProvider)
-                  .goNamed(RouteNames.onboardingSeventh);
+              ref.read(routesProvider).goNamed(RouteNames.onboardingSeventh);
             },
             icon: SvgPicture.asset(
               SocialMediaIcons.appleLogo,
-              height:
-                  24, // Slightly smaller for better optical alignment with text
+              height: 24,
               colorFilter: const ColorFilter.mode(
                 Colors.white,
                 BlendMode.srcIn,
@@ -36,11 +31,10 @@ class AppleSignInWidget extends StatelessWidget {
             ),
             label: Text(
               context.l10n.signInWithApple,
-              style: Theme.of(context).textTheme.titleMedium
-                  ?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
             ),
             style: FilledButton.styleFrom(
               backgroundColor: Colors.black,

@@ -85,19 +85,17 @@ class OnboardingFirstScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: EdgeInsetsGeometry.only(bottom: 12),
-          child: Consumer(
-            builder: (context, ref, _) {
-              return CustomElevatedButton1(
-                text: context.l10n.getStarted,
-                onPressed: () {
-                  ref.read(routesProvider).goNamed(RouteNames.onboardingSecond);
-                },
-              );
-            },
-          ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
+        child: Consumer(
+          builder: (context, ref, _) {
+            return CustomElevatedButton1(
+              text: context.l10n.getStarted,
+              onPressed: () {
+                ref.read(routesProvider).goNamed(RouteNames.onboardingSecond);
+              },
+            );
+          },
         ),
       ),
     );

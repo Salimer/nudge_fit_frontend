@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nudge_fit_frontend/core/common/state/routes_state.dart';
 
+import '../../../../core/common/state/routes_state.dart';
+import '../../../../core/constants/app_padding.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty_onboarding.dart';
@@ -102,35 +103,35 @@ class OnboardingSeventhScreen extends StatelessWidget {
         ),
       ),
 
-      bottomNavigationBar: SafeArea(
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 6, right: 12, left: 12),
-          child: Column(
-            mainAxisSize: .min,
-            children: [
-              SizedBox(
-                height: 56,
-                width: double.infinity,
-                child: CustomFilledButton(
-                  text: context.l10n.btnUpgrade,
-                  onPressed: () {},
-                  isLoading: false,
-                ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(
+          bottom: AppPadding.vertical,
+          right: AppPadding.horizontal,
+          left: AppPadding.horizontal,
+        ),
+        child: Column(
+          mainAxisSize: .min,
+          children: [
+            SizedBox(
+              height: 56,
+              width: double.infinity,
+              child: CustomFilledButton(
+                text: context.l10n.btnUpgrade,
+                onPressed: () {},
+                isLoading: false,
               ),
-              SizedBox(height: 0),
-              Consumer(
-                builder: (context, ref, _) {
-                  return CustomTextButtonWidget(
-                    onTap: () {
-                      ref.read(routesProvider).goNamed(RouteNames.homeScreen);
-                    },
-                    text: context.l10n.btnContinueFree,
-                  );
-                },
-              ),
-            ],
-          ),
+            ),
+            Consumer(
+              builder: (context, ref, _) {
+                return CustomTextButtonWidget(
+                  onTap: () {
+                    ref.read(routesProvider).goNamed(RouteNames.homeScreen);
+                  },
+                  text: context.l10n.btnContinueFree,
+                );
+              },
+            ),
+          ],
         ),
       ),
     );

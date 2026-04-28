@@ -7,30 +7,12 @@ import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty_onboarding.dart';
 import '../../use_cases/onboarding_use_case.dart';
-import '../state/onboarding_data_state.dart';
 
 class OnboardingThirdScreen extends ConsumerWidget {
   const OnboardingThirdScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   ref.read(onboardingUseCaseProvider).syncSelectedDaysAndTimeWidget();
-    // });
-
-    // ref.watch(daysAndTimePickerStateProvider);
-
-    final onboardingDaysAndTime = ref
-        .read(onboardingDataStateProvider.notifier)
-        .getDaysAndTime();
-
-    final widgetDaysAndTime = ref.read(daysAndTimePickerStateProvider);
-
-    debugPrint(
-      "onboarding date and time:\n${onboardingDaysAndTime.toString()}",
-    );
-    debugPrint("widget date and time:\n${widgetDaysAndTime.toString()}");
-
     return Scaffold(
       appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
       body: SafeArea(

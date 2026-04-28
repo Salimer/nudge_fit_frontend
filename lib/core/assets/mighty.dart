@@ -8,4 +8,5 @@ class MightyAssets {
   static const proud = '${mightyDir}proud.svg';
   static const premium = '${mightyDir}premium.svg';
   static const reading = '${mightyDir}reading.svg';
+  static const resting = '${mightyDir}resting.svg';
 }
