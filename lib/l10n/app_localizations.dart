@@ -601,6 +601,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mighty is ready and waiting. Don\'t make him start nagging.'**
   String get actionAnticipationMsg;
+
+  /// No description provided for @section4.
+  ///
+  /// In en, this message translates to:
+  /// **'// Home Completed'**
+  String get section4;
+
+  /// No description provided for @homeCompletedGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Contract Met, {name}!'**
+  String homeCompletedGreeting(Object name);
+
+  /// No description provided for @homeCompletedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'DAY CONQUERED.'**
+  String get homeCompletedTitle;
+
+  /// No description provided for @homeCompletedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Discipline Activated. Rest up for {nextDay}.'**
+  String homeCompletedBody(Object nextDay);
+
+  /// No description provided for @homeCompletedStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'{day} CONTRACT SEALED.'**
+  String homeCompletedStatus(Object day);
 }
 
 class _AppLocalizationsDelegate

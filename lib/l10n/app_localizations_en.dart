@@ -272,4 +272,25 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get actionAnticipationMsg =>
       'Mighty is ready and waiting. Don\'t make him start nagging.';
+
+  @override
+  String get section4 => '// Home Completed';
+
+  @override
+  String homeCompletedGreeting(Object name) {
+    return 'Contract Met, $name!';
+  }
+
+  @override
+  String get homeCompletedTitle => 'DAY CONQUERED.';
+
+  @override
+  String homeCompletedBody(Object nextDay) {
+    return 'Discipline Activated. Rest up for $nextDay.';
+  }
+
+  @override
+  String homeCompletedStatus(Object day) {
+    return '$day CONTRACT SEALED.';
+  }
 }

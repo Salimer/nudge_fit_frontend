@@ -138,3 +138,19 @@ class RestingMighty extends StatelessWidget {
     );
   }
 }
+
+class CelebratingMighty extends StatelessWidget {
+  const CelebratingMighty({super.key, this.maxHeight, this.maxWidth});
+
+  final double? maxHeight;
+  final double? maxWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedMighty(
+      assetName: MightyAssets.celebrating,
+      maxHeight: maxHeight,
+      maxWidth: maxWidth,
+    );
+  }
+}

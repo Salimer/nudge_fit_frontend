@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nudge_fit_frontend/core/common/state/days_and_time_picker_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../core/extensions/build_context.dart';
+import '../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../core/common/state/routes_state.dart';
+import '../../../core/utils/get_localized_day.dart';
 import '../presentation/state/onboarding_data_state.dart';
 
 part 'onboarding_use_case.g.dart';
@@ -32,26 +32,7 @@ class OnboardingUseCase {
 
   List<String> getLocalizedSelectedDays(BuildContext context) {
     final days = ref.read(onboardingDataStateProvider).selectedDays;
-    return days.map((day) {
-      switch (day) {
-        case "Saturday":
-          return context.l10n.saturday;
-        case "Sunday":
-          return context.l10n.sunday;
-        case "Monday":
-          return context.l10n.monday;
-        case "Tuesday":
-          return context.l10n.tuesday;
-        case "Wednesday":
-          return context.l10n.wednesday;
-        case "Thursday":
-          return context.l10n.thursday;
-        case "Friday":
-          return context.l10n.friday;
-        default:
-          return day;
-      }
-    }).toList();
+    return getLocalizedDays(ref, days);
   }
 
   void syncSelectedDaysAndTimeToOnboardingState() {

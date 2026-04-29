@@ -271,4 +271,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get actionAnticipationMsg => 'مايتي جاهز ومستنيك. لا تخليه يبدأ يزن.';
+
+  @override
+  String get section4 => '// Home Completed';
+
+  @override
+  String homeCompletedGreeting(Object name) {
+    return 'وفيت بالتزامك يا $name!';
+  }
+
+  @override
+  String get homeCompletedTitle => 'قهرت شيطانك اليوم.';
+
+  @override
+  String homeCompletedBody(Object nextDay) {
+    return 'الانضباط شغال. ارتاح وجهّز نفسك ليوم $nextDay.';
+  }
+
+  @override
+  String homeCompletedStatus(Object day) {
+    return 'تم ختم التزام يوم $day.';
+  }
 }

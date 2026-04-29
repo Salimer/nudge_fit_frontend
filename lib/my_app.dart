@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/common/state/routes_state.dart';
 import 'core/common/state/locale_state.dart';
+import 'core/common/state/scaffold_messenger_key_state.dart';
 import 'core/theme/app_theme.dart';
 import 'l10n/app_localizations.dart';
 
@@ -13,6 +14,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appTheme = ref.read(appThemeProvider);
     return MaterialApp.router(
+      scaffoldMessengerKey: ref.read(scaffoldMessengerKeyProvider),
       routerConfig: ref.read(routesProvider),
       debugShowCheckedModeBanner: false,
       theme: appTheme.lightTheme,

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/enums.dart';
 import '../state/home_screen_state.dart';
 import '../views/action_required_view.dart';
+import '../views/completed_view.dart';
 import '../views/rest_day_view.dart';
 import '../views/setup_required_view.dart';
 
@@ -28,8 +29,7 @@ class HomeScreen extends StatelessWidget {
                   case HomeScreenEnum.actionRequired:
                     return ActionRequiredView();
                   case HomeScreenEnum.completed:
-                    // TODO: Handle this case.
-                    throw UnimplementedError();
+                    return CompletedView();
                   case HomeScreenEnum.skipped:
                     // TODO: Handle this case.
                     throw UnimplementedError();

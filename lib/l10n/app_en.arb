@@ -83,5 +83,11 @@
   "homeContractStatusPending": "Status: Active (Nudges Pending)",
   "btnStarted": "I STARTED MY WORKOUT",
   "btnSkip": "Skip Today",
-  "actionAnticipationMsg": "Mighty is ready and waiting. Don't make him start nagging."
+  "actionAnticipationMsg": "Mighty is ready and waiting. Don't make him start nagging.",
+  "section4": "// Home Completed",
+  "homeCompletedGreeting": "Contract Met, {name}!",
+  "homeCompletedTitle": "DAY CONQUERED.",
+  "homeCompletedBody": "Congrats on showing up today. Mighty is proud of you.\n\nSee you at the next workout!",
+  "homeCompletedStatus": "{day} CONTRACT SEALED.",
+  "homeCompletedBody": "Discipline Activated. Rest up for {nextDay}."
 }

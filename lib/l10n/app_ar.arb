@@ -83,5 +83,10 @@
   "homeContractStatusPending": "الحالة: نشط (التنبيهات جاهزة)",
   "btnStarted": "بدأت تمريني",
   "btnSkip": "تخطي اليوم",
-  "actionAnticipationMsg": "مايتي جاهز ومستنيك. لا تخليه يبدأ يزن."
+  "actionAnticipationMsg": "مايتي جاهز ومستنيك. لا تخليه يبدأ يزن.",
+  "section4": "// Home Completed",
+  "homeCompletedGreeting": "وفيت بالتزامك يا {name}!",
+  "homeCompletedTitle": "قهرت شيطانك اليوم.",
+  "homeCompletedStatus": "تم ختم التزام يوم {day}.",
+  "homeCompletedBody": "الانضباط شغال. ارتاح وجهّز نفسك ليوم {nextDay}."
 }
