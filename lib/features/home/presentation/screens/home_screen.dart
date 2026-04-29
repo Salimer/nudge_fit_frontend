@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/enums.dart';
 import '../state/home_screen_state.dart';
+import '../views/action_required_view.dart';
 import '../views/rest_day_view.dart';
 import '../views/setup_required_view.dart';
 
@@ -25,8 +26,7 @@ class HomeScreen extends StatelessWidget {
                   case HomeScreenEnum.restDay:
                     return RestDayView();
                   case HomeScreenEnum.actionRequired:
-                    // TODO: Handle this case.
-                    throw UnimplementedError();
+                    return ActionRequiredView();
                   case HomeScreenEnum.completed:
                     // TODO: Handle this case.
                     throw UnimplementedError();

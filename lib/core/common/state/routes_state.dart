@@ -19,7 +19,7 @@ part 'routes_state.g.dart';
 @Riverpod(keepAlive: true)
 GoRouter routes(Ref ref) {
   return GoRouter(
-    initialLocation: '/onboarding_first',
+    initialLocation: '/home_screen',
     routes: [
       GoRoute(
         name: RouteNames.onboarding,

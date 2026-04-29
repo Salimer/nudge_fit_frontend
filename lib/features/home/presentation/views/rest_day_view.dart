@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/common/widgets/mighty_home.dart';
+import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/app_padding.dart';
 import '../../../../core/extensions/build_context.dart';
+import '../widgets/streak_widget.dart';
 
 class RestDayView extends StatelessWidget {
   const RestDayView({super.key});
@@ -41,15 +42,11 @@ class RestDayView extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Row(
-                  children: [
-                    Text(
-                      '${context.l10n.streak}: 0 ${context.l10n.daysStrong}',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ],
+                StreakWidget(streak: 2),
+                RestingMighty(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.5,
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.7,
                 ),
-                RestingMighty(),
                 const SizedBox(height: 20),
                 Container(
                   padding: const EdgeInsets.symmetric(

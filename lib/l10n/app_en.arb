@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "welcomeTo": "Welcome to",
   "nudgeFit": "Nudge Fit",
   "weDoOnlyOneThing": "We do only one thing:",
@@ -63,18 +64,24 @@
   "btnUpgrade": "TRY 7 DAYS FREE & UPGRADE",
   "btnContinueFree": "Continue with Free (limited) plan",
   "streak": "Streak",
-
   "section1": "// Home Setup Required",
   "homeSetupGreeting": "Hi {name}, we're missing something...",
   "homeSetupTitle": "CONTRACT REQUIRED.",
   "homeSetupDaysLabel": "Workout Days:",
   "homeSetupTimeLabel": "Start Time:",
   "homeSetupBtn": "CREATE THE CONTRACT",
-
   "section2": "// Home Rest Day",
   "homeRestGreeting": "Hi {name},",
   "homeRestTitle": "ENJOY YOUR REST.",
   "homeRestLabel": "Rest Day.",
   "homeRestBody": "Mighty is recharging. Make sure you do too.\n\nYour body needs to recover.",
-  "daysStrong": "days strong"
+  "daysStrong": "days strong",
+  "section3": "// Home Action Required",
+  "homeActionTitle": "WORKOUT DAY.",
+  "homeContractLabel": "TODAY'S CONTRACT",
+  "homeContractTime": "Scheduled: {time}",
+  "homeContractStatusPending": "Status: Active (Nudges Pending)",
+  "btnStarted": "I STARTED MY WORKOUT",
+  "btnSkip": "Skip Today",
+  "actionAnticipationMsg": "Mighty is ready and waiting. Don't make him start nagging."
 }

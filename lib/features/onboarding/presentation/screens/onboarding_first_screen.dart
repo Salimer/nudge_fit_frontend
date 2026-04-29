@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/buttons.dart';
-import '../../../../core/common/widgets/mighty_onboarding.dart';
+import '../../../../core/common/widgets/mighty.dart';
 import '../widgets/language_switch_widget.dart';
 
 class OnboardingFirstScreen extends StatelessWidget {

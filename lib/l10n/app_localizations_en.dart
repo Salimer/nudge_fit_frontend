@@ -245,4 +245,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get daysStrong => 'days strong';
+
+  @override
+  String get section3 => '// Home Action Required';
+
+  @override
+  String get homeActionTitle => 'WORKOUT DAY.';
+
+  @override
+  String get homeContractLabel => 'TODAY\'S CONTRACT';
+
+  @override
+  String homeContractTime(Object time) {
+    return 'Scheduled: $time';
+  }
+
+  @override
+  String get homeContractStatusPending => 'Status: Active (Nudges Pending)';
+
+  @override
+  String get btnStarted => 'I STARTED MY WORKOUT';
+
+  @override
+  String get btnSkip => 'Skip Today';
+
+  @override
+  String get actionAnticipationMsg =>
+      'Mighty is ready and waiting. Don\'t make him start nagging.';
 }

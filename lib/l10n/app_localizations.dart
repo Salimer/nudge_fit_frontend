@@ -553,6 +553,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'days strong'**
   String get daysStrong;
+
+  /// No description provided for @section3.
+  ///
+  /// In en, this message translates to:
+  /// **'// Home Action Required'**
+  String get section3;
+
+  /// No description provided for @homeActionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'WORKOUT DAY.'**
+  String get homeActionTitle;
+
+  /// No description provided for @homeContractLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'TODAY\'S CONTRACT'**
+  String get homeContractLabel;
+
+  /// No description provided for @homeContractTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Scheduled: {time}'**
+  String homeContractTime(Object time);
+
+  /// No description provided for @homeContractStatusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Status: Active (Nudges Pending)'**
+  String get homeContractStatusPending;
+
+  /// No description provided for @btnStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'I STARTED MY WORKOUT'**
+  String get btnStarted;
+
+  /// No description provided for @btnSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip Today'**
+  String get btnSkip;
+
+  /// No description provided for @actionAnticipationMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Mighty is ready and waiting. Don\'t make him start nagging.'**
+  String get actionAnticipationMsg;
 }
 
 class _AppLocalizationsDelegate

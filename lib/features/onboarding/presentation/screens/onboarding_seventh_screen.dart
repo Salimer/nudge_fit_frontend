@@ -5,7 +5,7 @@ import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/constants/app_padding.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/buttons.dart';
-import '../../../../core/common/widgets/mighty_onboarding.dart';
+import '../../../../core/common/widgets/mighty.dart';
 
 class OnboardingSeventhScreen extends StatelessWidget {
   const OnboardingSeventhScreen({super.key});

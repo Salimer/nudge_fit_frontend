@@ -245,4 +245,30 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get daysStrong => 'أيام من القوة';
+
+  @override
+  String get section3 => '// Home Action Required';
+
+  @override
+  String get homeActionTitle => 'يوم تمرين.';
+
+  @override
+  String get homeContractLabel => 'عقد اليوم';
+
+  @override
+  String homeContractTime(Object time) {
+    return 'الموعد: $time';
+  }
+
+  @override
+  String get homeContractStatusPending => 'الحالة: نشط (التنبيهات جاهزة)';
+
+  @override
+  String get btnStarted => 'بدأت تمريني';
+
+  @override
+  String get btnSkip => 'تخطي اليوم';
+
+  @override
+  String get actionAnticipationMsg => 'مايتي جاهز ومستنيك. لا تخليه يبدأ يزن.';
 }

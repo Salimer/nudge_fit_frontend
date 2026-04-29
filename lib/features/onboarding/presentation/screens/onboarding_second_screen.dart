@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/buttons.dart';
-import '../../../../core/common/widgets/mighty_onboarding.dart';
+import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
 import '../state/onboarding_data_state.dart';
 
