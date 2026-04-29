@@ -292,4 +292,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String homeCompletedStatus(Object day) {
     return 'تم ختم التزام يوم $day.';
   }
+
+  @override
+  String homeSkippedGreeting(Object name) {
+    return 'أهلاً يا $name، خلينا نشوف ليش سحبت اليوم.';
+  }
+
+  @override
+  String get homeSkippedTitle => 'يوم فاشل.';
+
+  @override
+  String get homeLoggedLabel => 'تم تسجيل العذر';
+
+  @override
+  String homeLoggedExcuse(Object excuse) {
+    return 'العذر: $excuse';
+  }
+
+  @override
+  String get homeLoggedStatusSkipped => 'الحالة: سحبة (غائب)';
+
+  @override
+  String get homeSkippedNudge =>
+      'اليوم كسرت عقدك، لاتنسى هذا الشعور عشان ما تكسره مرة ثانية!';
 }

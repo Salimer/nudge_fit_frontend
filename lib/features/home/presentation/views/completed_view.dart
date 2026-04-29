@@ -53,9 +53,7 @@ class CompletedView extends StatelessWidget {
                       children: [
                         Text(
                           context.l10n.homeCompletedStatus(
-                            ref
-                                .read(homeUseCaseProvider)
-                                .localizedDay('Monday'),
+                            _getLocalizedDay(ref, 'Monday'),
                           ),
                           style: Theme.of(context).textTheme.titleLarge
                               ?.copyWith(fontWeight: FontWeight.bold),
@@ -63,9 +61,7 @@ class CompletedView extends StatelessWidget {
                         SizedBox(height: 20),
                         Text(
                           context.l10n.homeCompletedBody(
-                            ref
-                                .read(homeUseCaseProvider)
-                                .localizedDay('Tuesday'),
+                            _getLocalizedDay(ref, 'Wednesday'),
                           ),
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
@@ -79,5 +75,9 @@ class CompletedView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getLocalizedDay(WidgetRef ref, String day) {
+    return ref.read(homeUseCaseProvider).localizedDay(day);
   }
 }

@@ -88,5 +88,11 @@
   "homeCompletedGreeting": "وفيت بالتزامك يا {name}!",
   "homeCompletedTitle": "قهرت شيطانك اليوم.",
   "homeCompletedStatus": "تم ختم التزام يوم {day}.",
-  "homeCompletedBody": "الانضباط شغال. ارتاح وجهّز نفسك ليوم {nextDay}."
+  "homeCompletedBody": "الانضباط شغال. ارتاح وجهّز نفسك ليوم {nextDay}.",
+  "homeSkippedGreeting": "أهلاً يا {name}، خلينا نشوف ليش سحبت اليوم.",
+  "homeSkippedTitle": "يوم فاشل.",
+  "homeLoggedLabel": "تم تسجيل العذر",
+  "homeLoggedExcuse": "العذر: {excuse}",
+  "homeLoggedStatusSkipped": "الحالة: سحبة (غائب)",
+  "homeSkippedNudge": "اليوم كسرت عقدك، لاتنسى هذا الشعور عشان ما تكسره مرة ثانية!"
 }

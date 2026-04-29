@@ -293,4 +293,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String homeCompletedStatus(Object day) {
     return '$day CONTRACT SEALED.';
   }
+
+  @override
+  String homeSkippedGreeting(Object name) {
+    return 'Hi $name, let\'s look at why you skipped.';
+  }
+
+  @override
+  String get homeSkippedTitle => 'DAY FAILED.';
+
+  @override
+  String get homeLoggedLabel => 'EXCUSE LOGGED';
+
+  @override
+  String homeLoggedExcuse(Object excuse) {
+    return 'Excuse: $excuse';
+  }
+
+  @override
+  String get homeLoggedStatusSkipped => 'Status: Skipped';
+
+  @override
+  String get homeSkippedNudge =>
+      'You broke your contract. Remember the feeling so you don\'t skip again!';
 }

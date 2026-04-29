@@ -631,6 +631,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{day} CONTRACT SEALED.'**
   String homeCompletedStatus(Object day);
+
+  /// No description provided for @homeSkippedGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi {name}, let\'s look at why you skipped.'**
+  String homeSkippedGreeting(Object name);
+
+  /// No description provided for @homeSkippedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'DAY FAILED.'**
+  String get homeSkippedTitle;
+
+  /// No description provided for @homeLoggedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'EXCUSE LOGGED'**
+  String get homeLoggedLabel;
+
+  /// No description provided for @homeLoggedExcuse.
+  ///
+  /// In en, this message translates to:
+  /// **'Excuse: {excuse}'**
+  String homeLoggedExcuse(Object excuse);
+
+  /// No description provided for @homeLoggedStatusSkipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Status: Skipped'**
+  String get homeLoggedStatusSkipped;
+
+  /// No description provided for @homeSkippedNudge.
+  ///
+  /// In en, this message translates to:
+  /// **'You broke your contract. Remember the feeling so you don\'t skip again!'**
+  String get homeSkippedNudge;
 }
 
 class _AppLocalizationsDelegate

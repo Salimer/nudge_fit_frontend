@@ -7,6 +7,7 @@ import '../views/action_required_view.dart';
 import '../views/completed_view.dart';
 import '../views/rest_day_view.dart';
 import '../views/setup_required_view.dart';
+import '../views/skipped_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,8 +32,7 @@ class HomeScreen extends StatelessWidget {
                   case HomeScreenEnum.completed:
                     return CompletedView();
                   case HomeScreenEnum.skipped:
-                    // TODO: Handle this case.
-                    throw UnimplementedError();
+                    return SkippedView();
                 }
               },
               error: (error, stackTrace) {
