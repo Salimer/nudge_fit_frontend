@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
@@ -13,30 +14,9 @@ class OnboardingThirdScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              NeutralMighty(),
-              const SizedBox(height: 16),
-              Text(
-                context.l10n.whenAreWeDoingThis,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 32),
-
-              // Days Selector
-              DaysAndTimePickerWidget(),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: Consumer(
+    return FScaffold(
+      header: const FHeader(title: Text('')),
+      footer: Consumer(
         builder: (context, ref, _) {
           final selectedDays = ref.watch(
             daysAndTimePickerStateProvider.select(
@@ -58,6 +38,27 @@ class OnboardingThirdScreen extends ConsumerWidget {
             ),
           );
         },
+      ),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const NeutralMighty(),
+              const SizedBox(height: 16),
+              Text(
+                context.l10n.whenAreWeDoingThis,
+                textAlign: TextAlign.center,
+                style: FTheme.of(context).typography.xl3.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 32),
+
+              // Days Selector
+              const DaysAndTimePickerWidget(),
+            ],
+          ),
+        ),
       ),
     );
   }

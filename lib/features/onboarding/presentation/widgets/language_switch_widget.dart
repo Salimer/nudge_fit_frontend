@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/locale_state.dart';
@@ -11,18 +12,26 @@ class LanguageSwitchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, _) {
-        return DropdownButton(
-          items: [
-            DropdownMenuItem(value: 'ar', child: Text(context.l10n.arabic)),
-            DropdownMenuItem(value: 'en', child: Text(context.l10n.english)),
-          ],
-          onChanged: (value) {
-            ref.read(localeStateProvider.notifier).changeLocale(value!);
-          },
-          value: ref.watch(localeStateProvider).requireValue.languageCode,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
+        final currentLocale = ref
+            .watch(localeStateProvider)
+            .requireValue
+            .languageCode;
+        return SizedBox(
+          width: 130,
+          child: FSelect<String>(
+            hint: currentLocale == 'ar'
+                ? context.l10n.arabic
+                : context.l10n.english,
+            items: {context.l10n.arabic: 'ar', context.l10n.english: 'en'},
+            control: FSelectControl.lifted(
+              value: currentLocale,
+              onChange: (value) {
+                if (value != null && value != currentLocale) {
+                  ref.read(localeStateProvider.notifier).changeLocale(value);
+                }
+              },
+            ),
+          ),
         );
       },
     );

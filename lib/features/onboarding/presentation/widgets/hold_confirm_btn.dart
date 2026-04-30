@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:forui/forui.dart';
 
 class HoldToConfirmButton extends StatefulWidget {
   final VoidCallback onConfirm;
@@ -84,7 +85,7 @@ class _HoldToConfirmButtonState extends State<HoldToConfirmButton>
             Spark(
               progress: _controller.value,
               random: _random,
-              color: widget.color ?? Theme.of(context).colorScheme.primary,
+              color: widget.color ?? FTheme.of(context).colors.primary,
             ),
           );
         }
@@ -140,15 +141,15 @@ class _HoldToConfirmButtonState extends State<HoldToConfirmButton>
               painter: SparkPainter(
                 sparks: sparks,
                 progress: _controller.value,
-                color: widget.color ?? Theme.of(context).colorScheme.primary,
+                color: widget.color ?? FTheme.of(context).colors.primary,
               ),
               child: Container(
                 height: 250,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: (widget.color ?? Theme.of(context).colorScheme.primary)
-                      .withOpacity(0.1),
+                  color: (widget.color ?? FTheme.of(context).colors.primary)
+                      .withValues(alpha: 0.1),
                 ),
                 child: widget.child,
               ),
@@ -211,7 +212,7 @@ class SparkPainter extends CustomPainter {
 
     // 1. Background static ring
     final bgPaint = Paint()
-      ..color = color.withOpacity(0.1)
+      ..color = color.withValues(alpha: 0.1)
       ..style = PaintingStyle.stroke
       ..strokeWidth = strokeWidth;
     canvas.drawCircle(center, radius - (strokeWidth / 2), bgPaint);
@@ -234,7 +235,7 @@ class SparkPainter extends CustomPainter {
     // 3. Render Sparks
     for (var spark in sparks) {
       if (spark.alpha <= 0) continue;
-      final sparkPaint = Paint()..color = spark.color.withOpacity(spark.alpha);
+      final sparkPaint = Paint()..color = spark.color.withValues(alpha: spark.alpha);
       final sparkPos = Offset(
         center.dx + (spark.xOffset * radius),
         center.dy + (spark.yOffset * radius),

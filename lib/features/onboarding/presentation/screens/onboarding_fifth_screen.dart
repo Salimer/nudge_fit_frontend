@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
@@ -13,24 +14,24 @@ class OnboardingFifthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(
+    return FScaffold(
+      header: const FHeader(title: Text('')),
+      child: SafeArea(
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
             child: Column(
               children: [
-                FlexMighty(),
+                const FlexMighty(),
                 Text(
                   context.l10n.commitmentTitle,
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                  style: FTheme.of(context).typography.xl4.copyWith(
                     fontSize: 50,
                     fontWeight: FontWeight.bold,
                   ),
-                  textAlign: .center,
+                  textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Consumer(
                   builder: (context, ref, _) {
                     final selectedDays = ref
@@ -42,15 +43,15 @@ class OnboardingFifthScreen extends StatelessWidget {
 
                     return Text(
                       "${selectedDays.map((e) => e.toUpperCase())} ${context.l10n.at} ${selectedTime.format(context)}",
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      style: FTheme.of(context).typography.xl.copyWith(
                         // fontSize: 25,
                         // fontWeight: FontWeight.bold,
                       ),
-                      textAlign: .center,
+                      textAlign: TextAlign.center,
                     );
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Consumer(
                   builder: (context, ref, _) {
                     return HoldToConfirmButton(
@@ -63,7 +64,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                       },
                       child: Text(
                         context.l10n.holdToSeal,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        style: FTheme.of(context).typography.xl.copyWith(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),

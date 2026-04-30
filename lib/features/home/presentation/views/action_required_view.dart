@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -15,7 +16,7 @@ class ActionRequiredView extends StatelessWidget {
     return SafeArea(
       bottom: false,
       child: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: AppPadding.vertical,
           horizontal: AppPadding.horizontal,
         ),
@@ -25,64 +26,64 @@ class ActionRequiredView extends StatelessWidget {
             child: Column(
               children: [
                 Row(children: [Text(context.l10n.homeRestGreeting('name'))]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     Text(
                       context.l10n.homeActionTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      style: FTheme.of(context).typography.xl3.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
-                StreakWidget(),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
+                const StreakWidget(),
+                const SizedBox(height: 20),
                 SeriousMighty(
                   maxHeight: MediaQuery.sizeOf(context).height * 0.5,
                   maxWidth: MediaQuery.sizeOf(context).width * 0.7,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   context.l10n.actionAnticipationMsg,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  style: FTheme.of(context).typography.lg.copyWith(
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 24,
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(),
+                    border: Border.all(color: FTheme.of(context).colors.border),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
-                    crossAxisAlignment: .end,
-                    mainAxisSize: .min,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Column(
-                        mainAxisSize: .max,
-                        mainAxisAlignment: .end,
-                        children: [Icon(Icons.lock_clock_rounded, size: 40)],
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [Icon(FIcons.clock, size: 40)],
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Column(
-                        crossAxisAlignment: .start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             context.l10n.homeContractLabel,
-                            style: Theme.of(context).textTheme.titleLarge
-                                ?.copyWith(fontWeight: FontWeight.bold),
+                            style: FTheme.of(context).typography.xl
+                                .copyWith(fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(
                             context.l10n.homeContractTime('8:00 PM'),
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: FTheme.of(context).typography.sm,
                           ),
                           Text(context.l10n.homeContractStatusPending),
                         ],
@@ -90,7 +91,7 @@ class ActionRequiredView extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 StartedWidget(onPressed: () {}),
                 CustomTextButtonWidget(
                   text: context.l10n.btnSkip,

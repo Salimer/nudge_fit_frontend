@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
 import '../../../../core/common/state/routes_state.dart';
@@ -13,36 +14,24 @@ class GoogleSignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 56,
       child: Consumer(
         builder: (context, ref, _) {
-          return OutlinedButton.icon(
-            onPressed: () {
+          return FButton(
+            variant: FButtonVariant.outline,
+            onPress: () {
               // Your Google Sign-In Logic
               ref.read(routesProvider).goNamed(RouteNames.onboardingSeventh);
             },
-            icon: SvgPicture.asset(
+            prefix: SvgPicture.asset(
               SocialMediaIcons.googleLogo,
-              height: 24, // Standard Google branding size
+              height: 24,
             ),
-            label: Text(
+            child: Text(
               context.l10n.continueWithGoogle,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Colors.black,
+              style: FTheme.of(context).typography.lg.copyWith(
+                color: FTheme.of(context).colors.primary,
                 fontWeight: FontWeight.w600,
               ),
-            ),
-            style: OutlinedButton.styleFrom(
-              backgroundColor: Colors.white,
-              side: const BorderSide(
-                color: Color(0xFFDADCE0),
-              ), // Google's specific border hex
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  12,
-                ), // Match your Apple button
-              ),
-              elevation: 0,
             ),
           );
         },

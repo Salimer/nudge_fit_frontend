@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:day_night_time_picker/day_night_time_picker.dart';
+import 'package:day_night_time_picker/lib/state/time.dart';
+import 'package:forui/forui.dart';
 
 import '../../../features/onboarding/data/models/day_in_week_model.dart';
 import '../../../features/onboarding/presentation/widgets/select_week_days.dart';
@@ -10,34 +11,7 @@ import '../state/days_and_time_picker_state.dart';
 class DaysAndTimePickerWidget extends ConsumerWidget {
   const DaysAndTimePickerWidget({super.key});
 
-  void _showTimePicker(BuildContext context, WidgetRef ref, Time time) {
-    Navigator.of(context).push(
-      showPicker(
-        themeData: Theme.of(context),
-        okStyle: Theme.of(
-          context,
-        ).textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w900),
-        cancelStyle: Theme.of(
-          context,
-        ).textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w900),
-        focusMinutePicker: true,
-        iosStylePicker: true,
-        blurredBackground: true,
-        context: context,
-        value: time,
-        hourLabel: context.l10n.hours,
-        minuteLabel: context.l10n.minutes,
-        amLabel: context.l10n.amLabel,
-        pmLabel: context.l10n.pmLabel,
-        cancelText: context.l10n.cancel,
-        okText: context.l10n.ok,
-        duskSpanInMinutes: 120,
-        onChange: (Time value) {
-          ref.read(daysAndTimePickerStateProvider.notifier).setTime(value);
-        },
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -47,12 +21,7 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
       daysAndTimePickerStateProvider.select((state) => state.selectedTime),
     );
 
-    // Formatting the time for display (e.g., 08:30 AM)
-    final hour = time.hourOfPeriod.toString().padLeft(2, '0');
-    final minute = time.minute.toString().padLeft(2, '0');
-    final period = time.period == DayPeriod.am
-        ? locale.amLabel
-        : locale.pmLabel;
+
 
     List<DayInWeekModel> days = [
       DayInWeekModel(
@@ -93,49 +62,14 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
         ),
         const SizedBox(height: 40),
 
-        // THE NEW VISUAL TIME PICKER GESTURE DETECTOR
-        GestureDetector(
-          onTap: () => _showTimePicker(context, ref, time),
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-            decoration: BoxDecoration(
-              color: Theme.of(
-                context,
-              ).colorScheme.primaryContainer.withOpacity(0.4),
-              borderRadius: BorderRadius.circular(24),
-              border: Border.all(
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
-              ),
-            ),
-            child: Column(
-              children: [
-                Text(
-                  "$hour:$minute",
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.primary,
+        SizedBox(
+          height: 400,
+          child: FTimePicker(
+            control: FTimePickerControl.lifted(
+              time: FTime(time.hour, time.minute),
+              onChange: (fTime) => ref.read(daysAndTimePickerStateProvider.notifier).setTime(
+                    Time(hour: fTime.hour, minute: fTime.minute),
                   ),
-                ),
-                Text(
-                  period.toUpperCase(),
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: 2,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.edit, size: 16, color: Colors.grey[600]),
-                    const SizedBox(width: 4),
-                    Text(
-                      "Tap to change", // You can add this to your l10n
-                      style: TextStyle(color: Colors.grey[600]),
-                    ),
-                  ],
-                ),
-              ],
             ),
           ),
         ),

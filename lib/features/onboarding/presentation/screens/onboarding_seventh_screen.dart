@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/constants/app_padding.dart';
@@ -12,16 +13,48 @@ class OnboardingSeventhScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(
+    return FScaffold(
+      header: const FHeader(title: Text('')),
+
+      footer: Padding(
+        padding: const EdgeInsets.only(
+          bottom: AppPadding.vertical,
+          right: AppPadding.horizontal,
+          left: AppPadding.horizontal,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: 56,
+              width: double.infinity,
+              child: CustomFilledButton(
+                text: context.l10n.btnUpgrade,
+                onPressed: () {},
+                isLoading: false,
+              ),
+            ),
+            Consumer(
+              builder: (context, ref, _) {
+                return CustomTextButtonWidget(
+                  onTap: () {
+                    ref.read(routesProvider).goNamed(RouteNames.homeScreen);
+                  },
+                  text: context.l10n.btnContinueFree,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      child: SafeArea(
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Text(context.l10n.paywallHeader("name")),
-                PremiumMighty(),
+                const PremiumMighty(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -31,18 +64,18 @@ class OnboardingSeventhScreen extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 4),
+                            border: Border.all(color: FTheme.of(context).colors.border, width: 2),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Column(
-                            crossAxisAlignment: .stretch,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Align(
-                                alignment: .center,
+                                alignment: Alignment.center,
                                 child: Text(context.l10n.tierFreeTitle),
                               ),
                               Align(
-                                alignment: .center,
+                                alignment: Alignment.center,
                                 child: Text(context.l10n.tierFreeSub),
                               ),
                               _buildTierFeature(
@@ -65,17 +98,17 @@ class OnboardingSeventhScreen extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 4),
+                            border: Border.all(color: FTheme.of(context).colors.border, width: 2),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Column(
                             children: [
                               Align(
-                                alignment: .center,
+                                alignment: Alignment.center,
                                 child: Text(context.l10n.tierPremiumTitle),
                               ),
                               Align(
-                                alignment: .center,
+                                alignment: Alignment.center,
                                 child: Text(context.l10n.tierPremiumSub),
                               ),
                               _buildTierFeature(
@@ -102,48 +135,16 @@ class OnboardingSeventhScreen extends StatelessWidget {
           ),
         ),
       ),
-
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
-          bottom: AppPadding.vertical,
-          right: AppPadding.horizontal,
-          left: AppPadding.horizontal,
-        ),
-        child: Column(
-          mainAxisSize: .min,
-          children: [
-            SizedBox(
-              height: 56,
-              width: double.infinity,
-              child: CustomFilledButton(
-                text: context.l10n.btnUpgrade,
-                onPressed: () {},
-                isLoading: false,
-              ),
-            ),
-            Consumer(
-              builder: (context, ref, _) {
-                return CustomTextButtonWidget(
-                  onTap: () {
-                    ref.read(routesProvider).goNamed(RouteNames.homeScreen);
-                  },
-                  text: context.l10n.btnContinueFree,
-                );
-              },
-            ),
-          ],
-        ),
-      ),
     );
   }
 
   Row _buildTierFeature(BuildContext context, String text) {
     return Row(
-      crossAxisAlignment: .start,
-      mainAxisSize: .min,
-      mainAxisAlignment: .start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Icon(Icons.check),
+        Icon(FIcons.check),
         Flexible(child: Text(text)),
       ],
     );

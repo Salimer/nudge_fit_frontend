@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -12,9 +13,9 @@ class OnboardingSixthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(
+    return FScaffold(
+      header: const FHeader(title: Text('')),
+      child: SafeArea(
         child: SizedBox(
           width: double.infinity,
           child: Padding(
@@ -22,32 +23,32 @@ class OnboardingSixthScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  ProudMighty(),
+                  const ProudMighty(),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     context.l10n.contractSealed,
-                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                    style: FTheme.of(context).typography.xl4.copyWith(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
                     ),
-                    textAlign: .center,
+                    textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     context.l10n.createAccountText,
-                    style: Theme.of(context).textTheme.titleLarge,
-                    textAlign: .center,
+                    style: FTheme.of(context).typography.xl,
+                    textAlign: TextAlign.center,
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   if (Platform.isIOS) ...[
-                    AppleSignInWidget(),
-                    SizedBox(height: 12),
+                    const AppleSignInWidget(),
+                    const SizedBox(height: 12),
                   ],
 
-                  GoogleSignInWidget(),
+                  const GoogleSignInWidget(),
                 ],
               ),
             ),

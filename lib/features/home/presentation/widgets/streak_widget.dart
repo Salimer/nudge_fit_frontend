@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/extensions/build_context.dart';
 
@@ -16,7 +17,7 @@ class StreakWidget extends StatelessWidget {
       children: [
         Text(
           '${context.l10n.streak}: $streak ${context.l10n.daysStrong}',
-          style: Theme.of(context).textTheme.bodyLarge,
+          style: FTheme.of(context).typography.lg,
         ),
       ],
     );

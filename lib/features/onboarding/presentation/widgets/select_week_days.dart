@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../data/models/day_in_week_model.dart';
+import 'package:forui/forui.dart';
 
 class SelectWeekDays extends StatefulWidget {
   /// `SelectWeekDays` takes a list of days of type `DayInWeek`.
@@ -140,7 +141,7 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
   // getter to handle background color of container.
   Color? get _handleBackgroundColor {
     if (widget.backgroundColor == null) {
-      return Theme.of(context).colorScheme.secondary;
+      return FTheme.of(context).colors.secondary;
     } else {
       return widget.backgroundColor;
     }

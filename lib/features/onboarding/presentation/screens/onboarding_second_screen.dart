@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/extensions/build_context.dart';
@@ -76,83 +77,10 @@ class _OnboardingSecondScreenState
   Widget build(BuildContext context) {
     allExcuses = {..._getInitialExcuses(context), ..._customExcuses}.toList();
 
-    return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(child: NeutralMighty()),
-              SizedBox(height: 20),
-              Text(
-                context.l10n.whyDoYouUsuallySkip,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 24),
-              Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: allExcuses.map((excuse) {
-                  final isSelected = _selectedExcuses.contains(excuse);
-                  return ChoiceChip(
-                    label: Text(excuse),
-                    selected: isSelected,
-                    onSelected: (bool selected) {
-                      setState(() {
-                        selected
-                            ? _selectedExcuses.add(excuse)
-                            : _selectedExcuses.remove(excuse);
-                      });
-                    },
-                    selectedColor: Theme.of(
-                      context,
-                    ).colorScheme.primaryContainer,
-                    labelStyle: TextStyle(
-                      color: isSelected
-                          ? Theme.of(context).colorScheme.onPrimaryContainer
-                          : Theme.of(context).colorScheme.onSurface,
-                      fontWeight: isSelected
-                          ? FontWeight.bold
-                          : FontWeight.normal,
-                    ),
-                    showCheckmark: true,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(
-                        color: isSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : Colors.grey.shade300,
-                      ),
-                    ),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(height: 24),
-              TextField(
-                controller: _controller,
-                decoration: InputDecoration(
-                  hintText: context.l10n.other,
-                  prefixIcon: const Icon(Icons.add),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  filled: true,
-                  fillColor: Colors.grey.shade50,
-                ),
-                onSubmitted: _addCustomExcuse,
-              ),
-              // Extra space so content doesn't get hidden behind the bottom buttons
-              const SizedBox(height: 20),
-            ],
-          ),
-        ),
-      ),
+    return FScaffold(
+      header: const FHeader(title: Text('')),
       // Fixed Navigation Buttons
-      bottomNavigationBar: Consumer(
+      footer: Consumer(
         builder: (context, ref, _) {
           ref.listen(daysAndTimePickerStateProvider, ((_, _) {}));
           return Padding(
@@ -171,6 +99,69 @@ class _OnboardingSecondScreenState
             ),
           );
         },
+      ),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Center(child: NeutralMighty()),
+              const SizedBox(height: 20),
+              Text(
+                context.l10n.whyDoYouUsuallySkip,
+                style: FTheme.of(context).typography.xl2.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 24),
+              Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                children: allExcuses.map((excuse) {
+                  final isSelected = _selectedExcuses.contains(excuse);
+                  return FTappable(
+                    onPress: () {
+                      setState(() {
+                        if (isSelected) {
+                          _selectedExcuses.remove(excuse);
+                        } else {
+                          _selectedExcuses.add(excuse);
+                        }
+                      });
+                    },
+                    builder: (context, variants, child) => FBadge(
+                      variant: isSelected ? FBadgeVariant.primary : FBadgeVariant.outline,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          if (isSelected) ...[
+                            const Icon(
+                              FIcons.check,
+                              size: 12,
+                            ),
+                            const SizedBox(width: 4),
+                          ],
+                          Text(excuse),
+                        ],
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 24),
+              FTextField(
+                control: FTextFieldControl.managed(controller: _controller),
+                hint: context.l10n.other,
+                prefixBuilder: (context, style, variants) =>
+                    FTextField.prefixIconBuilder(context, style, variants, const Icon(FIcons.plus)),
+                onSubmit: _addCustomExcuse,
+              ),
+              // Extra space so content doesn't get hidden behind the bottom buttons
+              const SizedBox(height: 20),
+            ],
+          ),
+        ),
       ),
     );
   }

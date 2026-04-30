@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
@@ -11,68 +12,14 @@ class OnboardingFourthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SeriousMighty(),
-                SizedBox(height: 20),
-                Text(
-                  context.l10n.commitmentTitle,
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: .center,
-                ),
-                SizedBox(height: 20),
-                Text(
-                  context.l10n.commitmentBody,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                SizedBox(height: 20),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.outline,
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: .start,
-                    children: [
-                      Text(
-                        "✅ ${context.l10n.nudgeFriendly}",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      Text(
-                        "⚠️ ${context.l10n.nudgeLate}",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      Text(
-                        "🚨${context.l10n.nudgePersistent}",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: Consumer(
+    return FScaffold(
+      header: const FHeader(title: Text('')),
+      footer: Consumer(
         builder: (context, ref, _) {
           return Padding(
             padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
             child: Column(
-              mainAxisSize: .min,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 CustomElevatedButton1(
                   text: context.l10n.btnUnderstandNag,
@@ -82,7 +29,7 @@ class OnboardingFourthScreen extends StatelessWidget {
                         .goNamed(RouteNames.onboardingFifth);
                   },
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 GestureDetector(
                   onTap: () {
                     ref
@@ -91,8 +38,8 @@ class OnboardingFourthScreen extends StatelessWidget {
                   },
                   child: Text(
                     context.l10n.btnMaybeLater,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: Colors.black,
+                    style: FTheme.of(context).typography.sm.copyWith(
+                      color: FTheme.of(context).colors.primary,
                       fontWeight: FontWeight.w500,
                       decoration: TextDecoration.underline,
                     ),
@@ -102,6 +49,60 @@ class OnboardingFourthScreen extends StatelessWidget {
             ),
           );
         },
+      ),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SeriousMighty(),
+                const SizedBox(height: 20),
+                Text(
+                  context.l10n.commitmentTitle,
+                  style: FTheme.of(context).typography.xl4.copyWith(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  context.l10n.commitmentBody,
+                  style: FTheme.of(context).typography.lg,
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: FTheme.of(context).colors.border,
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "✅ ${context.l10n.nudgeFriendly}",
+                        style: FTheme.of(context).typography.lg,
+                      ),
+                      Text(
+                        "⚠️ ${context.l10n.nudgeLate}",
+                        style: FTheme.of(context).typography.lg,
+                      ),
+                      Text(
+                        "🚨${context.l10n.nudgePersistent}",
+                        style: FTheme.of(context).typography.lg,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

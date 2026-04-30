@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/app_padding.dart';
@@ -12,7 +13,7 @@ class SkippedView extends StatelessWidget {
     return SafeArea(
       bottom: false,
       child: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           vertical: AppPadding.vertical,
           horizontal: AppPadding.horizontal,
         ),
@@ -22,26 +23,26 @@ class SkippedView extends StatelessWidget {
             child: Column(
               children: [
                 Row(children: [Text(context.l10n.homeSkippedGreeting('name'))]),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     Text(
                       context.l10n.homeSkippedTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      style: FTheme.of(context).typography.xl3.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 CryingMighty(
                   maxHeight: MediaQuery.sizeOf(context).height * 0.5,
                   maxWidth: MediaQuery.sizeOf(context).width * 0.7,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
-                    border: Border.all(),
+                    border: Border.all(color: FTheme.of(context).colors.border),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   padding: const EdgeInsets.all(16),
@@ -49,14 +50,14 @@ class SkippedView extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(context.l10n.homeLoggedLabel),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Text(context.l10n.homeLoggedExcuse('excuse')),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Text(context.l10n.homeLoggedStatusSkipped),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(context.l10n.homeSkippedNudge),
               ],
             ),

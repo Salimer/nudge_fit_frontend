@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:forui/forui.dart';
 import '../../../../core/extensions/build_context.dart';
 
 class StartedWidget extends StatefulWidget {
@@ -30,7 +31,7 @@ class _StartedWidgetState extends State<StartedWidget> {
           height: handleSize,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+            color: FTheme.of(context).colors.primary.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(handleSize / 2),
           ),
           child: Stack(
@@ -42,7 +43,7 @@ class _StartedWidgetState extends State<StartedWidget> {
                 child: Text(
                   context.l10n.btnStarted,
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
+                    color: FTheme.of(context).colors.primary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -51,12 +52,11 @@ class _StartedWidgetState extends State<StartedWidget> {
               // The Slider
               Positioned.directional(
                 textDirection: direction,
-                start: _dragValue, // Start is Right in AR, Left in EN
+                start: _dragValue,
                 child: GestureDetector(
                   onHorizontalDragUpdate: (details) {
                     setState(() {
                       _isResetting = false;
-                      // Logic: In RTL, moving left (negative dx) is "progress"
                       double delta = isRtl
                           ? -details.delta.dx
                           : details.delta.dx;
@@ -87,12 +87,11 @@ class _StartedWidgetState extends State<StartedWidget> {
                     height: handleSize,
                     width: handleSize,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
+                      color: FTheme.of(context).colors.primary,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
-                      // FIXED ICON LOGIC
-                      Icons.chevron_right_rounded,
+                      FIcons.chevronRight,
                       color: Colors.white,
                       size: 28,
                     ),

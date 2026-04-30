@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/app_padding.dart';
@@ -26,7 +27,7 @@ class RestDayView extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.homeRestGreeting('name'),
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: FTheme.of(context).typography.lg,
                     ),
                   ],
                 ),
@@ -35,14 +36,14 @@ class RestDayView extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.homeRestTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      style: FTheme.of(context).typography.xl3.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
-                StreakWidget(streak: 2),
+                const StreakWidget(streak: 2),
                 RestingMighty(
                   maxHeight: MediaQuery.sizeOf(context).height * 0.5,
                   maxWidth: MediaQuery.sizeOf(context).width * 0.7,
@@ -54,20 +55,20 @@ class RestDayView extends StatelessWidget {
                     vertical: 24,
                   ),
                   decoration: BoxDecoration(
-                    border: Border.all(),
+                    border: Border.all(color: FTheme.of(context).colors.border),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Column(
                     children: [
                       Text(
                         context.l10n.homeRestLabel,
-                        style: Theme.of(context).textTheme.displaySmall,
+                        style: FTheme.of(context).typography.xl3,
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Text(
                         context.l10n.homeRestBody,
-                        style: Theme.of(context).textTheme.bodyLarge,
-                        textAlign: .center,
+                        style: FTheme.of(context).typography.lg,
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),

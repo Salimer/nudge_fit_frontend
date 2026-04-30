@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/common/state/routes_state.dart';
 import 'core/common/state/locale_state.dart';
@@ -13,6 +15,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appTheme = ref.read(appThemeProvider);
+    final isDarkMode = MediaQuery.platformBrightnessOf(context) == Brightness.dark;
     return MaterialApp.router(
       scaffoldMessengerKey: ref.read(scaffoldMessengerKeyProvider),
       routerConfig: ref.read(routesProvider),
@@ -22,22 +25,28 @@ class MyApp extends ConsumerWidget {
       themeMode: ThemeMode.system,
       title: 'Nudge Fit',
       locale: ref.watch(localeStateProvider).requireValue,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localizationsDelegates: [
+        ...AppLocalizations.localizationsDelegates,
+        FLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       supportedLocales: AppLocalizations.supportedLocales,
       builder: (context, child) {
         // Limit text scaling to prevent UI breakage on devices with large system fonts.
-        // You can change `maxScaleFactor: 1.2` to `maxScaleFactor: 1.0` (or use `TextScaler.noScaling`)
-        // to completely disable scaling if you want the exact same font size everywhere.
         final mediaQuery = MediaQuery.of(context);
 
-        return GestureDetector(
-          onTap: () {
-            // Unfocus the current focus node when the user taps outside of a text field.
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          child: MediaQuery(
-            data: mediaQuery.copyWith(textScaler: TextScaler.linear(1.0)),
-            child: child ?? const SizedBox.shrink(),
+        return FTheme(
+          data: isDarkMode ? appTheme.fDarkTheme : appTheme.fLightTheme,
+          child: GestureDetector(
+            onTap: () {
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: MediaQuery(
+              data: mediaQuery.copyWith(textScaler: TextScaler.linear(1.0)),
+              child: child ?? const SizedBox.shrink(),
+            ),
           ),
         );
       },

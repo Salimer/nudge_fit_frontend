@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/constants/enums.dart';
 import '../state/home_screen_state.dart';
@@ -17,8 +18,8 @@ class HomeScreen extends StatelessWidget {
     return Consumer(
       builder: (context, ref, _) {
         final homeScreenState = ref.watch(homeScreenStateProvider);
-        return Scaffold(
-          body: AnimatedSwitcher(
+        return FScaffold(
+          child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 500),
             child: homeScreenState.when(
               data: (state) {
@@ -39,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                 return Center(child: Text(error.toString()));
               },
               loading: () {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               },
             ),
           ),

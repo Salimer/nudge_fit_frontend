@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:forui/forui.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../common/state/locale_state.dart';
@@ -15,17 +15,15 @@ class AppTheme {
 
   Locale get locale => ref.watch(localeStateProvider).requireValue;
 
-  static String? _fontFamily(Locale locale) => locale.languageCode == 'ar'
-      ? GoogleFonts.cairo().fontFamily
-      : GoogleFonts.poppins().fontFamily;
-
   ThemeData buildTheme() {
     return ThemeData(
       useMaterial3: true,
-      fontFamily: _fontFamily(locale),
     );
   }
 
   ThemeData get lightTheme => buildTheme();
   ThemeData get darkTheme => buildTheme();
+  
+  FThemeData get fLightTheme => FThemes.neutral.light.desktop;
+  FThemeData get fDarkTheme => FThemes.neutral.dark.desktop;
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
@@ -34,19 +35,20 @@ class SetupRequiredView extends StatelessWidget {
                           children: [
                             Text(
                               context.l10n.homeSetupGreeting('name'),
-                              style: Theme.of(context).textTheme.titleMedium,
-                              textAlign: .start,
+                              style: FTheme.of(context).typography.xl,
+                              textAlign: TextAlign.start,
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Text(
                           context.l10n.homeSetupTitle,
-                          style: Theme.of(context).textTheme.displaySmall
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                          textAlign: .center,
+                          style: FTheme.of(context).typography.xl3.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                          textAlign: TextAlign.center,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         ReadingMighty(
                           maxHeight: MediaQuery.sizeOf(context).height * 0.5,
                           maxWidth: MediaQuery.sizeOf(context).width * 0.7,
@@ -54,9 +56,9 @@ class SetupRequiredView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
-                  DaysAndTimePickerWidget(),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
+                  const DaysAndTimePickerWidget(),
+                  const SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.only(
                       right: AppPadding.horizontal,

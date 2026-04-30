@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:forui/forui.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
 import '../../../../core/extensions/build_context.dart';
@@ -13,15 +14,14 @@ class AppleSignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height:
-          56, // Apple's preferred height is 44-60; 56 is the "sweet spot" for modern apps
       child: Consumer(
         builder: (context, ref, _) {
-          return FilledButton.icon(
-            onPressed: () {
+          return FButton(
+            variant: FButtonVariant.primary,
+            onPress: () {
               ref.read(routesProvider).goNamed(RouteNames.onboardingSeventh);
             },
-            icon: SvgPicture.asset(
+            prefix: SvgPicture.asset(
               SocialMediaIcons.appleLogo,
               height: 24,
               colorFilter: const ColorFilter.mode(
@@ -29,24 +29,12 @@ class AppleSignInWidget extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            label: Text(
+            child: Text(
               context.l10n.signInWithApple,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Colors.white,
+              style: FTheme.of(context).typography.lg.copyWith(
+                color: FTheme.of(context).colors.primaryForeground,
                 fontWeight: FontWeight.w600,
               ),
-            ),
-            style: FilledButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.white,
-              elevation: 0,
-              // Apple's "Continue with Apple" buttons usually have a radius of 8-12
-              // or are fully stadium-shaped. 12 is the current iOS standard.
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              // Padding ensures the icon and text don't feel cramped
-              padding: const EdgeInsets.symmetric(horizontal: 16),
             ),
           );
         },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forui/forui.dart';
 
 class CustomElevatedButton1 extends StatelessWidget {
   final String text;
@@ -16,8 +17,8 @@ class CustomElevatedButton1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: ElevatedButton(
-        onPressed: isLoading ? null : onPressed,
+      child: FButton(
+        onPress: isLoading ? null : onPressed,
         child: isLoading ? const CircularProgressIndicator() : Text(text),
       ),
     );
@@ -36,42 +37,10 @@ class CustomTextButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(12),
-        child: Column(
-          mainAxisSize:
-              MainAxisSize.min, // Prevents column from taking full height
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                padding: const EdgeInsets.only(
-                  bottom: 0,
-                ), // The "gap" you wanted
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color:
-                          Theme.of(context).textTheme.bodyMedium?.color ??
-                          Colors.black,
-                      width: 1.0, // Thickness of the line
-                    ),
-                  ),
-                ),
-                child: Text(
-                  text,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.normal,
-                    // Remove the old decoration here
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+    return FButton(
+      variant: FButtonVariant.ghost,
+      onPress: onTap,
+      child: Text(text),
     );
   }
 }
@@ -92,13 +61,9 @@ class CustomFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: FilledButton(
-        style: FilledButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-        ),
-        onPressed: isLoading ? null : onPressed,
+      child: FButton(
+        variant: FButtonVariant.primary,
+        onPress: isLoading ? null : onPressed,
         child: isLoading
             ? const SizedBox(
                 width: 24,
