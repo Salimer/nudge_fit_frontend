@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/app_padding.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../widgets/streak_widget.dart';
 
 class SkippedView extends StatelessWidget {
   const SkippedView({super.key});
@@ -39,7 +38,6 @@ class SkippedView extends StatelessWidget {
                   maxHeight: MediaQuery.sizeOf(context).height * 0.5,
                   maxWidth: MediaQuery.sizeOf(context).width * 0.7,
                 ),
-                // StreakWidget(streak: 0),
                 SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
