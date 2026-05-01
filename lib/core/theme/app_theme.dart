@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../common/state/locale_state.dart';
 
@@ -19,13 +20,14 @@ class AppTheme {
       ? GoogleFonts.cairo().fontFamily
       : GoogleFonts.poppins().fontFamily;
 
-  ThemeData buildTheme() {
-    return ThemeData(
-      useMaterial3: true,
-      fontFamily: _fontFamily(locale),
+  ShadThemeData buildTheme() {
+    return ShadThemeData(
+      textTheme: ShadTextTheme.fromGoogleFont(
+        locale.languageCode == 'ar' ? GoogleFonts.cairo : GoogleFonts.poppins,
+      ),
     );
   }
 
-  ThemeData get lightTheme => buildTheme();
-  ThemeData get darkTheme => buildTheme();
+  ShadThemeData get lightTheme => buildTheme();
+  ShadThemeData get darkTheme => buildTheme();
 }
