@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
 import '../../../../core/extensions/build_context.dart';
@@ -20,7 +21,7 @@ class OnboardingThirdScreen extends ConsumerWidget {
           child: Column(
             children: [
               NeutralMighty(),
-              const SizedBox(height: 16),
+              const SizedBox(height: Spaces.md),
               Text(
                 context.l10n.whenAreWeDoingThis,
                 textAlign: TextAlign.center,
@@ -28,7 +29,7 @@ class OnboardingThirdScreen extends ConsumerWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: Spaces.xl),
 
               // Days Selector
               DaysAndTimePickerWidget(),
@@ -45,8 +46,12 @@ class OnboardingThirdScreen extends ConsumerWidget {
           );
 
           return Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
-            child: CustomElevatedButton1(
+            padding: const EdgeInsets.only(
+              left: Spaces.lg,
+              right: Spaces.lg,
+              bottom: Spaces.xl,
+            ),
+            child: PrimaryButton(
               text: context.l10n.next,
               onPressed: selectedDays.isNotEmpty
                   ? () {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/buttons.dart';
@@ -15,12 +16,12 @@ class OnboardingFourthScreen extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(Spaces.sm),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 SeriousMighty(),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Text(
                   context.l10n.commitmentTitle,
                   style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -29,15 +30,15 @@ class OnboardingFourthScreen extends StatelessWidget {
                   ),
                   textAlign: .center,
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Text(
                   context.l10n.commitmentBody,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(Spaces.sm),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
@@ -70,11 +71,15 @@ class OnboardingFourthScreen extends StatelessWidget {
       bottomNavigationBar: Consumer(
         builder: (context, ref, _) {
           return Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
+            padding: const EdgeInsets.only(
+              left: Spaces.lg,
+              right: Spaces.lg,
+              bottom: Spaces.xl,
+            ),
             child: Column(
               mainAxisSize: .min,
               children: [
-                CustomElevatedButton1(
+                PrimaryButton(
                   text: context.l10n.btnUnderstandNag,
                   onPressed: () {
                     ref
@@ -82,7 +87,7 @@ class OnboardingFourthScreen extends StatelessWidget {
                         .goNamed(RouteNames.onboardingFifth);
                   },
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: Spaces.xs),
                 GestureDetector(
                   onTap: () {
                     ref

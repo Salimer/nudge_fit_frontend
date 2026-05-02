@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/buttons.dart';
@@ -15,7 +17,7 @@ class OnboardingFirstScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(Spaces.sm),
           child: Column(
             crossAxisAlignment: .start,
             mainAxisSize: .max,
@@ -29,29 +31,22 @@ class OnboardingFirstScreen extends StatelessWidget {
                       mainAxisSize: .min,
                       children: [
                         NeutralMighty(),
-                        SizedBox(height: 12),
+                        SizedBox(height: Spaces.md),
                         Column(
                           mainAxisSize: .min,
                           children: [
                             Text(
                               context.l10n.welcomeTo,
-                              style: Theme.of(context).textTheme.headlineLarge
-                                  ?.copyWith(
-                                    fontSize: 50,
-                                    fontWeight: FontWeight.w400,
-                                  ),
+                              style: ShadTheme.of(context).textTheme.h1,
                             ),
+                            SizedBox(height: Spaces.sm),
                             Text(
                               context.l10n.nudgeFit.toUpperCase(),
-                              style: Theme.of(context).textTheme.headlineLarge
-                                  ?.copyWith(
-                                    fontSize: 50,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              style: ShadTheme.of(context).textTheme.h1Large,
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        SizedBox(height: Spaces.md),
 
                         Column(
                           mainAxisSize: .min,
@@ -67,7 +62,7 @@ class OnboardingFirstScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        SizedBox(height: Spaces.md),
 
                         Text(
                           context.l10n.youHaveThePlanWeProvideTheDiscipline,
@@ -75,7 +70,7 @@ class OnboardingFirstScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleMedium,
                           textAlign: .center,
                         ),
-                        SizedBox(height: 12),
+                        SizedBox(height: Spaces.md),
                       ],
                     ),
                   ),
@@ -86,16 +81,24 @@ class OnboardingFirstScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
-        child: Consumer(
-          builder: (context, ref, _) {
-            return CustomElevatedButton1(
-              text: context.l10n.getStarted,
-              onPressed: () {
-                ref.read(routesProvider).goNamed(RouteNames.onboardingSecond);
-              },
-            );
-          },
+        padding: const EdgeInsets.only(
+          left: Spaces.lg,
+          right: Spaces.lg,
+          bottom: Spaces.xl,
+        ),
+        child: SafeArea(
+          bottom: false,
+          top: false,
+          child: Consumer(
+            builder: (context, ref, _) {
+              return PrimaryButton(
+                text: context.l10n.getStarted,
+                onPressed: () {
+                  ref.read(routesProvider).goNamed(RouteNames.onboardingSecond);
+                },
+              );
+            },
+          ),
         ),
       ),
     );

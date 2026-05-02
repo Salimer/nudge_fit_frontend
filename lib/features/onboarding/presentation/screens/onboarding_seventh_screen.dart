@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/common/state/routes_state.dart';
-import '../../../../core/constants/app_padding.dart';
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -23,13 +23,13 @@ class OnboardingSeventhScreen extends StatelessWidget {
                 Text(context.l10n.paywallHeader("name")),
                 PremiumMighty(),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(Spaces.sm),
                   child: Row(
                     spacing: 5,
                     children: [
                       Expanded(
                         child: Container(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(Spaces.sm),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black, width: 4),
                             borderRadius: BorderRadius.circular(15),
@@ -63,7 +63,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
                       ),
                       Expanded(
                         child: Container(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(Spaces.sm),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black, width: 4),
                             borderRadius: BorderRadius.circular(15),
@@ -105,15 +105,15 @@ class OnboardingSeventhScreen extends StatelessWidget {
 
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(
-          bottom: AppPadding.vertical,
-          right: AppPadding.horizontal,
-          left: AppPadding.horizontal,
+          bottom: Spaces.vertical,
+          right: Spaces.horizontal,
+          left: Spaces.horizontal,
         ),
         child: Column(
           mainAxisSize: .min,
           children: [
             SizedBox(
-              height: 56,
+              height: Spaces.buttonHeight,
               width: double.infinity,
               child: CustomFilledButton(
                 text: context.l10n.btnUpgrade,

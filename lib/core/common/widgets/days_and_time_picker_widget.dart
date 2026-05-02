@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; // Required for HapticFeedback
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../features/onboarding/data/models/day_in_week_model.dart';
 import '../../../features/onboarding/presentation/widgets/select_week_days.dart';
 import '../../extensions/build_context.dart';
 import '../state/days_and_time_picker_state.dart';
+import '../../constants/spaces.dart';
 
 class DaysAndTimePickerWidget extends ConsumerWidget {
   const DaysAndTimePickerWidget({super.key});
@@ -13,14 +16,10 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
   void _showTimePicker(BuildContext context, WidgetRef ref, Time time) {
     Navigator.of(context).push(
       showPicker(
-        themeData: Theme.of(context),
-        okStyle: Theme.of(
-          context,
-        ).textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w900),
-        cancelStyle: Theme.of(
-          context,
-        ).textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w900),
-        focusMinutePicker: true,
+        backgroundColor: ShadTheme.of(context).colorScheme.accent,
+        accentColor: ShadTheme.of(context).colorScheme.accentForeground,
+        okStyle: ShadTheme.of(context).textTheme.small,
+        cancelStyle: ShadTheme.of(context).textTheme.small,
         iosStylePicker: true,
         blurredBackground: true,
         context: context,
@@ -33,6 +32,8 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
         okText: context.l10n.ok,
         duskSpanInMinutes: 120,
         onChange: (Time value) {
+          // Vibrate when the time is confirmed/changed
+          HapticFeedback.mediumImpact();
           ref.read(daysAndTimePickerStateProvider.notifier).setTime(value);
         },
       ),
@@ -83,28 +84,43 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
       children: [
         // Days Selector
         SelectWeekDays(
+          backgroundColor: ShadTheme.of(context).colorScheme.primary,
+          selectedDayTextColor: ShadTheme.of(context).colorScheme.primary,
+          selectedDaysFillColor: ShadTheme.of(context).colorScheme.secondary,
+          unSelectedDayTextColor: ShadTheme.of(context).colorScheme.secondary,
           fontSize: 12,
           fontWeight: FontWeight.w900,
           days: actualDays,
           border: false,
           onSelect: (List<String> values) {
+            // Vibrate when a day is selected/toggled
+            HapticFeedback.lightImpact();
             ref.read(daysAndTimePickerStateProvider.notifier).setDays(values);
           },
         ),
-        const SizedBox(height: 40),
+        const SizedBox(height: Spaces.xxl),
 
         // THE NEW VISUAL TIME PICKER GESTURE DETECTOR
         GestureDetector(
-          onTap: () => _showTimePicker(context, ref, time),
+          onTap: () {
+            // Optional: Vibrate when opening the picker
+            HapticFeedback.selectionClick();
+            _showTimePicker(context, ref, time);
+          },
           child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            padding: const EdgeInsets.symmetric(
+              vertical: Spaces.lg,
+              horizontal: Spaces.xxl,
+            ),
             decoration: BoxDecoration(
-              color: Theme.of(
+              color: ShadTheme.of(
                 context,
-              ).colorScheme.primaryContainer.withOpacity(0.4),
+              ).colorScheme.primary.withValues(alpha: 0.4),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
+                color: ShadTheme.of(
+                  context,
+                ).colorScheme.secondary.withValues(alpha: 0.2),
               ),
             ),
             child: Column(
@@ -122,18 +138,6 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
                     fontWeight: FontWeight.w900,
                     letterSpacing: 2,
                   ),
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.edit, size: 16, color: Colors.grey[600]),
-                    const SizedBox(width: 4),
-                    Text(
-                      "Tap to change", // You can add this to your l10n
-                      style: TextStyle(color: Colors.grey[600]),
-                    ),
-                  ],
                 ),
               ],
             ),

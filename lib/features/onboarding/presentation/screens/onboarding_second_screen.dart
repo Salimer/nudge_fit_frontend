@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/buttons.dart';
@@ -54,11 +56,11 @@ class _OnboardingSecondScreenState
   void _addCustomExcuse(String value) {
     final text = value.trim();
     if (allExcuses.contains(text)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(context.l10n.excuseAlreadyExists),
-          backgroundColor: Colors.red,
-          behavior: SnackBarBehavior.floating,
+      // This is the Shadcn Toast way
+      ShadToaster.of(context).show(
+        ShadToast.destructive(
+          description: Text(context.l10n.excuseAlreadyExists),
+          showCloseIconOnlyWhenHovered: false,
         ),
       );
       return;
@@ -80,25 +82,26 @@ class _OnboardingSecondScreenState
       appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(Spaces.lg),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(child: NeutralMighty()),
-              SizedBox(height: 20),
+              SizedBox(height: Spaces.lg),
               Text(
                 context.l10n.whyDoYouUsuallySkip,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: Spaces.lg),
               Wrap(
                 spacing: 10,
                 runSpacing: 10,
                 children: allExcuses.map((excuse) {
                   final isSelected = _selectedExcuses.contains(excuse);
                   return ChoiceChip(
+                    checkmarkColor: ShadTheme.of(context).colorScheme.secondary,
                     label: Text(excuse),
                     selected: isSelected,
                     onSelected: (bool selected) {
@@ -131,46 +134,49 @@ class _OnboardingSecondScreenState
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 24),
-              TextField(
+              const SizedBox(height: Spaces.lg),
+              ShadInput(
                 controller: _controller,
-                decoration: InputDecoration(
-                  hintText: context.l10n.other,
-                  prefixIcon: const Icon(Icons.add),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                placeholder: Text(context.l10n.other),
+                // Shadcn uses LucideIcons by default for that premium look
+                leading: Padding(
+                  padding: EdgeInsets.zero,
+                  child: ShadIconButton(
+                    icon: Icon(LucideIcons.plus),
+                    onPressed: () => _addCustomExcuse(_controller.text),
                   ),
-                  filled: true,
-                  fillColor: Colors.grey.shade50,
                 ),
-                onSubmitted: _addCustomExcuse,
+                // You don't need to define the border or fill color here
+                // because ShadInput automatically pulls the "Zinc" style
+                // and the radius from your global ShadThemeData.
+                onSubmitted: (value) => _addCustomExcuse(value),
               ),
               // Extra space so content doesn't get hidden behind the bottom buttons
-              const SizedBox(height: 20),
+              const SizedBox(height: Spaces.lg),
             ],
           ),
         ),
       ),
       // Fixed Navigation Buttons
-      bottomNavigationBar: Consumer(
-        builder: (context, ref, _) {
-          ref.listen(daysAndTimePickerStateProvider, ((_, _) {}));
-          return Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
-            child: CustomElevatedButton1(
-              text: context.l10n.next,
-              onPressed: _selectedExcuses.isNotEmpty
-                  ? () {
-                      ref
-                          .read(onboardingUseCaseProvider)
-                          .leaveSecondOnboardingScreen(
-                            _selectedExcuses.toList(),
-                          );
-                    }
-                  : null,
-            ),
-          );
-        },
+      bottomNavigationBar: SafeArea(
+        bottom: false,
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: Spaces.lg,
+            right: Spaces.lg,
+            bottom: Spaces.xl,
+          ),
+          child: PrimaryButton(
+            text: context.l10n.next,
+            enabled: _selectedExcuses.isNotEmpty,
+            onPressed: () {
+              ref
+                  .read(onboardingUseCaseProvider)
+                  .leaveSecondOnboardingScreen(_selectedExcuses.toList());
+            },
+          ),
+        ),
       ),
     );
   }

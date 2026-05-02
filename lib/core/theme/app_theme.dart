@@ -16,18 +16,25 @@ class AppTheme {
 
   Locale get locale => ref.watch(localeStateProvider).requireValue;
 
-  static String? _fontFamily(Locale locale) => locale.languageCode == 'ar'
-      ? GoogleFonts.cairo().fontFamily
-      : GoogleFonts.poppins().fontFamily;
-
-  ShadThemeData buildTheme() {
+  // 1. Update this to accept the ColorScheme
+  ShadThemeData _buildTheme(ShadColorScheme colorScheme) {
     return ShadThemeData(
+      colorScheme: colorScheme,
       textTheme: ShadTextTheme.fromGoogleFont(
         locale.languageCode == 'ar' ? GoogleFonts.cairo : GoogleFonts.poppins,
+      ),
+      // 2. Now you can access colorScheme.muted or any other color
+      selectTheme: ShadSelectTheme(
+        decoration: ShadDecoration(
+          color: colorScheme
+              .muted, // This will be light gray in light mode, dark gray in dark mode
+        ),
       ),
     );
   }
 
-  ShadThemeData get lightTheme => buildTheme();
-  ShadThemeData get darkTheme => buildTheme();
+  // 3. Pass the specific Slate schemes into the builder
+  ShadThemeData get lightTheme => _buildTheme(const ShadZincColorScheme.light());
+
+  ShadThemeData get darkTheme => _buildTheme(const ShadZincColorScheme.dark());
 }

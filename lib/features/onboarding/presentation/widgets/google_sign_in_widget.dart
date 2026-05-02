@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/extensions/build_context.dart';
 
@@ -13,7 +14,7 @@ class GoogleSignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 56,
+      height: Spaces.buttonHeight,
       child: Consumer(
         builder: (context, ref, _) {
           return OutlinedButton.icon(
@@ -23,7 +24,7 @@ class GoogleSignInWidget extends StatelessWidget {
             },
             icon: SvgPicture.asset(
               SocialMediaIcons.googleLogo,
-              height: 24, // Standard Google branding size
+              height: Spaces.lg, // Standard Google branding size
             ),
             label: Text(
               context.l10n.continueWithGoogle,

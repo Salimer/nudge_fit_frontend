@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
-import '../../../../core/constants/app_padding.dart';
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 
 class SkippedView extends StatelessWidget {
@@ -13,8 +13,8 @@ class SkippedView extends StatelessWidget {
       bottom: false,
       child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: AppPadding.vertical,
-          horizontal: AppPadding.horizontal,
+          vertical: Spaces.vertical,
+          horizontal: Spaces.horizontal,
         ),
         child: SizedBox(
           width: double.infinity,
@@ -22,7 +22,7 @@ class SkippedView extends StatelessWidget {
             child: Column(
               children: [
                 Row(children: [Text(context.l10n.homeSkippedGreeting('name'))]),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Row(
                   children: [
                     Text(
@@ -33,30 +33,30 @@ class SkippedView extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 CryingMighty(
                   maxHeight: MediaQuery.sizeOf(context).height * 0.5,
                   maxWidth: MediaQuery.sizeOf(context).width * 0.7,
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(Spaces.md),
 
                   child: Column(
                     children: [
                       Text(context.l10n.homeLoggedLabel),
-                      SizedBox(height: 10),
+                      SizedBox(height: Spaces.sm),
                       Text(context.l10n.homeLoggedExcuse('excuse')),
-                      SizedBox(height: 10),
+                      SizedBox(height: Spaces.sm),
                       Text(context.l10n.homeLoggedStatusSkipped),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Text(context.l10n.homeSkippedNudge),
               ],
             ),

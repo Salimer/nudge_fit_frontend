@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../widgets/apple_sign_in_widget.dart';
@@ -18,13 +19,13 @@ class OnboardingSixthScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: Spaces.lg),
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   ProudMighty(),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: Spaces.lg),
                   Text(
                     context.l10n.contractSealed,
                     style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -33,18 +34,18 @@ class OnboardingSixthScreen extends StatelessWidget {
                     ),
                     textAlign: .center,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: Spaces.lg),
                   Text(
                     context.l10n.createAccountText,
                     style: Theme.of(context).textTheme.titleLarge,
                     textAlign: .center,
                   ),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: Spaces.lg),
 
                   if (Platform.isIOS) ...[
                     AppleSignInWidget(),
-                    SizedBox(height: 12),
+                    SizedBox(height: Spaces.md),
                   ],
 
                   GoogleSignInWidget(),

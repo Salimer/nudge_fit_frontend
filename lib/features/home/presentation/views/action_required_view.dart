@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
-import '../../../../core/constants/app_padding.dart';
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../widgets/started_widget.dart';
 import '../widgets/streak_widget.dart';
@@ -16,8 +16,8 @@ class ActionRequiredView extends StatelessWidget {
       bottom: false,
       child: Padding(
         padding: EdgeInsets.symmetric(
-          vertical: AppPadding.vertical,
-          horizontal: AppPadding.horizontal,
+          vertical: Spaces.vertical,
+          horizontal: Spaces.horizontal,
         ),
         child: SizedBox(
           width: double.infinity,
@@ -25,7 +25,7 @@ class ActionRequiredView extends StatelessWidget {
             child: Column(
               children: [
                 Row(children: [Text(context.l10n.homeRestGreeting('name'))]),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Row(
                   children: [
                     Text(
@@ -36,14 +36,14 @@ class ActionRequiredView extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 StreakWidget(),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 SeriousMighty(
                   maxHeight: MediaQuery.sizeOf(context).height * 0.5,
                   maxWidth: MediaQuery.sizeOf(context).width * 0.7,
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Text(
                   context.l10n.actionAnticipationMsg,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -51,11 +51,11 @@ class ActionRequiredView extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 24,
+                    horizontal: Spaces.md,
+                    vertical: Spaces.lg,
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(),
@@ -70,7 +70,7 @@ class ActionRequiredView extends StatelessWidget {
                         mainAxisAlignment: .end,
                         children: [Icon(Icons.lock_clock_rounded, size: 40)],
                       ),
-                      SizedBox(width: 10),
+                      SizedBox(width: Spaces.sm),
                       Column(
                         crossAxisAlignment: .start,
                         children: [
@@ -79,7 +79,7 @@ class ActionRequiredView extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleLarge
                                 ?.copyWith(fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 10),
+                          SizedBox(height: Spaces.sm),
                           Text(
                             context.l10n.homeContractTime('8:00 PM'),
                             style: Theme.of(context).textTheme.bodyMedium,
@@ -90,7 +90,7 @@ class ActionRequiredView extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 StartedWidget(onPressed: () {}),
                 CustomTextButtonWidget(
                   text: context.l10n.btnSkip,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -30,7 +31,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                   ),
                   textAlign: .center,
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Consumer(
                   builder: (context, ref, _) {
                     final selectedDays = ref
@@ -50,7 +51,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                     );
                   },
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: Spaces.lg),
                 Consumer(
                   builder: (context, ref, _) {
                     return HoldToConfirmButton(

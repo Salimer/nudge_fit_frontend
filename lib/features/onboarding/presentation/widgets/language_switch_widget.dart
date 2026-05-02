@@ -16,23 +16,20 @@ class LanguageSwitchWidget extends ConsumerWidget {
         .requireValue
         .languageCode;
 
-    return SizedBox(
-      width: 150, // Added a width to keep the UI stable
-      child: ShadSelect<String>(
-        initialValue: currentLocale,
-        // The display logic for the selected item in the button
-        selectedOptionBuilder: (context, value) =>
-            Text(value == 'ar' ? context.l10n.arabic : context.l10n.english),
-        options: [
-          ShadOption(value: 'ar', child: Text(context.l10n.arabic)),
-          ShadOption(value: 'en', child: Text(context.l10n.english)),
-        ],
-        onChanged: (String? value) {
-          if (value != null && value != currentLocale) {
-            ref.read(localeStateProvider.notifier).changeLocale(value);
-          }
-        },
-      ),
+    return ShadSelect<String>(
+      maxWidth: 150,
+      initialValue: currentLocale,
+      selectedOptionBuilder: (context, value) =>
+          Text(value == 'ar' ? context.l10n.arabic : context.l10n.english),
+      options: [
+        ShadOption(value: 'ar', child: Text(context.l10n.arabic)),
+        ShadOption(value: 'en', child: Text(context.l10n.english)),
+      ],
+      onChanged: (String? value) {
+        if (value != null && value != currentLocale) {
+          ref.read(localeStateProvider.notifier).changeLocale(value);
+        }
+      },
     );
   }
 }

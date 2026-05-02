@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 
@@ -13,8 +14,8 @@ class AppleSignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height:
-          56, // Apple's preferred height is 44-60; 56 is the "sweet spot" for modern apps
+      height: Spaces
+          .buttonHeight, // Apple's preferred height is 44-60; 56 is the "sweet spot" for modern apps
       child: Consumer(
         builder: (context, ref, _) {
           return FilledButton.icon(
@@ -23,7 +24,7 @@ class AppleSignInWidget extends StatelessWidget {
             },
             icon: SvgPicture.asset(
               SocialMediaIcons.appleLogo,
-              height: 24,
+              height: Spaces.lg,
               colorFilter: const ColorFilter.mode(
                 Colors.white,
                 BlendMode.srcIn,
@@ -46,7 +47,7 @@ class AppleSignInWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               // Padding ensures the icon and text don't feel cramped
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: Spaces.md),
             ),
           );
         },

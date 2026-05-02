@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
+import '../../constants/spaces.dart';
 
-class CustomElevatedButton1 extends StatelessWidget {
+class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
   final bool isLoading;
+  final bool enabled;
 
-  const CustomElevatedButton1({
+  const PrimaryButton({
     super.key,
     required this.text,
     this.onPressed,
     this.isLoading = false,
+    this.enabled = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: ElevatedButton(
+      child: ShadButton(
         onPressed: isLoading ? null : onPressed,
+        enabled: !isLoading && enabled,
         child: isLoading ? const CircularProgressIndicator() : Text(text),
       ),
     );
@@ -45,7 +50,7 @@ class CustomTextButtonWidget extends StatelessWidget {
               MainAxisSize.min, // Prevents column from taking full height
           children: [
             Padding(
-              padding: const EdgeInsets.all(4.0),
+              padding: const EdgeInsets.all(Spaces.xs),
               child: Container(
                 padding: const EdgeInsets.only(
                   bottom: 0,
@@ -101,8 +106,8 @@ class CustomFilledButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         child: isLoading
             ? const SizedBox(
-                width: 24,
-                height: 24,
+                width: Spaces.lg,
+                height: Spaces.lg,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   color: Colors.white,
