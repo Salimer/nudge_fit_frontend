@@ -59,7 +59,7 @@ class CustomTextButtonWidget extends StatelessWidget {
                   border: Border(
                     bottom: BorderSide(
                       color:
-                          Theme.of(context).textTheme.bodyMedium?.color ??
+                          ShadTheme.of(context).textTheme.p.color ??
                           Colors.black,
                       width: 1.0, // Thickness of the line
                     ),
@@ -67,10 +67,7 @@ class CustomTextButtonWidget extends StatelessWidget {
                 ),
                 child: Text(
                   text,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.normal,
-                    // Remove the old decoration here
-                  ),
+                  style: ShadTheme.of(context).textTheme.p,
                 ),
               ),
             ),

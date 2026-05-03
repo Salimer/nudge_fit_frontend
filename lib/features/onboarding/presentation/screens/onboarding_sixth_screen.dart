@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
@@ -28,16 +29,13 @@ class OnboardingSixthScreen extends StatelessWidget {
                   SizedBox(height: Spaces.lg),
                   Text(
                     context.l10n.contractSealed,
-                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: ShadTheme.of(context).textTheme.h1Large,
                     textAlign: .center,
                   ),
                   SizedBox(height: Spaces.lg),
                   Text(
                     context.l10n.createAccountText,
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: ShadTheme.of(context).textTheme.h4,
                     textAlign: .center,
                   ),
 

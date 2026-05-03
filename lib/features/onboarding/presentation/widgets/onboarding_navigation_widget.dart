@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
@@ -38,7 +39,10 @@ class OnboardingNavigationWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: Text(context.l10n.back),
+                  child: Text(
+                    context.l10n.back,
+                    style: ShadTheme.of(context).textTheme.p,
+                  ),
                 ),
               ),
               const SizedBox(width: Spaces.md),
@@ -51,7 +55,10 @@ class OnboardingNavigationWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: Text(context.l10n.next), // Or context.l10n.next
+                  child: Text(
+                    context.l10n.next,
+                    style: ShadTheme.of(context).textTheme.p,
+                  ), // Or context.l10n.next
                 ),
               ),
             ],

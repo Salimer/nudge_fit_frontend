@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/common/state/days_and_time_picker_state.dart';
@@ -29,9 +30,7 @@ class OnboardingThirdScreen extends ConsumerWidget {
               Text(
                 context.l10n.whenAreWeDoingThis,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: ShadTheme.of(context).textTheme.h2,
               ),
               const SizedBox(height: Spaces.xl),
 

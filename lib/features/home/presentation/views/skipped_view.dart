@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/spaces.dart';
@@ -27,9 +28,7 @@ class SkippedView extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.homeSkippedTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: ShadTheme.of(context).textTheme.h2,
                     ),
                   ],
                 ),

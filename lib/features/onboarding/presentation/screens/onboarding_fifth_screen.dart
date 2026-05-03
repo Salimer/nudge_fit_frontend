@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
@@ -25,10 +26,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                 FlexMighty(),
                 Text(
                   context.l10n.commitmentTitle,
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: ShadTheme.of(context).textTheme.h1Large,
                   textAlign: .center,
                 ),
                 SizedBox(height: Spaces.lg),
@@ -43,10 +41,7 @@ class OnboardingFifthScreen extends StatelessWidget {
 
                     return Text(
                       "${selectedDays.map((e) => e.toUpperCase())} ${context.l10n.at} ${selectedTime.format(context)}",
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        // fontSize: 25,
-                        // fontWeight: FontWeight.bold,
-                      ),
+                      style: ShadTheme.of(context).textTheme.h4,
                       textAlign: .center,
                     );
                   },
@@ -64,10 +59,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                       },
                       child: Text(
                         context.l10n.holdToSeal,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: ShadTheme.of(context).textTheme.h3,
                       ),
                     );
                   },

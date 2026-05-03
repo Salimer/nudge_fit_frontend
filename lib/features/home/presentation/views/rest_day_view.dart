@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/spaces.dart';
@@ -26,7 +27,7 @@ class RestDayView extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.homeRestGreeting('name'),
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      style: ShadTheme.of(context).textTheme.p,
                     ),
                   ],
                 ),
@@ -35,9 +36,7 @@ class RestDayView extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.homeRestTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: ShadTheme.of(context).textTheme.h2,
                     ),
                   ],
                 ),
@@ -61,12 +60,12 @@ class RestDayView extends StatelessWidget {
                     children: [
                       Text(
                         context.l10n.homeRestLabel,
-                        style: Theme.of(context).textTheme.displaySmall,
+                        style: ShadTheme.of(context).textTheme.h2,
                       ),
                       SizedBox(height: Spaces.lg),
                       Text(
                         context.l10n.homeRestBody,
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: ShadTheme.of(context).textTheme.p,
                         textAlign: .center,
                       ),
                     ],

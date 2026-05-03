@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
@@ -23,16 +24,13 @@ class OnboardingFourthScreen extends StatelessWidget {
               SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.commitmentTitle,
-                style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: ShadTheme.of(context).textTheme.h1Large,
                 textAlign: .center,
               ),
               SizedBox(height: Spaces.lg),
               Text(
                 context.l10n.commitmentBody,
-                style: Theme.of(context).textTheme.titleMedium,
+                style: ShadTheme.of(context).textTheme.p,
               ),
               SizedBox(height: Spaces.lg),
               Container(
@@ -49,15 +47,15 @@ class OnboardingFourthScreen extends StatelessWidget {
                   children: [
                     Text(
                       "✅ ${context.l10n.nudgeFriendly}",
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: ShadTheme.of(context).textTheme.p,
                     ),
                     Text(
                       "⚠️ ${context.l10n.nudgeLate}",
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: ShadTheme.of(context).textTheme.p,
                     ),
                     Text(
                       "🚨${context.l10n.nudgePersistent}",
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: ShadTheme.of(context).textTheme.p,
                     ),
                   ],
                 ),
@@ -87,12 +85,7 @@ class OnboardingFourthScreen extends StatelessWidget {
                         },
                         child: Text(
                           context.l10n.btnMaybeLater,
-                          style: Theme.of(context).textTheme.labelMedium
-                              ?.copyWith(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.underline,
-                              ),
+                          style: ShadTheme.of(context).textTheme.small,
                         ),
                       ),
                     ],
@@ -103,35 +96,7 @@ class OnboardingFourthScreen extends StatelessWidget {
           ),
         ),
       ),
-      // bottomNavigationBar: Consumer(
-      //   builder: (context, ref, _) {
-      //     return Column(
-      //       mainAxisSize: .min,
-      //       children: [
-      //         PrimaryButton(
-      //           text: context.l10n.btnUnderstandNag,
-      //           onPressed: () {
-      //             ref.read(routesProvider).goNamed(RouteNames.onboardingFifth);
-      //           },
-      //         ),
-      //         SizedBox(height: Spaces.xs),
-      //         GestureDetector(
-      //           onTap: () {
-      //             ref.read(routesProvider).goNamed(RouteNames.onboardingFifth);
-      //           },
-      //           child: Text(
-      //             context.l10n.btnMaybeLater,
-      //             style: Theme.of(context).textTheme.labelMedium?.copyWith(
-      //               color: Colors.black,
-      //               fontWeight: FontWeight.w500,
-      //               decoration: TextDecoration.underline,
-      //             ),
-      //           ),
-      //         ),
-      //       ],
-      //     );
-      //   },
-      // ),
+
     );
   }
 }

@@ -89,9 +89,7 @@ class _OnboardingSecondScreenState
               SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.whyDoYouUsuallySkip,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: ShadTheme.of(context).textTheme.h3,
               ),
               const SizedBox(height: Spaces.lg),
               Wrap(
@@ -110,24 +108,15 @@ class _OnboardingSecondScreenState
                             : _selectedExcuses.remove(excuse);
                       });
                     },
-                    selectedColor: Theme.of(
-                      context,
-                    ).colorScheme.primaryContainer,
-                    labelStyle: TextStyle(
-                      color: isSelected
-                          ? Theme.of(context).colorScheme.onPrimaryContainer
-                          : Theme.of(context).colorScheme.onSurface,
-                      fontWeight: isSelected
-                          ? FontWeight.bold
-                          : FontWeight.normal,
-                    ),
+                    selectedColor: ShadTheme.of(context).colorScheme.primary,
+                    labelStyle: ShadTheme.of(context).textTheme.small,
                     showCheckmark: true,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                       side: BorderSide(
                         color: isSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : Colors.grey.shade300,
+                            ? ShadTheme.of(context).colorScheme.primary
+                            : ShadTheme.of(context).colorScheme.border,
                       ),
                     ),
                   );

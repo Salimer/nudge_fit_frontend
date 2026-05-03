@@ -19,11 +19,25 @@ class LanguageSwitchWidget extends ConsumerWidget {
     return ShadSelect<String>(
       maxWidth: 150,
       initialValue: currentLocale,
-      selectedOptionBuilder: (context, value) =>
-          Text(value == 'ar' ? context.l10n.arabic : context.l10n.english),
+      selectedOptionBuilder: (context, value) => Text(
+        value == 'ar' ? context.l10n.arabic : context.l10n.english,
+        style: ShadTheme.of(context).textTheme.p,
+      ),
       options: [
-        ShadOption(value: 'ar', child: Text(context.l10n.arabic)),
-        ShadOption(value: 'en', child: Text(context.l10n.english)),
+        ShadOption(
+          value: 'ar',
+          child: Text(
+            context.l10n.arabic,
+            style: ShadTheme.of(context).textTheme.p,
+          ),
+        ),
+        ShadOption(
+          value: 'en',
+          child: Text(
+            context.l10n.english,
+            style: ShadTheme.of(context).textTheme.p,
+          ),
+        ),
       ],
       onChanged: (String? value) {
         if (value != null && value != currentLocale) {

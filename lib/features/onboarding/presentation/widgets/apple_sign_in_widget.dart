@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
 import '../../../../core/constants/spaces.dart';
@@ -32,10 +33,7 @@ class AppleSignInWidget extends StatelessWidget {
             ),
             label: Text(
               context.l10n.signInWithApple,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-              ),
+              style: ShadTheme.of(context).textTheme.large,
             ),
             style: FilledButton.styleFrom(
               backgroundColor: Colors.black,

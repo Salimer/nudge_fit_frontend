@@ -127,17 +127,11 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
               children: [
                 Text(
                   "$hour:$minute",
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
+                  style: ShadTheme.of(context).textTheme.h1Large,
                 ),
                 Text(
                   period.toUpperCase(),
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: 2,
-                  ),
+                  style: ShadTheme.of(context).textTheme.h4,
                 ),
               ],
             ),

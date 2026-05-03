@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/constants/spaces.dart';
@@ -20,7 +21,10 @@ class OnboardingSeventhScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(context.l10n.paywallHeader("name")),
+                Text(
+                  context.l10n.paywallHeader("name"),
+                  style: ShadTheme.of(context).textTheme.h2,
+                ),
                 PremiumMighty(),
                 Padding(
                   padding: const EdgeInsets.all(Spaces.sm),
@@ -39,11 +43,17 @@ class OnboardingSeventhScreen extends StatelessWidget {
                             children: [
                               Align(
                                 alignment: .center,
-                                child: Text(context.l10n.tierFreeTitle),
+                                child: Text(
+                                  context.l10n.tierFreeTitle,
+                                  style: ShadTheme.of(context).textTheme.h4,
+                                ),
                               ),
                               Align(
                                 alignment: .center,
-                                child: Text(context.l10n.tierFreeSub),
+                                child: Text(
+                                  context.l10n.tierFreeSub,
+                                  style: ShadTheme.of(context).textTheme.small,
+                                ),
                               ),
                               _buildTierFeature(
                                 context,
@@ -72,11 +82,17 @@ class OnboardingSeventhScreen extends StatelessWidget {
                             children: [
                               Align(
                                 alignment: .center,
-                                child: Text(context.l10n.tierPremiumTitle),
+                                child: Text(
+                                  context.l10n.tierPremiumTitle,
+                                  style: ShadTheme.of(context).textTheme.h4,
+                                ),
                               ),
                               Align(
                                 alignment: .center,
-                                child: Text(context.l10n.tierPremiumSub),
+                                child: Text(
+                                  context.l10n.tierPremiumSub,
+                                  style: ShadTheme.of(context).textTheme.small,
+                                ),
                               ),
                               _buildTierFeature(
                                 context,
@@ -144,7 +160,12 @@ class OnboardingSeventhScreen extends StatelessWidget {
       mainAxisAlignment: .start,
       children: [
         Icon(Icons.check),
-        Flexible(child: Text(text)),
+        Flexible(
+          child: Text(
+            text,
+            style: ShadTheme.of(context).textTheme.p,
+          ),
+        ),
       ],
     );
   }

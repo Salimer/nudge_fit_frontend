@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
@@ -32,7 +33,7 @@ class SetupRequiredView extends StatelessWidget {
                           children: [
                             Text(
                               context.l10n.homeSetupGreeting('name'),
-                              style: Theme.of(context).textTheme.titleMedium,
+                              style: ShadTheme.of(context).textTheme.p,
                               textAlign: .start,
                             ),
                           ],
@@ -40,8 +41,7 @@ class SetupRequiredView extends StatelessWidget {
                         SizedBox(height: Spaces.lg),
                         Text(
                           context.l10n.homeSetupTitle,
-                          style: Theme.of(context).textTheme.displaySmall
-                              ?.copyWith(fontWeight: FontWeight.bold),
+                          style: ShadTheme.of(context).textTheme.h2,
                           textAlign: .center,
                         ),
                         SizedBox(height: Spaces.lg),

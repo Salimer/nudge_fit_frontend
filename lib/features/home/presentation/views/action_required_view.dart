@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -30,9 +31,7 @@ class ActionRequiredView extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.homeActionTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: ShadTheme.of(context).textTheme.h2,
                     ),
                   ],
                 ),
@@ -46,10 +45,7 @@ class ActionRequiredView extends StatelessWidget {
                 SizedBox(height: Spaces.lg),
                 Text(
                   context.l10n.actionAnticipationMsg,
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.normal,
-                  ),
+                  style: ShadTheme.of(context).textTheme.blockquote,
                 ),
                 SizedBox(height: Spaces.lg),
                 Container(
@@ -76,13 +72,12 @@ class ActionRequiredView extends StatelessWidget {
                         children: [
                           Text(
                             context.l10n.homeContractLabel,
-                            style: Theme.of(context).textTheme.titleLarge
-                                ?.copyWith(fontWeight: FontWeight.bold),
+                            style: ShadTheme.of(context).textTheme.h4,
                           ),
                           SizedBox(height: Spaces.sm),
                           Text(
                             context.l10n.homeContractTime('8:00 PM'),
-                            style: Theme.of(context).textTheme.bodyMedium,
+                            style: ShadTheme.of(context).textTheme.p,
                           ),
                           Text(context.l10n.homeContractStatusPending),
                         ],

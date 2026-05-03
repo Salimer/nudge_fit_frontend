@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/enums.dart';
 import '../state/home_screen_state.dart';
@@ -36,7 +37,12 @@ class HomeScreen extends StatelessWidget {
                 }
               },
               error: (error, stackTrace) {
-                return Center(child: Text(error.toString()));
+                return Center(
+                  child: Text(
+                    error.toString(),
+                    style: ShadTheme.of(context).textTheme.p,
+                  ),
+                );
               },
               loading: () {
                 return Center(child: CircularProgressIndicator());

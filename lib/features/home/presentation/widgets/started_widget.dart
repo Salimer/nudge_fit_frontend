@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 import '../../../../core/extensions/build_context.dart';
 
 class StartedWidget extends StatefulWidget {
@@ -30,7 +31,7 @@ class _StartedWidgetState extends State<StartedWidget> {
           height: handleSize,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+            color: ShadTheme.of(context).colorScheme.primary.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(handleSize / 2),
           ),
           child: Stack(
@@ -41,10 +42,7 @@ class _StartedWidgetState extends State<StartedWidget> {
                 opacity: (1 - (_dragValue / maxDragDistance) * 1.5).clamp(0, 1),
                 child: Text(
                   context.l10n.btnStarted,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: ShadTheme.of(context).textTheme.large,
                 ),
               ),
 
@@ -87,7 +85,7 @@ class _StartedWidgetState extends State<StartedWidget> {
                     height: handleSize,
                     width: handleSize,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
+                      color: ShadTheme.of(context).colorScheme.primary,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(

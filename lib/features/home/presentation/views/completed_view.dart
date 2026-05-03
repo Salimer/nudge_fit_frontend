@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/spaces.dart';
@@ -32,9 +33,7 @@ class CompletedView extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.homeCompletedTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: ShadTheme.of(context).textTheme.h2,
                     ),
                   ],
                 ),
@@ -55,15 +54,14 @@ class CompletedView extends StatelessWidget {
                           context.l10n.homeCompletedStatus(
                             _getLocalizedDay(ref, 'Monday'),
                           ),
-                          style: Theme.of(context).textTheme.titleLarge
-                              ?.copyWith(fontWeight: FontWeight.bold),
+                          style: ShadTheme.of(context).textTheme.h4,
                         ),
                         SizedBox(height: Spaces.lg),
                         Text(
                           context.l10n.homeCompletedBody(
                             _getLocalizedDay(ref, 'Wednesday'),
                           ),
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: ShadTheme.of(context).textTheme.p,
                         ),
                       ],
                     );
