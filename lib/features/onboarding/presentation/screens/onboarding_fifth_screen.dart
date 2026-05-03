@@ -40,7 +40,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                         .selectedTime;
 
                     return Text(
-                      "${selectedDays.map((e) => e.toUpperCase())} ${context.l10n.at} ${selectedTime.format(context)}",
+                      "${selectedDays.map((e) => e)} ${context.l10n.at} ${selectedTime.format(context)}",
                       style: ShadTheme.of(context).textTheme.h4,
                       textAlign: .center,
                     );

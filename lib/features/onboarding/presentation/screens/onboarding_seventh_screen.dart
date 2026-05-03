@@ -5,7 +5,6 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
 class OnboardingSeventhScreen extends StatelessWidget {
@@ -128,22 +127,24 @@ class OnboardingSeventhScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: .min,
           children: [
-            SizedBox(
-              height: Spaces.buttonHeight,
+            ShadButton(
               width: double.infinity,
-              child: CustomFilledButton(
-                text: context.l10n.btnUpgrade,
-                onPressed: () {},
-                isLoading: false,
+              onPressed: () {},
+              child: Text(
+                context.l10n.btnUpgrade,
+                style: ShadTheme.of(context).textTheme.p,
               ),
             ),
             Consumer(
               builder: (context, ref, _) {
-                return CustomTextButtonWidget(
-                  onTap: () {
+                return ShadButton.link(
+                  child: Text(
+                    context.l10n.btnContinueFree,
+                    style: ShadTheme.of(context).textTheme.muted,
+                  ),
+                  onPressed: () {
                     ref.read(routesProvider).goNamed(RouteNames.homeScreen);
                   },
-                  text: context.l10n.btnContinueFree,
                 );
               },
             ),
@@ -160,12 +161,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
       mainAxisAlignment: .start,
       children: [
         Icon(Icons.check),
-        Flexible(
-          child: Text(
-            text,
-            style: ShadTheme.of(context).textTheme.p,
-          ),
-        ),
+        Flexible(child: Text(text, style: ShadTheme.of(context).textTheme.p)),
       ],
     );
   }

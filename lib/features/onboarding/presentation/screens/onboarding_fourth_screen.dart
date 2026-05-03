@@ -5,7 +5,6 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
 class OnboardingFourthScreen extends StatelessWidget {
@@ -26,6 +25,7 @@ class OnboardingFourthScreen extends StatelessWidget {
                 context.l10n.commitmentTitle,
                 style: ShadTheme.of(context).textTheme.h1Large,
                 textAlign: .center,
+                maxLines: 2,
               ),
               SizedBox(height: Spaces.lg),
               Text(
@@ -68,25 +68,28 @@ class OnboardingFourthScreen extends StatelessWidget {
                   return Column(
                     mainAxisSize: .min,
                     children: [
-                      PrimaryButton(
-                        text: context.l10n.btnUnderstandNag,
+                      SizedBox(
+                        width: double.infinity,
+                        child: ShadButton(
+                          child: Text(context.l10n.btnUnderstandNag),
+                          onPressed: () {
+                            ref
+                                .read(routesProvider)
+                                .goNamed(RouteNames.onboardingFifth);
+                          },
+                        ),
+                      ),
+                      // SizedBox(height: Spaces.xs),
+                      ShadButton.link(
+                        child: Text(
+                          context.l10n.btnMaybeLater,
+                          style: ShadTheme.of(context).textTheme.muted,
+                        ),
                         onPressed: () {
                           ref
                               .read(routesProvider)
                               .goNamed(RouteNames.onboardingFifth);
                         },
-                      ),
-                      SizedBox(height: Spaces.xs),
-                      GestureDetector(
-                        onTap: () {
-                          ref
-                              .read(routesProvider)
-                              .goNamed(RouteNames.onboardingFifth);
-                        },
-                        child: Text(
-                          context.l10n.btnMaybeLater,
-                          style: ShadTheme.of(context).textTheme.small,
-                        ),
                       ),
                     ],
                   );
@@ -96,7 +99,6 @@ class OnboardingFourthScreen extends StatelessWidget {
           ),
         ),
       ),
-
     );
   }
 }

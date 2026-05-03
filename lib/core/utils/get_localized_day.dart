@@ -1,10 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nudge_fit_frontend/core/common/state/routes_state.dart';
 
-import '../common/state/scaffold_messenger_key_state.dart';
+import '../common/state/navigator_key_state.dart';
 import '../extensions/build_context.dart';
 
 String getLocalizedDay(Ref ref, String day) {
-  final locale = ref.read(scaffoldMessengerKeyProvider).currentContext?.l10n;
+  final locale = ref.read(navigatorKeyStateProvider).currentContext?.l10n;
 
   switch (day) {
     case "Saturday":

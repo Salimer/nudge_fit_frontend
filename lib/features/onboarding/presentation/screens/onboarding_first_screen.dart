@@ -5,7 +5,6 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../widgets/language_switch_widget.dart';
 
@@ -28,9 +27,9 @@ class OnboardingFirstScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: .min,
                   children: [
-                    const SizedBox(height: Spaces.xxl),
+                    const SizedBox(height: Spaces.xxxl),
                     NeutralMighty(),
-                    SizedBox(height: Spaces.lg),
+                    SizedBox(height: Spaces.xxl),
                     Column(
                       mainAxisSize: .min,
                       children: [
@@ -68,16 +67,19 @@ class OnboardingFirstScreen extends StatelessWidget {
                       style: ShadTheme.of(context).textTheme.h4,
                       textAlign: .center,
                     ),
-                    SizedBox(height: Spaces.md),
+                    SizedBox(height: Spaces.xxl),
                     Consumer(
                       builder: (context, ref, _) {
-                        return PrimaryButton(
-                          text: context.l10n.getStarted,
-                          onPressed: () {
-                            ref
-                                .read(routesProvider)
-                                .goNamed(RouteNames.onboardingSecond);
-                          },
+                        return SizedBox(
+                          width: double.infinity,
+                          child: ShadButton(
+                            child: Text(context.l10n.getStarted),
+                            onPressed: () {
+                              ref
+                                  .read(routesProvider)
+                                  .goNamed(RouteNames.onboardingSecond);
+                            },
+                          ),
                         );
                       },
                     ),

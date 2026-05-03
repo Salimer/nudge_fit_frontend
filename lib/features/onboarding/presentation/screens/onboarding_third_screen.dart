@@ -6,7 +6,6 @@ import '../../../../core/constants/spaces.dart';
 import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
 
@@ -40,14 +39,17 @@ class OnboardingThirdScreen extends ConsumerWidget {
 
               Padding(
                 padding: const EdgeInsets.all(Spaces.horizontal),
-                child: PrimaryButton(
-                  text: context.l10n.next,
-                  enabled: selectedDays.isNotEmpty,
-                  onPressed: () {
-                    ref
-                        .read(onboardingUseCaseProvider)
-                        .leaveThirdOnboardingScreen();
-                  },
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ShadButton(
+                    enabled: selectedDays.isNotEmpty,
+                    onPressed: () {
+                      ref
+                          .read(onboardingUseCaseProvider)
+                          .leaveThirdOnboardingScreen();
+                    },
+                    child: Text(context.l10n.next),
+                  ),
                 ),
               ),
             ],

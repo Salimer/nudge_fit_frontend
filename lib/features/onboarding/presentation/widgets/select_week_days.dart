@@ -238,7 +238,11 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
                     day.dayName.length < 3
                         ? day.dayName
                         : day.dayName, //.substring(0, 3),
-                    style: ShadTheme.of(context).textTheme.small,
+                    style: TextStyle(
+                      fontSize: widget.fontSize,
+                      fontWeight: widget.fontWeight,
+                      color: _handleTextColor(day.isSelected),
+                    ),
                   ),
                 ),
               ),

@@ -15,15 +15,13 @@ class AppleSignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: Spaces
-          .buttonHeight, // Apple's preferred height is 44-60; 56 is the "sweet spot" for modern apps
       child: Consumer(
         builder: (context, ref, _) {
-          return FilledButton.icon(
+          return ShadButton(
             onPressed: () {
               ref.read(routesProvider).goNamed(RouteNames.onboardingSeventh);
             },
-            icon: SvgPicture.asset(
+            leading: SvgPicture.asset(
               SocialMediaIcons.appleLogo,
               height: Spaces.lg,
               colorFilter: const ColorFilter.mode(
@@ -31,21 +29,9 @@ class AppleSignInWidget extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            label: Text(
+            child: Text(
               context.l10n.signInWithApple,
               style: ShadTheme.of(context).textTheme.large,
-            ),
-            style: FilledButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.white,
-              elevation: 0,
-              // Apple's "Continue with Apple" buttons usually have a radius of 8-12
-              // or are fully stadium-shaped. 12 is the current iOS standard.
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              // Padding ensures the icon and text don't feel cramped
-              padding: const EdgeInsets.symmetric(horizontal: Spaces.md),
             ),
           );
         },

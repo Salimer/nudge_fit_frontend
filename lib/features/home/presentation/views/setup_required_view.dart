@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/spaces.dart';
@@ -60,8 +59,8 @@ class SetupRequiredView extends StatelessWidget {
                       right: Spaces.horizontal,
                       left: Spaces.horizontal,
                     ),
-                    child: PrimaryButton(
-                      text: context.l10n.homeSetupBtn,
+                    child: ShadButton(
+                      child: Text(context.l10n.homeSetupBtn),
                       onPressed: () {},
                     ),
                   ),

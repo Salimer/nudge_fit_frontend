@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nudge_fit_frontend/core/common/state/navigator_key_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../features/home/presentation/screens/home_screen.dart';
@@ -19,6 +20,7 @@ part 'routes_state.g.dart';
 @Riverpod(keepAlive: true)
 GoRouter routes(Ref ref) {
   return GoRouter(
+    navigatorKey: ref.read(navigatorKeyStateProvider),
     initialLocation: '/onboarding_first',
     routes: [
       GoRoute(

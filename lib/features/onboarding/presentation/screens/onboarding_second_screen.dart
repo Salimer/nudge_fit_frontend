@@ -4,7 +4,6 @@ import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
 import '../state/onboarding_data_state.dart';
@@ -76,6 +75,7 @@ class _OnboardingSecondScreenState
   @override
   Widget build(BuildContext context) {
     allExcuses = {..._getInitialExcuses(context), ..._customExcuses}.toList();
+    final shadTheme = ShadTheme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(),
@@ -98,7 +98,10 @@ class _OnboardingSecondScreenState
                 children: allExcuses.map((excuse) {
                   final isSelected = _selectedExcuses.contains(excuse);
                   return ChoiceChip(
-                    checkmarkColor: ShadTheme.of(context).colorScheme.secondary,
+                    showCheckmark: true,
+                    selectedColor: shadTheme.primary,
+                    backgroundColor: shadTheme.secondary,
+                    checkmarkColor: shadTheme.secondary,
                     label: Text(excuse),
                     selected: isSelected,
                     onSelected: (bool selected) {
@@ -108,16 +111,13 @@ class _OnboardingSecondScreenState
                             : _selectedExcuses.remove(excuse);
                       });
                     },
-                    selectedColor: ShadTheme.of(context).colorScheme.primary,
-                    labelStyle: ShadTheme.of(context).textTheme.small,
-                    showCheckmark: true,
+                    labelStyle: ShadTheme.of(context).textTheme.small.copyWith(
+                      color: isSelected
+                          ? ShadTheme.of(context).colorScheme.secondary
+                          : ShadTheme.of(context).colorScheme.primary,
+                    ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(
-                        color: isSelected
-                            ? ShadTheme.of(context).colorScheme.primary
-                            : ShadTheme.of(context).colorScheme.border,
-                      ),
+                      borderRadius: BorderRadiusGeometry.circular(20),
                     ),
                   );
                 }).toList(),
@@ -140,14 +140,17 @@ class _OnboardingSecondScreenState
               ),
               // Extra space so content doesn't get hidden behind the bottom buttons
               const SizedBox(height: Spaces.lg),
-              PrimaryButton(
-                text: context.l10n.next,
-                enabled: _selectedExcuses.isNotEmpty,
-                onPressed: () {
-                  ref
-                      .read(onboardingUseCaseProvider)
-                      .leaveSecondOnboardingScreen(_selectedExcuses.toList());
-                },
+              SizedBox(
+                width: double.infinity,
+                child: ShadButton(
+                  enabled: _selectedExcuses.isNotEmpty,
+                  onPressed: () {
+                    ref
+                        .read(onboardingUseCaseProvider)
+                        .leaveSecondOnboardingScreen(_selectedExcuses.toList());
+                  },
+                  child: Text(context.l10n.next),
+                ),
               ),
             ],
           ),

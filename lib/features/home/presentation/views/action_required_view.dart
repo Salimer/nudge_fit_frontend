@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
@@ -87,9 +86,12 @@ class ActionRequiredView extends StatelessWidget {
                 ),
                 SizedBox(height: Spaces.lg),
                 StartedWidget(onPressed: () {}),
-                CustomTextButtonWidget(
-                  text: context.l10n.btnSkip,
-                  onTap: () {},
+                ShadButton.link(
+                  child: Text(
+                    context.l10n.btnSkip,
+                    style: ShadTheme.of(context).textTheme.p,
+                  ),
+                  onPressed: () {},
                 ),
               ],
             ),

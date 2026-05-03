@@ -15,33 +15,20 @@ class GoogleSignInWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: Spaces.buttonHeight,
       child: Consumer(
         builder: (context, ref, _) {
-          return OutlinedButton.icon(
+          return ShadButton.outline(
             onPressed: () {
               // Your Google Sign-In Logic
               ref.read(routesProvider).goNamed(RouteNames.onboardingSeventh);
             },
-            icon: SvgPicture.asset(
+            leading: SvgPicture.asset(
               SocialMediaIcons.googleLogo,
               height: Spaces.lg, // Standard Google branding size
             ),
-            label: Text(
+            child: Text(
               context.l10n.continueWithGoogle,
               style: ShadTheme.of(context).textTheme.large,
-            ),
-            style: OutlinedButton.styleFrom(
-              backgroundColor: Colors.white,
-              side: const BorderSide(
-                color: Color(0xFFDADCE0),
-              ), // Google's specific border hex
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  12,
-                ), // Match your Apple button
-              ),
-              elevation: 0,
             ),
           );
         },

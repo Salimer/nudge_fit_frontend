@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Required for HapticFeedback
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
@@ -88,7 +88,7 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
           selectedDayTextColor: ShadTheme.of(context).colorScheme.primary,
           selectedDaysFillColor: ShadTheme.of(context).colorScheme.secondary,
           unSelectedDayTextColor: ShadTheme.of(context).colorScheme.secondary,
-          fontSize: 12,
+          fontSize: 10,
           fontWeight: FontWeight.w900,
           days: actualDays,
           border: false,
