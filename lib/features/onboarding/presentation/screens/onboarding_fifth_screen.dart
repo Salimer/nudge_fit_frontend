@@ -21,9 +21,11 @@ class OnboardingFifthScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
+            padding: const EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
                 FlexMighty(),
+                const SizedBox(height: Spaces.xxl),
                 Text(
                   context.l10n.commitmentTitle,
                   style: ShadTheme.of(context).textTheme.h1Large,

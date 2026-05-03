@@ -24,12 +24,9 @@ class GoogleSignInWidget extends StatelessWidget {
             },
             leading: SvgPicture.asset(
               SocialMediaIcons.googleLogo,
-              height: Spaces.lg, // Standard Google branding size
+              height: Spaces.lg,
             ),
-            child: Text(
-              context.l10n.continueWithGoogle,
-              style: ShadTheme.of(context).textTheme.large,
-            ),
+            child: Text(context.l10n.continueWithGoogle),
           );
         },
       ),

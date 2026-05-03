@@ -19,36 +19,34 @@ class OnboardingSixthScreen extends StatelessWidget {
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: Spaces.lg),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  ProudMighty(),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(Spaces.all),
+            child: Column(
+              children: [
+                ProudMighty(),
 
-                  SizedBox(height: Spaces.lg),
-                  Text(
-                    context.l10n.contractSealed,
-                    style: ShadTheme.of(context).textTheme.h1Large,
-                    textAlign: .center,
-                  ),
-                  SizedBox(height: Spaces.lg),
-                  Text(
-                    context.l10n.createAccountText,
-                    style: ShadTheme.of(context).textTheme.h4,
-                    textAlign: .center,
-                  ),
+                SizedBox(height: Spaces.lg),
+                Text(
+                  context.l10n.contractSealed,
+                  style: ShadTheme.of(context).textTheme.h1Large,
+                  textAlign: .center,
+                ),
+                SizedBox(height: Spaces.lg),
+                Text(
+                  context.l10n.createAccountText,
+                  style: ShadTheme.of(context).textTheme.h4,
+                  textAlign: .center,
+                ),
 
-                  SizedBox(height: Spaces.lg),
+                SizedBox(height: Spaces.lg),
 
-                  if (Platform.isIOS) ...[
-                    AppleSignInWidget(),
-                    SizedBox(height: Spaces.md),
-                  ],
-
-                  GoogleSignInWidget(),
+                if (Platform.isIOS) ...[
+                  AppleSignInWidget(),
+                  SizedBox(height: Spaces.md),
                 ],
-              ),
+
+                GoogleSignInWidget(),
+              ],
             ),
           ),
         ),

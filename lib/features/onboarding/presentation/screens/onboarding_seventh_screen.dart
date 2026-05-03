@@ -18,139 +18,121 @@ class OnboardingSeventhScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
+            padding: EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
                 Text(
                   context.l10n.paywallHeader("name"),
                   style: ShadTheme.of(context).textTheme.h2,
                 ),
+                const SizedBox(height: Spaces.lg),
                 PremiumMighty(),
-                Padding(
-                  padding: const EdgeInsets.all(Spaces.sm),
-                  child: Row(
-                    spacing: 5,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.all(Spaces.sm),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 4),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: .stretch,
-                            children: [
-                              Align(
-                                alignment: .center,
-                                child: Text(
-                                  context.l10n.tierFreeTitle,
-                                  style: ShadTheme.of(context).textTheme.h4,
-                                ),
-                              ),
-                              Align(
-                                alignment: .center,
-                                child: Text(
-                                  context.l10n.tierFreeSub,
-                                  style: ShadTheme.of(context).textTheme.small,
-                                ),
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.freeFeature1,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.freeFeature2,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.freeFeature3,
-                              ),
-                            ],
-                          ),
-                        ),
+                const SizedBox(height: Spaces.lg),
+                _buildFeaturesSection(context),
+                const SizedBox(height: Spaces.xxl),
+                Column(
+                  mainAxisSize: .min,
+                  children: [
+                    ShadButton(
+                      width: double.infinity,
+                      onPressed: () {},
+                      child: Text(
+                        context.l10n.btnUpgrade,
+                        style: ShadTheme.of(context).textTheme.p,
                       ),
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.all(Spaces.sm),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 4),
-                            borderRadius: BorderRadius.circular(15),
+                    ),
+                    Consumer(
+                      builder: (context, ref, _) {
+                        return ShadButton.link(
+                          child: Text(
+                            context.l10n.btnContinueFree,
+                            style: ShadTheme.of(context).textTheme.muted,
                           ),
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: .center,
-                                child: Text(
-                                  context.l10n.tierPremiumTitle,
-                                  style: ShadTheme.of(context).textTheme.h4,
-                                ),
-                              ),
-                              Align(
-                                alignment: .center,
-                                child: Text(
-                                  context.l10n.tierPremiumSub,
-                                  style: ShadTheme.of(context).textTheme.small,
-                                ),
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.premiumFeature1,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.premiumFeature2,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.premiumFeature3,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                          onPressed: () {
+                            ref
+                                .read(routesProvider)
+                                .goNamed(RouteNames.homeScreen);
+                          },
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
 
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
-          bottom: Spaces.vertical,
-          right: Spaces.horizontal,
-          left: Spaces.horizontal,
-        ),
-        child: Column(
-          mainAxisSize: .min,
-          children: [
-            ShadButton(
-              width: double.infinity,
-              onPressed: () {},
-              child: Text(
-                context.l10n.btnUpgrade,
-                style: ShadTheme.of(context).textTheme.p,
-              ),
+  Row _buildFeaturesSection(BuildContext context) {
+    return Row(
+      crossAxisAlignment: .start,
+      spacing: Spaces.sm,
+      children: [
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(Spaces.sm),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 4),
+              borderRadius: BorderRadius.circular(15),
             ),
-            Consumer(
-              builder: (context, ref, _) {
-                return ShadButton.link(
+            child: Column(
+              crossAxisAlignment: .stretch,
+              children: [
+                Align(
+                  alignment: .center,
                   child: Text(
-                    context.l10n.btnContinueFree,
-                    style: ShadTheme.of(context).textTheme.muted,
+                    context.l10n.tierFreeTitle,
+                    style: ShadTheme.of(context).textTheme.h4,
                   ),
-                  onPressed: () {
-                    ref.read(routesProvider).goNamed(RouteNames.homeScreen);
-                  },
-                );
-              },
+                ),
+                Align(
+                  alignment: .center,
+                  child: Text(
+                    context.l10n.tierFreeSub,
+                    style: ShadTheme.of(context).textTheme.small,
+                  ),
+                ),
+                _buildTierFeature(context, context.l10n.freeFeature1),
+                _buildTierFeature(context, context.l10n.freeFeature2),
+                _buildTierFeature(context, context.l10n.freeFeature3),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(Spaces.sm),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black, width: 4),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Column(
+              children: [
+                Align(
+                  alignment: .center,
+                  child: Text(
+                    context.l10n.tierPremiumTitle,
+                    style: ShadTheme.of(context).textTheme.h4,
+                  ),
+                ),
+                Align(
+                  alignment: .center,
+                  child: Text(
+                    context.l10n.tierPremiumSub,
+                    style: ShadTheme.of(context).textTheme.small,
+                  ),
+                ),
+                _buildTierFeature(context, context.l10n.premiumFeature1),
+                _buildTierFeature(context, context.l10n.premiumFeature2),
+                _buildTierFeature(context, context.l10n.premiumFeature3),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 

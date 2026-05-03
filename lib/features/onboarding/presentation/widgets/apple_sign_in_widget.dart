@@ -29,10 +29,7 @@ class AppleSignInWidget extends StatelessWidget {
                 BlendMode.srcIn,
               ),
             ),
-            child: Text(
-              context.l10n.signInWithApple,
-              style: ShadTheme.of(context).textTheme.large,
-            ),
+            child: Text(context.l10n.signInWithApple),
           );
         },
       ),

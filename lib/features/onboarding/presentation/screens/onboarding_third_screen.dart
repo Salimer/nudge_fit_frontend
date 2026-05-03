@@ -35,10 +35,12 @@ class OnboardingThirdScreen extends ConsumerWidget {
 
               // Days Selector
               DaysAndTimePickerWidget(),
-              const SizedBox(height: Spaces.xl),
+              const SizedBox(height: Spaces.xxl),
 
               Padding(
-                padding: const EdgeInsets.all(Spaces.horizontal),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spaces.horizontal,
+                ),
                 child: SizedBox(
                   width: double.infinity,
                   child: ShadButton(
