@@ -34,7 +34,8 @@ class AppTheme {
   }
 
   // 3. Pass the specific Slate schemes into the builder
-  ShadThemeData get lightTheme => _buildTheme(const ShadZincColorScheme.light());
+  ShadThemeData get lightTheme =>
+      _buildTheme(const ShadStoneColorScheme.light());
 
-  ShadThemeData get darkTheme => _buildTheme(const ShadZincColorScheme.dark());
+  ShadThemeData get darkTheme => _buildTheme(const ShadStoneColorScheme.dark());
 }

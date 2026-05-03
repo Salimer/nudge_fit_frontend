@@ -14,14 +14,18 @@ class OnboardingThirdScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedDays = ref.watch(
+      daysAndTimePickerStateProvider.select((state) => state.selectedDays),
+    );
     return Scaffold(
       appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
       body: SafeArea(
         child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: Spaces.vertical),
           child: Column(
             children: [
               NeutralMighty(),
-              const SizedBox(height: Spaces.md),
+              const SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.whenAreWeDoingThis,
                 textAlign: TextAlign.center,
@@ -33,36 +37,23 @@ class OnboardingThirdScreen extends ConsumerWidget {
 
               // Days Selector
               DaysAndTimePickerWidget(),
+              const SizedBox(height: Spaces.xl),
+
+              Padding(
+                padding: const EdgeInsets.all(Spaces.horizontal),
+                child: PrimaryButton(
+                  text: context.l10n.next,
+                  enabled: selectedDays.isNotEmpty,
+                  onPressed: () {
+                    ref
+                        .read(onboardingUseCaseProvider)
+                        .leaveThirdOnboardingScreen();
+                  },
+                ),
+              ),
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: Consumer(
-        builder: (context, ref, _) {
-          final selectedDays = ref.watch(
-            daysAndTimePickerStateProvider.select(
-              (state) => state.selectedDays,
-            ),
-          );
-
-          return Padding(
-            padding: const EdgeInsets.only(
-              left: Spaces.lg,
-              right: Spaces.lg,
-              bottom: Spaces.xl,
-            ),
-            child: PrimaryButton(
-              text: context.l10n.next,
-              onPressed: selectedDays.isNotEmpty
-                  ? () {
-                      ref
-                          .read(onboardingUseCaseProvider)
-                          .leaveThirdOnboardingScreen();
-                    }
-                  : null,
-            ),
-          );
-        },
       ),
     );
   }

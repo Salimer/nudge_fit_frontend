@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/spaces.dart';
-import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -82,12 +81,12 @@ class _OnboardingSecondScreenState
       appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(Spaces.lg),
+          padding: const EdgeInsets.all(Spaces.horizontal),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(child: NeutralMighty()),
-              SizedBox(height: Spaces.lg),
+              SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.whyDoYouUsuallySkip,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -138,7 +137,6 @@ class _OnboardingSecondScreenState
               ShadInput(
                 controller: _controller,
                 placeholder: Text(context.l10n.other),
-                // Shadcn uses LucideIcons by default for that premium look
                 leading: Padding(
                   padding: EdgeInsets.zero,
                   child: ShadIconButton(
@@ -153,28 +151,16 @@ class _OnboardingSecondScreenState
               ),
               // Extra space so content doesn't get hidden behind the bottom buttons
               const SizedBox(height: Spaces.lg),
+              PrimaryButton(
+                text: context.l10n.next,
+                enabled: _selectedExcuses.isNotEmpty,
+                onPressed: () {
+                  ref
+                      .read(onboardingUseCaseProvider)
+                      .leaveSecondOnboardingScreen(_selectedExcuses.toList());
+                },
+              ),
             ],
-          ),
-        ),
-      ),
-      // Fixed Navigation Buttons
-      bottomNavigationBar: SafeArea(
-        bottom: false,
-        top: false,
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: Spaces.lg,
-            right: Spaces.lg,
-            bottom: Spaces.xl,
-          ),
-          child: PrimaryButton(
-            text: context.l10n.next,
-            enabled: _selectedExcuses.isNotEmpty,
-            onPressed: () {
-              ref
-                  .read(onboardingUseCaseProvider)
-                  .leaveSecondOnboardingScreen(_selectedExcuses.toList());
-            },
           ),
         ),
       ),

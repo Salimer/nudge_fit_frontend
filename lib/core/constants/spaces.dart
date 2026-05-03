@@ -1,6 +1,7 @@
 class Spaces {
-  static const double horizontal = md;
-  static const double vertical = xl;
+  static const double horizontal = lg;
+  static const double vertical = lg;
+  static const double all = lg;
   static const double buttonHeight = xxxl;
   static const double xs = 4.0;
   static const double sm = 8.0;

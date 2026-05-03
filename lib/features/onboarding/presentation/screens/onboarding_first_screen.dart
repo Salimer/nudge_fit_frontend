@@ -16,89 +16,86 @@ class OnboardingFirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(Spaces.sm),
-          child: Column(
-            crossAxisAlignment: .start,
-            mainAxisSize: .max,
-            children: [
-              LanguageSwitchWidget(),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Column(
+        bottom: false,
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(
+                horizontal: Spaces.horizontal,
+              ),
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  mainAxisSize: .min,
+                  children: [
+                    const SizedBox(height: Spaces.xxl),
+                    NeutralMighty(),
+                    SizedBox(height: Spaces.lg),
+                    Column(
                       mainAxisSize: .min,
                       children: [
-                        NeutralMighty(),
-                        SizedBox(height: Spaces.md),
-                        Column(
-                          mainAxisSize: .min,
-                          children: [
-                            Text(
-                              context.l10n.welcomeTo,
-                              style: ShadTheme.of(context).textTheme.h1,
-                            ),
-                            SizedBox(height: Spaces.sm),
-                            Text(
-                              context.l10n.nudgeFit.toUpperCase(),
-                              style: ShadTheme.of(context).textTheme.h1Large,
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: Spaces.md),
-
-                        Column(
-                          mainAxisSize: .min,
-                          children: [
-                            Text(
-                              context.l10n.weDoOnlyOneThing,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                            Text(
-                              context.l10n.makeSureYouShowUp,
-                              style: Theme.of(context).textTheme.titleLarge
-                                  ?.copyWith(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: Spaces.md),
-
                         Text(
-                          context.l10n.youHaveThePlanWeProvideTheDiscipline,
-                          maxLines: 2,
-                          style: Theme.of(context).textTheme.titleMedium,
-                          textAlign: .center,
+                          context.l10n.welcomeTo,
+                          style: ShadTheme.of(context).textTheme.h1,
                         ),
-                        SizedBox(height: Spaces.md),
+                        SizedBox(height: Spaces.sm),
+                        Text(
+                          context.l10n.nudgeFit.toUpperCase(),
+                          style: ShadTheme.of(context).textTheme.h1Large,
+                        ),
                       ],
                     ),
-                  ),
+                    const SizedBox(height: Spaces.md),
+
+                    Column(
+                      mainAxisSize: .min,
+                      children: [
+                        Text(
+                          context.l10n.weDoOnlyOneThing,
+                          style: ShadTheme.of(context).textTheme.h4,
+                        ),
+                        Text(
+                          context.l10n.makeSureYouShowUp,
+                          style: ShadTheme.of(context).textTheme.h2,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: Spaces.md),
+
+                    Text(
+                      context.l10n.youHaveThePlanWeProvideTheDiscipline,
+                      maxLines: 2,
+                      style: ShadTheme.of(context).textTheme.h4,
+                      textAlign: .center,
+                    ),
+                    SizedBox(height: Spaces.md),
+                    Consumer(
+                      builder: (context, ref, _) {
+                        return PrimaryButton(
+                          text: context.l10n.getStarted,
+                          onPressed: () {
+                            ref
+                                .read(routesProvider)
+                                .goNamed(RouteNames.onboardingSecond);
+                          },
+                        );
+                      },
+                    ),
+                    const SizedBox(height: Spaces.lg),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
-          left: Spaces.lg,
-          right: Spaces.lg,
-          bottom: Spaces.xl,
-        ),
-        child: SafeArea(
-          bottom: false,
-          top: false,
-          child: Consumer(
-            builder: (context, ref, _) {
-              return PrimaryButton(
-                text: context.l10n.getStarted,
-                onPressed: () {
-                  ref.read(routesProvider).goNamed(RouteNames.onboardingSecond);
-                },
-              );
-            },
-          ),
+            ),
+            Positioned(
+              top: 20,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spaces.horizontal,
+                ),
+                child: LanguageSwitchWidget(),
+              ),
+            ),
+          ],
         ),
       ),
     );
