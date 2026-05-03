@@ -24,14 +24,14 @@ class OnboardingFifthScreen extends StatelessWidget {
             padding: const EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
-                FlexMighty(),
+                const FlexMighty(),
                 const SizedBox(height: Spaces.xxl),
                 Text(
                   context.l10n.commitmentTitle,
                   style: ShadTheme.of(context).textTheme.h1Large,
                   textAlign: .center,
                 ),
-                SizedBox(height: Spaces.lg),
+                const SizedBox(height: Spaces.lg),
                 Consumer(
                   builder: (context, ref, _) {
                     final selectedDays = ref
@@ -42,18 +42,18 @@ class OnboardingFifthScreen extends StatelessWidget {
                         .selectedTime;
 
                     return Text(
-                      "${selectedDays.map((e) => e)} ${context.l10n.at} ${selectedTime.format(context)}",
+                      '${selectedDays.map((e) => e)} ${context.l10n.at} ${selectedTime.format(context)}',
                       style: ShadTheme.of(context).textTheme.h4,
                       textAlign: .center,
                     );
                   },
                 ),
-                SizedBox(height: Spaces.lg),
+                const SizedBox(height: Spaces.lg),
                 Consumer(
                   builder: (context, ref, _) {
                     return HoldToConfirmButton(
                       onConfirm: () {
-                        debugPrint("Action Triggered!");
+                        debugPrint('Action Triggered!');
                         // Logic for next screen or snackbar here
                         ref
                             .read(routesProvider)

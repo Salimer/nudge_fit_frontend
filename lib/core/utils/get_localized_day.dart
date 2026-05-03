@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nudge_fit_frontend/core/common/state/routes_state.dart';
 
 import '../common/state/navigator_key_state.dart';
 import '../extensions/build_context.dart';
@@ -8,19 +7,19 @@ String getLocalizedDay(Ref ref, String day) {
   final locale = ref.read(navigatorKeyStateProvider).currentContext?.l10n;
 
   switch (day) {
-    case "Saturday":
+    case 'Saturday':
       return locale?.saturday ?? day;
-    case "Sunday":
+    case 'Sunday':
       return locale?.sunday ?? day;
-    case "Monday":
+    case 'Monday':
       return locale?.monday ?? day;
-    case "Tuesday":
+    case 'Tuesday':
       return locale?.tuesday ?? day;
-    case "Wednesday":
+    case 'Wednesday':
       return locale?.wednesday ?? day;
-    case "Thursday":
+    case 'Thursday':
       return locale?.thursday ?? day;
-    case "Friday":
+    case 'Friday':
       return locale?.friday ?? day;
     default:
       return day;

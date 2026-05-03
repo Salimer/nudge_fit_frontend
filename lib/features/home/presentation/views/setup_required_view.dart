@@ -13,61 +13,48 @@ class SetupRequiredView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       bottom: false,
-      child: SizedBox(
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: Spaces.vertical),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: Spaces.vertical),
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: Spaces.all),
+        child: Column(
+          crossAxisAlignment: .start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: Spaces.horizontal,
+              ),
               child: Column(
+                crossAxisAlignment: .start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Spaces.horizontal,
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              context.l10n.homeSetupGreeting('name'),
-                              style: ShadTheme.of(context).textTheme.p,
-                              textAlign: .start,
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: Spaces.lg),
-                        Text(
-                          context.l10n.homeSetupTitle,
-                          style: ShadTheme.of(context).textTheme.h2,
-                          textAlign: .center,
-                        ),
-                        SizedBox(height: Spaces.lg),
-                        ReadingMighty(
-                          maxHeight: MediaQuery.sizeOf(context).height * 0.5,
-                          maxWidth: MediaQuery.sizeOf(context).width * 0.7,
-                        ),
-                      ],
-                    ),
+                  Text(
+                    context.l10n.homeSetupGreeting('name'),
+                    style: ShadTheme.of(context).textTheme.p,
                   ),
-                  SizedBox(height: Spaces.lg),
-                  DaysAndTimePickerWidget(),
-                  SizedBox(height: Spaces.lg),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      right: Spaces.horizontal,
-                      left: Spaces.horizontal,
-                    ),
-                    child: ShadButton(
-                      child: Text(context.l10n.homeSetupBtn),
-                      onPressed: () {},
-                    ),
+                  const SizedBox(height: Spaces.sm),
+                  Text(
+                    context.l10n.homeSetupTitle,
+                    style: ShadTheme.of(context).textTheme.h2,
                   ),
+                  const SizedBox(height: Spaces.lg),
+                  const Center(child: ReadingMighty()),
+                  const SizedBox(height: Spaces.lg),
                 ],
               ),
             ),
-          ),
+            const DaysAndTimePickerWidget(),
+            const SizedBox(height: Spaces.xl),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: Spaces.horizontal,
+              ),
+              child: SizedBox(
+                width: double.infinity,
+                child: ShadButton(
+                  onPressed: () {},
+                  child: Text(context.l10n.homeSetupBtn),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

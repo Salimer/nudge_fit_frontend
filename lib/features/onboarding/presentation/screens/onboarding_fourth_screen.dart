@@ -19,20 +19,20 @@ class OnboardingFourthScreen extends StatelessWidget {
           padding: const EdgeInsets.all(Spaces.all),
           child: Column(
             children: [
-              SeriousMighty(),
-              SizedBox(height: Spaces.xxl),
+              const SeriousMighty(),
+              const SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.commitmentTitle,
                 style: ShadTheme.of(context).textTheme.h1Large,
                 textAlign: .center,
                 maxLines: 2,
               ),
-              SizedBox(height: Spaces.lg),
+              const SizedBox(height: Spaces.lg),
               Text(
                 context.l10n.commitmentBody,
                 style: ShadTheme.of(context).textTheme.p,
               ),
-              SizedBox(height: Spaces.lg),
+              const SizedBox(height: Spaces.lg),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(Spaces.sm),
@@ -46,15 +46,15 @@ class OnboardingFourthScreen extends StatelessWidget {
                   crossAxisAlignment: .start,
                   children: [
                     Text(
-                      "✅ ${context.l10n.nudgeFriendly}",
+                      '✅ ${context.l10n.nudgeFriendly}',
                       style: ShadTheme.of(context).textTheme.p,
                     ),
                     Text(
-                      "⚠️ ${context.l10n.nudgeLate}",
+                      '⚠️ ${context.l10n.nudgeLate}',
                       style: ShadTheme.of(context).textTheme.p,
                     ),
                     Text(
-                      "🚨${context.l10n.nudgePersistent}",
+                      '🚨${context.l10n.nudgePersistent}',
                       style: ShadTheme.of(context).textTheme.p,
                     ),
                   ],
@@ -81,10 +81,7 @@ class OnboardingFourthScreen extends StatelessWidget {
                       ),
                       // SizedBox(height: Spaces.xs),
                       ShadButton.link(
-                        child: Text(
-                          context.l10n.btnMaybeLater,
-                          style: ShadTheme.of(context).textTheme.muted,
-                        ),
+                        child: Text(context.l10n.btnMaybeLater),
                         onPressed: () {
                           ref
                               .read(routesProvider)

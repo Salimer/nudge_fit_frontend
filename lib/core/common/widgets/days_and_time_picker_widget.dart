@@ -58,19 +58,19 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
     List<DayInWeekModel> days = [
       DayInWeekModel(
         dayName: locale.saturday,
-        dayKey: "Saturday",
+        dayKey: 'Saturday',
         isSelected: true,
       ),
       DayInWeekModel(
         dayName: locale.sunday,
-        dayKey: "Sunday",
+        dayKey: 'Sunday',
         isSelected: true,
       ),
-      DayInWeekModel(dayName: locale.monday, dayKey: "Monday"),
-      DayInWeekModel(dayName: locale.tuesday, dayKey: "Tuesday"),
-      DayInWeekModel(dayName: locale.wednesday, dayKey: "Wednesday"),
-      DayInWeekModel(dayName: locale.thursday, dayKey: "Thursday"),
-      DayInWeekModel(dayName: locale.friday, dayKey: "Friday"),
+      DayInWeekModel(dayName: locale.monday, dayKey: 'Monday'),
+      DayInWeekModel(dayName: locale.tuesday, dayKey: 'Tuesday'),
+      DayInWeekModel(dayName: locale.wednesday, dayKey: 'Wednesday'),
+      DayInWeekModel(dayName: locale.thursday, dayKey: 'Thursday'),
+      DayInWeekModel(dayName: locale.friday, dayKey: 'Friday'),
     ];
 
     List<String> selectedDays = ref.watch(
@@ -126,7 +126,7 @@ class DaysAndTimePickerWidget extends ConsumerWidget {
             child: Column(
               children: [
                 Text(
-                  "$hour:$minute",
+                  '$hour:$minute',
                   style: ShadTheme.of(context).textTheme.h1Large,
                 ),
                 Text(

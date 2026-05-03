@@ -25,15 +25,15 @@ class HomeScreen extends StatelessWidget {
               data: (state) {
                 switch (state) {
                   case HomeScreenEnum.setupRequired:
-                    return SetupRequiredView();
+                    return const SetupRequiredView();
                   case HomeScreenEnum.restDay:
-                    return RestDayView();
+                    return const RestDayView();
                   case HomeScreenEnum.actionRequired:
-                    return ActionRequiredView();
+                    return const ActionRequiredView();
                   case HomeScreenEnum.completed:
-                    return CompletedView();
+                    return const CompletedView();
                   case HomeScreenEnum.skipped:
-                    return SkippedView();
+                    return const SkippedView();
                 }
               },
               error: (error, stackTrace) {
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               loading: () {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               },
             ),
           ),

@@ -32,7 +32,7 @@ class OnboardingUseCase {
 
   List<String> getLocalizedSelectedDays(BuildContext context) {
     final days = ref.read(onboardingDataStateProvider).selectedDays;
-    days.map((e) => debugPrint("selected day $e"));
+    days.map((e) => debugPrint('selected day $e'));
     return getLocalizedDays(ref, days);
   }
 

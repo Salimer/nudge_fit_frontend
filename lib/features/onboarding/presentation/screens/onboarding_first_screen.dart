@@ -28,8 +28,8 @@ class OnboardingFirstScreen extends StatelessWidget {
                   mainAxisSize: .min,
                   children: [
                     const SizedBox(height: Spaces.xxxl),
-                    NeutralMighty(),
-                    SizedBox(height: Spaces.xxl),
+                    const NeutralMighty(),
+                    const SizedBox(height: Spaces.xxl),
                     Column(
                       mainAxisSize: .min,
                       children: [
@@ -37,7 +37,7 @@ class OnboardingFirstScreen extends StatelessWidget {
                           context.l10n.welcomeTo,
                           style: ShadTheme.of(context).textTheme.h1,
                         ),
-                        SizedBox(height: Spaces.sm),
+                        const SizedBox(height: Spaces.sm),
                         Text(
                           context.l10n.nudgeFit.toUpperCase(),
                           style: ShadTheme.of(context).textTheme.h1Large,
@@ -59,7 +59,7 @@ class OnboardingFirstScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: Spaces.md),
+                    const SizedBox(height: Spaces.md),
 
                     Text(
                       context.l10n.youHaveThePlanWeProvideTheDiscipline,
@@ -67,7 +67,7 @@ class OnboardingFirstScreen extends StatelessWidget {
                       style: ShadTheme.of(context).textTheme.h4,
                       textAlign: .center,
                     ),
-                    SizedBox(height: Spaces.xxl),
+                    const SizedBox(height: Spaces.xxl),
                     Consumer(
                       builder: (context, ref, _) {
                         return SizedBox(
@@ -88,12 +88,10 @@ class OnboardingFirstScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               top: 20,
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Spaces.horizontal,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: Spaces.horizontal),
                 child: LanguageSwitchWidget(),
               ),
             ),

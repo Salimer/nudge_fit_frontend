@@ -34,7 +34,7 @@ class MyApp extends ConsumerWidget {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: MediaQuery(
-            data: mediaQuery.copyWith(textScaler: TextScaler.linear(1.0)),
+            data: mediaQuery.copyWith(textScaler: const TextScaler.linear(1.0)),
             child: child ?? const SizedBox.shrink(),
           ),
         );

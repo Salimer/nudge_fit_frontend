@@ -21,27 +21,27 @@ part 'routes_state.g.dart';
 GoRouter routes(Ref ref) {
   return GoRouter(
     navigatorKey: ref.read(navigatorKeyStateProvider),
-    initialLocation: '/onboarding_first',
+    initialLocation: '/home_screen',
     routes: [
       GoRoute(
         name: RouteNames.onboarding,
         path: '/onboarding_first',
         pageBuilder: (context, state) {
-          return _adaptivePageBuilder(state, OnboardingFirstScreen());
+          return _adaptivePageBuilder(state, const OnboardingFirstScreen());
         },
         routes: [
           GoRoute(
             name: RouteNames.onboardingSecond,
             path: 'onboarding_second',
             pageBuilder: (context, state) {
-              return _adaptivePageBuilder(state, OnboardingSecondScreen());
+              return _adaptivePageBuilder(state, const OnboardingSecondScreen());
             },
             routes: [
               GoRoute(
                 name: RouteNames.onboardingThird,
                 path: 'onboarding_third',
                 pageBuilder: (context, state) {
-                  return _adaptivePageBuilder(state, OnboardingThirdScreen());
+                  return _adaptivePageBuilder(state, const OnboardingThirdScreen());
                 },
                 routes: [
                   GoRoute(
@@ -50,7 +50,7 @@ GoRouter routes(Ref ref) {
                     pageBuilder: (context, state) {
                       return _adaptivePageBuilder(
                         state,
-                        OnboardingFourthScreen(),
+                        const OnboardingFourthScreen(),
                       );
                     },
                     routes: [
@@ -60,7 +60,7 @@ GoRouter routes(Ref ref) {
                         pageBuilder: (context, state) {
                           return _adaptivePageBuilder(
                             state,
-                            OnboardingFifthScreen(),
+                            const OnboardingFifthScreen(),
                           );
                         },
                         routes: [
@@ -70,7 +70,7 @@ GoRouter routes(Ref ref) {
                             pageBuilder: (context, state) {
                               return _adaptivePageBuilder(
                                 state,
-                                OnboardingSixthScreen(),
+                                const OnboardingSixthScreen(),
                               );
                             },
                             routes: [
@@ -80,7 +80,7 @@ GoRouter routes(Ref ref) {
                                 pageBuilder: (context, state) {
                                   return _adaptivePageBuilder(
                                     state,
-                                    OnboardingSeventhScreen(),
+                                    const OnboardingSeventhScreen(),
                                   );
                                 },
                               ),
@@ -100,7 +100,7 @@ GoRouter routes(Ref ref) {
         name: RouteNames.homeScreen,
         path: '/home_screen',
         pageBuilder: (context, state) {
-          return _adaptivePageBuilder(state, HomeScreen());
+          return _adaptivePageBuilder(state, const HomeScreen());
         },
       ),
     ],

@@ -85,8 +85,8 @@ class _OnboardingSecondScreenState
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(child: NeutralMighty()),
-              SizedBox(height: Spaces.xxl),
+              const Center(child: NeutralMighty()),
+              const SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.whyDoYouUsuallySkip,
                 style: ShadTheme.of(context).textTheme.h3,
@@ -129,7 +129,7 @@ class _OnboardingSecondScreenState
                 leading: Padding(
                   padding: EdgeInsets.zero,
                   child: ShadIconButton(
-                    icon: Icon(LucideIcons.plus),
+                    icon: const Icon(LucideIcons.plus),
                     onPressed: () => _addCustomExcuse(_controller.text),
                   ),
                 ),

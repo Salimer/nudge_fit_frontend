@@ -24,7 +24,7 @@ class OnboardingThirdScreen extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: Spaces.vertical),
           child: Column(
             children: [
-              NeutralMighty(),
+              const NeutralMighty(),
               const SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.whenAreWeDoingThis,
@@ -34,7 +34,7 @@ class OnboardingThirdScreen extends ConsumerWidget {
               const SizedBox(height: Spaces.xl),
 
               // Days Selector
-              DaysAndTimePickerWidget(),
+              const DaysAndTimePickerWidget(),
               const SizedBox(height: Spaces.xxl),
 
               Padding(

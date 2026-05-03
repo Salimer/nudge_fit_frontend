@@ -18,15 +18,15 @@ class OnboardingSeventhScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(Spaces.all),
+            padding: const EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
                 Text(
-                  context.l10n.paywallHeader("name"),
+                  context.l10n.paywallHeader('name'),
                   style: ShadTheme.of(context).textTheme.h2,
                 ),
                 const SizedBox(height: Spaces.lg),
-                PremiumMighty(),
+                const PremiumMighty(),
                 const SizedBox(height: Spaces.lg),
                 _buildFeaturesSection(context),
                 const SizedBox(height: Spaces.xxl),
@@ -36,18 +36,12 @@ class OnboardingSeventhScreen extends StatelessWidget {
                     ShadButton(
                       width: double.infinity,
                       onPressed: () {},
-                      child: Text(
-                        context.l10n.btnUpgrade,
-                        style: ShadTheme.of(context).textTheme.p,
-                      ),
+                      child: Text(context.l10n.btnUpgrade),
                     ),
                     Consumer(
                       builder: (context, ref, _) {
                         return ShadButton.link(
-                          child: Text(
-                            context.l10n.btnContinueFree,
-                            style: ShadTheme.of(context).textTheme.muted,
-                          ),
+                          child: Text(context.l10n.btnContinueFree),
                           onPressed: () {
                             ref
                                 .read(routesProvider)
@@ -75,7 +69,11 @@ class OnboardingSeventhScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(Spaces.sm),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black, width: 4),
+              color: ShadTheme.of(context).colorScheme.muted,
+              border: Border.all(
+                color: ShadTheme.of(context).colorScheme.primary,
+                width: 4,
+              ),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
@@ -88,6 +86,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
                     style: ShadTheme.of(context).textTheme.h4,
                   ),
                 ),
+                const SizedBox(height: Spaces.sm),
                 Align(
                   alignment: .center,
                   child: Text(
@@ -95,6 +94,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
                     style: ShadTheme.of(context).textTheme.small,
                   ),
                 ),
+                const SizedBox(height: Spaces.md),
                 _buildTierFeature(context, context.l10n.freeFeature1),
                 _buildTierFeature(context, context.l10n.freeFeature2),
                 _buildTierFeature(context, context.l10n.freeFeature3),
@@ -106,6 +106,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(Spaces.sm),
             decoration: BoxDecoration(
+              color: ShadTheme.of(context).colorScheme.muted,
               border: Border.all(color: Colors.black, width: 4),
               borderRadius: BorderRadius.circular(15),
             ),
@@ -118,6 +119,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
                     style: ShadTheme.of(context).textTheme.h4,
                   ),
                 ),
+                const SizedBox(height: Spaces.sm),
                 Align(
                   alignment: .center,
                   child: Text(
@@ -125,6 +127,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
                     style: ShadTheme.of(context).textTheme.small,
                   ),
                 ),
+                const SizedBox(height: Spaces.md),
                 _buildTierFeature(context, context.l10n.premiumFeature1),
                 _buildTierFeature(context, context.l10n.premiumFeature2),
                 _buildTierFeature(context, context.l10n.premiumFeature3),
@@ -142,7 +145,8 @@ class OnboardingSeventhScreen extends StatelessWidget {
       mainAxisSize: .min,
       mainAxisAlignment: .start,
       children: [
-        Icon(Icons.check),
+        const Icon(LucideIcons.check),
+        const SizedBox(width: Spaces.xs),
         Flexible(child: Text(text, style: ShadTheme.of(context).textTheme.p)),
       ],
     );

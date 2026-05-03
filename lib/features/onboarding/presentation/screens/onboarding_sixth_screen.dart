@@ -23,29 +23,29 @@ class OnboardingSixthScreen extends StatelessWidget {
             padding: const EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
-                ProudMighty(),
+                const ProudMighty(),
 
-                SizedBox(height: Spaces.lg),
+                const SizedBox(height: Spaces.lg),
                 Text(
                   context.l10n.contractSealed,
                   style: ShadTheme.of(context).textTheme.h1Large,
                   textAlign: .center,
                 ),
-                SizedBox(height: Spaces.lg),
+                const SizedBox(height: Spaces.lg),
                 Text(
                   context.l10n.createAccountText,
                   style: ShadTheme.of(context).textTheme.h4,
                   textAlign: .center,
                 ),
 
-                SizedBox(height: Spaces.lg),
+                const SizedBox(height: Spaces.lg),
 
                 if (Platform.isIOS) ...[
-                  AppleSignInWidget(),
-                  SizedBox(height: Spaces.md),
+                  const AppleSignInWidget(),
+                  const SizedBox(height: Spaces.md),
                 ],
 
-                GoogleSignInWidget(),
+                const GoogleSignInWidget(),
               ],
             ),
           ),

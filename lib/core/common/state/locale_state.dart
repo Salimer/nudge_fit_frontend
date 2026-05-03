@@ -27,8 +27,8 @@ class LocaleState extends _$LocaleState {
 
     return state.value ??
         (PlatformDispatcher.instance.locale.languageCode == 'ar'
-            ? Locale('ar')
-            : Locale('en'));
+            ? const Locale('ar')
+            : const Locale('en'));
 }
 
   void changeLocale(String languageCode) {

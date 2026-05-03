@@ -88,7 +88,7 @@ class _StartedWidgetState extends State<StartedWidget> {
                       color: ShadTheme.of(context).colorScheme.primary,
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(
+                    child: const Icon(
                       // FIXED ICON LOGIC
                       Icons.chevron_right_rounded,
                       color: Colors.white,

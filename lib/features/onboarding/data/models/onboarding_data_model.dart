@@ -18,7 +18,7 @@ class OnboardingDataModel {
   factory OnboardingDataModel.initial() => OnboardingDataModel(
     selectedExcuses: [],
     selectedDays: [],
-    selectedTime: TimeOfDay(hour: 08, minute: 00),
+    selectedTime: const TimeOfDay(hour: 08, minute: 00),
   );
 
   OnboardingDataModel copyWith({

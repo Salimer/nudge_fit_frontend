@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
@@ -24,8 +23,8 @@ class AppleSignInWidget extends StatelessWidget {
             leading: SvgPicture.asset(
               SocialMediaIcons.appleLogo,
               height: Spaces.lg,
-              colorFilter: const ColorFilter.mode(
-                Colors.white,
+              colorFilter: ColorFilter.mode(
+                ShadTheme.of(context).colorScheme.secondary,
                 BlendMode.srcIn,
               ),
             ),
