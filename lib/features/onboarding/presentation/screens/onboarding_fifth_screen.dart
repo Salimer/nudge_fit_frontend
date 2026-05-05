@@ -30,6 +30,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                   context.l10n.commitmentTitle,
                   style: ShadTheme.of(context).textTheme.h1Large,
                   textAlign: .center,
+                  maxLines: 2,
                 ),
                 const SizedBox(height: Spaces.lg),
                 Consumer(

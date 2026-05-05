@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nudge_fit_frontend/core/common/state/navigator_key_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../features/home/presentation/screens/home_screen.dart';
@@ -14,6 +13,8 @@ import '../../../features/onboarding/presentation/screens/onboarding_second_scre
 import '../../../features/onboarding/presentation/screens/onboarding_seventh_screen.dart';
 import '../../../features/onboarding/presentation/screens/onboarding_sixth_screen.dart';
 import '../../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
+import '../../../features/settings/presentation/screens/settings_screen.dart';
+import 'navigator_key_state.dart';
 
 part 'routes_state.g.dart';
 
@@ -34,14 +35,20 @@ GoRouter routes(Ref ref) {
             name: RouteNames.onboardingSecond,
             path: 'onboarding_second',
             pageBuilder: (context, state) {
-              return _adaptivePageBuilder(state, const OnboardingSecondScreen());
+              return _adaptivePageBuilder(
+                state,
+                const OnboardingSecondScreen(),
+              );
             },
             routes: [
               GoRoute(
                 name: RouteNames.onboardingThird,
                 path: 'onboarding_third',
                 pageBuilder: (context, state) {
-                  return _adaptivePageBuilder(state, const OnboardingThirdScreen());
+                  return _adaptivePageBuilder(
+                    state,
+                    const OnboardingThirdScreen(),
+                  );
                 },
                 routes: [
                   GoRoute(
@@ -102,6 +109,15 @@ GoRouter routes(Ref ref) {
         pageBuilder: (context, state) {
           return _adaptivePageBuilder(state, const HomeScreen());
         },
+        routes: [
+          GoRoute(
+            name: RouteNames.settings,
+            path: 'settings',
+            pageBuilder: (context, state) {
+              return _adaptivePageBuilder(state, const SettingsScreen());
+            },
+          ),
+        ],
       ),
     ],
   );
@@ -122,4 +138,5 @@ class RouteNames {
   static const onboardingSixth = 'onBoradingSixth';
   static const onboardingSeventh = 'onbaordingSeventh';
   static const homeScreen = 'homeScreen';
+  static const settings = 'settings';
 }

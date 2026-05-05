@@ -71,7 +71,7 @@ class OnboardingSeventhScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: ShadTheme.of(context).colorScheme.muted,
               border: Border.all(
-                color: ShadTheme.of(context).colorScheme.primary,
+                color: ShadTheme.of(context).colorScheme.secondary,
                 width: 4,
               ),
               borderRadius: BorderRadius.circular(15),
@@ -107,7 +107,10 @@ class OnboardingSeventhScreen extends StatelessWidget {
             padding: const EdgeInsets.all(Spaces.sm),
             decoration: BoxDecoration(
               color: ShadTheme.of(context).colorScheme.muted,
-              border: Border.all(color: Colors.black, width: 4),
+              border: Border.all(
+                color: ShadTheme.of(context).colorScheme.primary,
+                width: 4,
+              ),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
