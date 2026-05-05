@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../features/contract/presentation/screens/contract_screen.dart';
+import '../../../features/history/presentation/screens/history_screen.dart';
 import '../../../features/home/presentation/screens/home_screen.dart';
 import '../../../features/onboarding/presentation/screens/onboarding_fifth_screen.dart';
 import '../../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
@@ -13,6 +15,7 @@ import '../../../features/onboarding/presentation/screens/onboarding_second_scre
 import '../../../features/onboarding/presentation/screens/onboarding_seventh_screen.dart';
 import '../../../features/onboarding/presentation/screens/onboarding_sixth_screen.dart';
 import '../../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
+import '../../../features/profile/presentation/screens/profile_screen.dart';
 import '../../../features/settings/presentation/screens/settings_screen.dart';
 import 'navigator_key_state.dart';
 
@@ -23,6 +26,8 @@ GoRouter routes(Ref ref) {
   return GoRouter(
     navigatorKey: ref.read(navigatorKeyStateProvider),
     initialLocation: '/home_screen',
+
+    // initialLocation: '/onboarding_first',
     routes: [
       GoRoute(
         name: RouteNames.onboarding,
@@ -117,6 +122,27 @@ GoRouter routes(Ref ref) {
               return _adaptivePageBuilder(state, const SettingsScreen());
             },
           ),
+          GoRoute(
+            name: RouteNames.history,
+            path: 'history',
+            pageBuilder: (context, state) {
+              return _adaptivePageBuilder(state, const HistoryScreen());
+            },
+          ),
+          GoRoute(
+            name: RouteNames.profile,
+            path: 'profile',
+            pageBuilder: (context, state) {
+              return _adaptivePageBuilder(state, const ProfileScreen());
+            },
+          ),
+          GoRoute(
+            name: RouteNames.contract,
+            path: 'contract',
+            pageBuilder: (context, state) {
+              return _adaptivePageBuilder(state, const ContractScreen());
+            },
+          ),
         ],
       ),
     ],
@@ -139,4 +165,7 @@ class RouteNames {
   static const onboardingSeventh = 'onbaordingSeventh';
   static const homeScreen = 'homeScreen';
   static const settings = 'settings';
+  static const history = 'history';
+  static const profile = 'profile';
+  static const contract = 'contract';
 }

@@ -57,6 +57,7 @@ class _OnboardingSecondScreenState
       // This is the Shadcn Toast way
       ShadToaster.of(context).show(
         ShadToast.destructive(
+          alignment: .topCenter,
           description: Text(context.l10n.excuseAlreadyExists),
           showCloseIconOnlyWhenHovered: false,
         ),

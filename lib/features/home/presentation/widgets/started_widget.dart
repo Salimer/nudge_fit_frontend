@@ -31,7 +31,9 @@ class _StartedWidgetState extends State<StartedWidget> {
           height: handleSize,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: ShadTheme.of(context).colorScheme.primary.withValues(alpha: 0.1),
+            color: ShadTheme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(handleSize / 2),
           ),
           child: Stack(
@@ -88,10 +90,10 @@ class _StartedWidgetState extends State<StartedWidget> {
                       color: ShadTheme.of(context).colorScheme.primary,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(
+                    child: Icon(
                       // FIXED ICON LOGIC
                       Icons.chevron_right_rounded,
-                      color: Colors.white,
+                      color: ShadTheme.of(context).colorScheme.background,
                       size: 28,
                     ),
                   ),

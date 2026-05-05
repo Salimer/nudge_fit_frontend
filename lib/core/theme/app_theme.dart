@@ -4,6 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../common/state/locale_state.dart';
+import 'app_colors.dart';
 
 part 'app_theme.g.dart';
 
@@ -28,8 +29,47 @@ class AppTheme {
     );
   }
 
-  ShadThemeData get lightTheme =>
-      _buildTheme(const ShadStoneColorScheme.light());
+  ShadThemeData get lightTheme => _buildTheme(
+    const ShadStoneColorScheme.light(
+      background: AppColors.backgroundLight,
+      foreground: AppColors.foregroundLight,
+      card: AppColors.cardLight,
+      cardForeground: AppColors.foregroundLight,
+      popover: AppColors.cardLight,
+      popoverForeground: AppColors.foregroundLight,
+      primary: AppColors.brandGreenLight,
+      primaryForeground: AppColors.buttonTextDark,
+      secondary: AppColors.secondaryLight,
+      secondaryForeground: AppColors.foregroundLight,
+      muted: AppColors.mutedLight,
+      mutedForeground: AppColors.mutedForegroundLight,
+      border: AppColors.borderLight,
+      input: AppColors.borderLight,
+      ring: AppColors.brandGreenLight,
+      destructive: AppColors.destructiveLight,
+      destructiveForeground: Colors.white,
+    ),
+  );
 
-  ShadThemeData get darkTheme => _buildTheme(const ShadStoneColorScheme.dark());
+  ShadThemeData get darkTheme => _buildTheme(
+    const ShadStoneColorScheme.dark(
+      background: AppColors.backgroundDark,
+      foreground: AppColors.foregroundDark,
+      card: AppColors.cardDark,
+      cardForeground: AppColors.foregroundDark,
+      popover: AppColors.cardDark,
+      popoverForeground: AppColors.foregroundDark,
+      primary: AppColors.brandGreenDark,
+      primaryForeground: AppColors.buttonTextDark,
+      secondary: AppColors.secondaryDark,
+      secondaryForeground: AppColors.foregroundDark,
+      muted: AppColors.mutedDark,
+      mutedForeground: AppColors.mutedForegroundDark,
+      border: AppColors.borderDark,
+      input: AppColors.borderDark,
+      ring: AppColors.brandGreenDark,
+      destructive: AppColors.destructiveDark,
+      destructiveForeground: Colors.white,
+    ),
+  );
 }

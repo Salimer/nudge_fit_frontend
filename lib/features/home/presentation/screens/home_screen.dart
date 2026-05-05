@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nudge_fit_frontend/core/common/state/routes_state.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/constants/enums.dart';
 import '../../../../core/constants/spaces.dart';
 import '../state/home_screen_state.dart';
@@ -90,19 +90,25 @@ class HomeScreen extends StatelessWidget {
                                       title: 'Edit My Contract',
                                       description: 'Future Schedule Edits',
                                       icon: LucideIcons.handCoins,
-                                      onTap: () {},
+                                      onTap: () {
+                                        context.goNamed(RouteNames.contract);
+                                      },
                                     ),
                                     SheetOptionWidget(
                                       title: 'History',
                                       description: 'Previous workouts',
                                       icon: LucideIcons.history,
-                                      onTap: () {},
+                                      onTap: () {
+                                        context.goNamed(RouteNames.history);
+                                      },
                                     ),
                                     SheetOptionWidget(
                                       title: 'Profile',
                                       description: 'Goals, Tone & Context',
                                       icon: LucideIcons.user,
-                                      onTap: () {},
+                                      onTap: () {
+                                        context.goNamed(RouteNames.profile);
+                                      },
                                     ),
                                   ],
                                 ),
