@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/state/routes_state.dart';
-import '../../../../core/constants/app_padding.dart';
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
 class OnboardingSeventhScreen extends StatelessWidget {
@@ -18,122 +18,127 @@ class OnboardingSeventhScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
+            padding: const EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
-                Text(context.l10n.paywallHeader("name")),
-                PremiumMighty(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    spacing: 5,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 4),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: .stretch,
-                            children: [
-                              Align(
-                                alignment: .center,
-                                child: Text(context.l10n.tierFreeTitle),
-                              ),
-                              Align(
-                                alignment: .center,
-                                child: Text(context.l10n.tierFreeSub),
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.freeFeature1,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.freeFeature2,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.freeFeature3,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black, width: 4),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: .center,
-                                child: Text(context.l10n.tierPremiumTitle),
-                              ),
-                              Align(
-                                alignment: .center,
-                                child: Text(context.l10n.tierPremiumSub),
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.premiumFeature1,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.premiumFeature2,
-                              ),
-                              _buildTierFeature(
-                                context,
-                                context.l10n.premiumFeature3,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                Text(
+                  context.l10n.paywallHeader('name'),
+                  style: ShadTheme.of(context).textTheme.h2,
+                ),
+                const SizedBox(height: Spaces.lg),
+                const PremiumMighty(),
+                const SizedBox(height: Spaces.lg),
+                _buildFeaturesSection(context),
+                const SizedBox(height: Spaces.xxl),
+                Column(
+                  mainAxisSize: .min,
+                  children: [
+                    ShadButton(
+                      width: double.infinity,
+                      onPressed: () {},
+                      child: Text(context.l10n.btnUpgrade),
+                    ),
+                    Consumer(
+                      builder: (context, ref, _) {
+                        return ShadButton.link(
+                          child: Text(context.l10n.btnContinueFree),
+                          onPressed: () {
+                            ref
+                                .read(routesProvider)
+                                .goNamed(RouteNames.homeScreen);
+                          },
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
 
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(
-          bottom: AppPadding.vertical,
-          right: AppPadding.horizontal,
-          left: AppPadding.horizontal,
-        ),
-        child: Column(
-          mainAxisSize: .min,
-          children: [
-            SizedBox(
-              height: 56,
-              width: double.infinity,
-              child: CustomFilledButton(
-                text: context.l10n.btnUpgrade,
-                onPressed: () {},
-                isLoading: false,
+  Row _buildFeaturesSection(BuildContext context) {
+    return Row(
+      crossAxisAlignment: .start,
+      spacing: Spaces.sm,
+      children: [
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(Spaces.sm),
+            decoration: BoxDecoration(
+              color: ShadTheme.of(context).colorScheme.muted,
+              border: Border.all(
+                color: ShadTheme.of(context).colorScheme.secondary,
+                width: 4,
               ),
+              borderRadius: BorderRadius.circular(15),
             ),
-            Consumer(
-              builder: (context, ref, _) {
-                return CustomTextButtonWidget(
-                  onTap: () {
-                    ref.read(routesProvider).goNamed(RouteNames.homeScreen);
-                  },
-                  text: context.l10n.btnContinueFree,
-                );
-              },
+            child: Column(
+              crossAxisAlignment: .stretch,
+              children: [
+                Align(
+                  alignment: .center,
+                  child: Text(
+                    context.l10n.tierFreeTitle,
+                    style: ShadTheme.of(context).textTheme.h4,
+                  ),
+                ),
+                const SizedBox(height: Spaces.sm),
+                Align(
+                  alignment: .center,
+                  child: Text(
+                    context.l10n.tierFreeSub,
+                    style: ShadTheme.of(context).textTheme.small,
+                  ),
+                ),
+                const SizedBox(height: Spaces.md),
+                _buildTierFeature(context, context.l10n.freeFeature1),
+                _buildTierFeature(context, context.l10n.freeFeature2),
+                _buildTierFeature(context, context.l10n.freeFeature3),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(Spaces.sm),
+            decoration: BoxDecoration(
+              color: ShadTheme.of(context).colorScheme.muted,
+              border: Border.all(
+                color: ShadTheme.of(context).colorScheme.primary,
+                width: 4,
+              ),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Column(
+              children: [
+                Align(
+                  alignment: .center,
+                  child: Text(
+                    context.l10n.tierPremiumTitle,
+                    style: ShadTheme.of(context).textTheme.h4,
+                  ),
+                ),
+                const SizedBox(height: Spaces.sm),
+                Align(
+                  alignment: .center,
+                  child: Text(
+                    context.l10n.tierPremiumSub,
+                    style: ShadTheme.of(context).textTheme.small,
+                  ),
+                ),
+                const SizedBox(height: Spaces.md),
+                _buildTierFeature(context, context.l10n.premiumFeature1),
+                _buildTierFeature(context, context.l10n.premiumFeature2),
+                _buildTierFeature(context, context.l10n.premiumFeature3),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -143,8 +148,9 @@ class OnboardingSeventhScreen extends StatelessWidget {
       mainAxisSize: .min,
       mainAxisAlignment: .start,
       children: [
-        Icon(Icons.check),
-        Flexible(child: Text(text)),
+        const Icon(LucideIcons.check),
+        const SizedBox(width: Spaces.xs),
+        Flexible(child: Text(text, style: ShadTheme.of(context).textTheme.p)),
       ],
     );
   }

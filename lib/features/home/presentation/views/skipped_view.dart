@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
-import '../../../../core/constants/app_padding.dart';
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 
 class SkippedView extends StatelessWidget {
@@ -11,56 +12,64 @@ class SkippedView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       bottom: false,
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: AppPadding.vertical,
-          horizontal: AppPadding.horizontal,
-        ),
-        child: SizedBox(
-          width: double.infinity,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(children: [Text(context.l10n.homeSkippedGreeting('name'))]),
-                SizedBox(height: 20),
-                Row(
-                  children: [
-                    Text(
-                      context.l10n.homeSkippedTitle,
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                CryingMighty(
-                  maxHeight: MediaQuery.sizeOf(context).height * 0.5,
-                  maxWidth: MediaQuery.sizeOf(context).width * 0.7,
-                ),
-                SizedBox(height: 20),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: const EdgeInsets.all(16),
-
-                  child: Column(
-                    children: [
-                      Text(context.l10n.homeLoggedLabel),
-                      SizedBox(height: 10),
-                      Text(context.l10n.homeLoggedExcuse('excuse')),
-                      SizedBox(height: 10),
-                      Text(context.l10n.homeLoggedStatusSkipped),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Text(context.l10n.homeSkippedNudge),
-              ],
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(Spaces.all),
+        child: Column(
+          crossAxisAlignment: .start,
+          children: [
+            Text(
+              context.l10n.homeSkippedGreeting('name'),
+              style: ShadTheme.of(context).textTheme.p,
             ),
-          ),
+            const SizedBox(height: Spaces.sm),
+            Text(
+              context.l10n.homeSkippedTitle,
+              style: ShadTheme.of(context).textTheme.h2,
+            ),
+            const SizedBox(height: Spaces.lg),
+            Center(
+              child: CryingMighty(
+                maxHeight: MediaQuery.sizeOf(context).height * 0.4,
+                maxWidth: MediaQuery.sizeOf(context).width * 0.7,
+              ),
+            ),
+            const SizedBox(height: Spaces.lg),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(Spaces.lg),
+              decoration: BoxDecoration(
+                color: ShadTheme.of(context).colorScheme.muted,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: ShadTheme.of(context).colorScheme.border,
+                ),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    context.l10n.homeLoggedLabel,
+                    style: ShadTheme.of(context).textTheme.h4,
+                  ),
+                  const SizedBox(height: Spaces.sm),
+                  Text(
+                    context.l10n.homeLoggedExcuse('excuse'),
+                    style: ShadTheme.of(context).textTheme.p,
+                  ),
+                  const SizedBox(height: Spaces.sm),
+                  Text(
+                    context.l10n.homeLoggedStatusSkipped,
+                    style: ShadTheme.of(context).textTheme.small,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: Spaces.lg),
+            Text(
+              context.l10n.homeSkippedNudge,
+              style: ShadTheme.of(context).textTheme.muted,
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../data/models/day_in_week_model.dart';
 
 class SelectWeekDays extends StatefulWidget {
@@ -140,7 +142,7 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
   // getter to handle background color of container.
   Color? get _handleBackgroundColor {
     if (widget.backgroundColor == null) {
-      return Theme.of(context).colorScheme.secondary;
+      return ShadTheme.of(context).colorScheme.secondary;
     } else {
       return widget.backgroundColor;
     }
@@ -231,7 +233,7 @@ class SelectWeekDaysState extends State<SelectWeekDays> {
                   _getSelectedWeekDays(day.isSelected, day.dayKey);
                 },
                 child: Padding(
-                  padding: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(Spaces.sm),
                   child: Text(
                     day.dayName.length < 3
                         ? day.dayName

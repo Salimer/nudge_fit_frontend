@@ -8,5 +8,5 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final container = ProviderContainer(retry: (retryCount, error) => null);
   await container.read(localeStateProvider.future);
-  runApp(UncontrolledProviderScope(container: container, child: MyApp()));
+  runApp(UncontrolledProviderScope(container: container, child: const MyApp()));
 }

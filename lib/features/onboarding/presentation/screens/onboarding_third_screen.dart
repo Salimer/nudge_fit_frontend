@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
 import '../../../../core/extensions/build_context.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
 
@@ -13,51 +14,49 @@ class OnboardingThirdScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedDays = ref.watch(
+      daysAndTimePickerStateProvider.select((state) => state.selectedDays),
+    );
     return Scaffold(
       appBar: AppBar(elevation: 0, backgroundColor: Colors.transparent),
       body: SafeArea(
         child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: Spaces.vertical),
           child: Column(
             children: [
-              NeutralMighty(),
-              const SizedBox(height: 16),
+              const NeutralMighty(),
+              const SizedBox(height: Spaces.xxl),
               Text(
                 context.l10n.whenAreWeDoingThis,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: ShadTheme.of(context).textTheme.h2,
               ),
-              const SizedBox(height: 32),
+              const SizedBox(height: Spaces.xl),
 
               // Days Selector
-              DaysAndTimePickerWidget(),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: Consumer(
-        builder: (context, ref, _) {
-          final selectedDays = ref.watch(
-            daysAndTimePickerStateProvider.select(
-              (state) => state.selectedDays,
-            ),
-          );
+              const DaysAndTimePickerWidget(),
+              const SizedBox(height: Spaces.xxl),
 
-          return Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
-            child: CustomElevatedButton1(
-              text: context.l10n.next,
-              onPressed: selectedDays.isNotEmpty
-                  ? () {
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spaces.horizontal,
+                ),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ShadButton(
+                    enabled: selectedDays.isNotEmpty,
+                    onPressed: () {
                       ref
                           .read(onboardingUseCaseProvider)
                           .leaveThirdOnboardingScreen();
-                    }
-                  : null,
-            ),
-          );
-        },
+                    },
+                    child: Text(context.l10n.next),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

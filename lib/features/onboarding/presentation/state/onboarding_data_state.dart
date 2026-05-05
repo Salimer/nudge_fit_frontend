@@ -15,7 +15,7 @@ class OnboardingDataState extends _$OnboardingDataState {
 
   void setExcuses(List<String> excuses) {
     state = state.copyWith(selectedExcuses: excuses);
-    debugPrint("excuses: ${state.selectedExcuses}");
+    debugPrint('excuses: ${state.selectedExcuses}');
   }
 
   DaysAndTimePickerModel getDaysAndTime() {

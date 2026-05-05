@@ -19,8 +19,8 @@ class ConstrainedMighty extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
-        maxHeight: maxHeight ?? MediaQuery.sizeOf(context).height * 0.3,
-        maxWidth: maxWidth ?? double.infinity,
+        maxHeight: maxHeight ?? MediaQuery.sizeOf(context).height * 0.5,
+        maxWidth: maxWidth ?? MediaQuery.sizeOf(context).width * 0.7,
       ),
       child: SvgPicture.asset(assetName),
     );

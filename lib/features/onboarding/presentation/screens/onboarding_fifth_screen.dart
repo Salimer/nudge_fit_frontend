@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -19,18 +21,18 @@ class OnboardingFifthScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: SingleChildScrollView(
+            padding: const EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
-                FlexMighty(),
+                const FlexMighty(),
+                const SizedBox(height: Spaces.xxl),
                 Text(
                   context.l10n.commitmentTitle,
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: ShadTheme.of(context).textTheme.h1Large,
                   textAlign: .center,
+                  maxLines: 2,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: Spaces.lg),
                 Consumer(
                   builder: (context, ref, _) {
                     final selectedDays = ref
@@ -41,21 +43,18 @@ class OnboardingFifthScreen extends StatelessWidget {
                         .selectedTime;
 
                     return Text(
-                      "${selectedDays.map((e) => e.toUpperCase())} ${context.l10n.at} ${selectedTime.format(context)}",
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        // fontSize: 25,
-                        // fontWeight: FontWeight.bold,
-                      ),
+                      '${selectedDays.map((e) => e)} ${context.l10n.at} ${selectedTime.format(context)}',
+                      style: ShadTheme.of(context).textTheme.h4,
                       textAlign: .center,
                     );
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: Spaces.lg),
                 Consumer(
                   builder: (context, ref, _) {
                     return HoldToConfirmButton(
                       onConfirm: () {
-                        debugPrint("Action Triggered!");
+                        debugPrint('Action Triggered!');
                         // Logic for next screen or snackbar here
                         ref
                             .read(routesProvider)
@@ -63,10 +62,7 @@ class OnboardingFifthScreen extends StatelessWidget {
                       },
                       child: Text(
                         context.l10n.holdToSeal,
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: ShadTheme.of(context).textTheme.h3,
                       ),
                     );
                   },

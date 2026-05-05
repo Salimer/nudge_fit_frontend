@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
-import '../../../../core/common/widgets/buttons.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
 class OnboardingFourthScreen extends StatelessWidget {
@@ -14,94 +15,86 @@ class OnboardingFourthScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SeriousMighty(),
-                SizedBox(height: 20),
-                Text(
-                  context.l10n.commitmentTitle,
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(Spaces.all),
+          child: Column(
+            children: [
+              const SeriousMighty(),
+              const SizedBox(height: Spaces.xxl),
+              Text(
+                context.l10n.commitmentTitle,
+                style: ShadTheme.of(context).textTheme.h1Large,
+                textAlign: .center,
+                maxLines: 2,
+              ),
+              const SizedBox(height: Spaces.lg),
+              Text(
+                context.l10n.commitmentBody,
+                style: ShadTheme.of(context).textTheme.p,
+              ),
+              const SizedBox(height: Spaces.lg),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(Spaces.sm),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.outline,
                   ),
-                  textAlign: .center,
                 ),
-                SizedBox(height: 20),
-                Text(
-                  context.l10n.commitmentBody,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-                SizedBox(height: 20),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.outline,
+                child: Column(
+                  crossAxisAlignment: .start,
+                  children: [
+                    Text(
+                      '✅ ${context.l10n.nudgeFriendly}',
+                      style: ShadTheme.of(context).textTheme.p,
                     ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: .start,
+                    Text(
+                      '⚠️ ${context.l10n.nudgeLate}',
+                      style: ShadTheme.of(context).textTheme.p,
+                    ),
+                    Text(
+                      '🚨${context.l10n.nudgePersistent}',
+                      style: ShadTheme.of(context).textTheme.p,
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: Spaces.xxl),
+
+              Consumer(
+                builder: (context, ref, _) {
+                  return Column(
+                    mainAxisSize: .min,
                     children: [
-                      Text(
-                        "✅ ${context.l10n.nudgeFriendly}",
-                        style: Theme.of(context).textTheme.titleMedium,
+                      SizedBox(
+                        width: double.infinity,
+                        child: ShadButton(
+                          child: Text(context.l10n.btnUnderstandNag),
+                          onPressed: () {
+                            ref
+                                .read(routesProvider)
+                                .goNamed(RouteNames.onboardingFifth);
+                          },
+                        ),
                       ),
-                      Text(
-                        "⚠️ ${context.l10n.nudgeLate}",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      Text(
-                        "🚨${context.l10n.nudgePersistent}",
-                        style: Theme.of(context).textTheme.titleMedium,
+                      // SizedBox(height: Spaces.xs),
+                      ShadButton.link(
+                        child: Text(context.l10n.btnMaybeLater),
+                        onPressed: () {
+                          ref
+                              .read(routesProvider)
+                              .goNamed(RouteNames.onboardingFifth);
+                        },
                       ),
                     ],
-                  ),
-                ),
-              ],
-            ),
+                  );
+                },
+              ),
+            ],
           ),
         ),
-      ),
-      bottomNavigationBar: Consumer(
-        builder: (context, ref, _) {
-          return Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, bottom: 32),
-            child: Column(
-              mainAxisSize: .min,
-              children: [
-                CustomElevatedButton1(
-                  text: context.l10n.btnUnderstandNag,
-                  onPressed: () {
-                    ref
-                        .read(routesProvider)
-                        .goNamed(RouteNames.onboardingFifth);
-                  },
-                ),
-                SizedBox(height: 5),
-                GestureDetector(
-                  onTap: () {
-                    ref
-                        .read(routesProvider)
-                        .goNamed(RouteNames.onboardingFifth);
-                  },
-                  child: Text(
-                    context.l10n.btnMaybeLater,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
       ),
     );
   }
