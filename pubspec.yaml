@@ -48,6 +48,7 @@ dependencies:
   shadcn_ui: ^0.54.0
 
   path: any
+  google_sign_in: ^7.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
