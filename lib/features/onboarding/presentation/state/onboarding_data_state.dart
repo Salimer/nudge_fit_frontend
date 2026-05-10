@@ -18,6 +18,16 @@ class OnboardingDataState extends _$OnboardingDataState {
     debugPrint('excuses: ${state.selectedExcuses}');
   }
 
+  void setGoals(List<String> goals) {
+    state = state.copyWith(selectedGoals: goals);
+    debugPrint('goals: ${state.selectedGoals}');
+  }
+
+  void setStyleAndEquipment(String style, String equipment) {
+    state = state.copyWith(selectedStyle: style, selectedEquipment: equipment);
+    debugPrint('style: ${state.selectedStyle}, equipment: ${state.selectedEquipment}');
+  }
+
   DaysAndTimePickerModel getDaysAndTime() {
     return DaysAndTimePickerModel(
       selectedDays: state.selectedDays,

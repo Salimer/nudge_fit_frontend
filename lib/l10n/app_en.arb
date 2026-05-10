@@ -95,5 +95,20 @@
   "homeLoggedLabel": "EXCUSE LOGGED",
   "homeLoggedExcuse": "Excuse: {excuse}",
   "homeLoggedStatusSkipped": "Status: Skipped",
-  "homeSkippedNudge": "You broke your contract. Remember the feeling so you don't skip again!"
+  "homeSkippedNudge": "You broke your contract. Remember the feeling so you don't skip again!",
+  "goalsPrompt": "What are we fighting for?",
+  "goalsPlaceholder": "To build discipline for my business",
+  "goalsBuildDiscipline": "To build discipline",
+  "goalsLoseWeight": "To lose weight",
+  "goalsGainMuscle": "To gain muscle",
+  "goalsFeelBetter": "To feel better",
+  "battlefieldPrompt": "How are we training?",
+  "battlefieldStyle": "Style",
+  "battlefieldStyleHome": "Home Strength",
+  "battlefieldStyleGym": "Full Gym",
+  "battlefieldStyleCalisthenics": "Calisthenics",
+  "battlefieldEquipment": "Equipment",
+  "battlefieldEquipmentDumbbells": "Dumbbells",
+  "battlefieldEquipmentBodyweight": "Bodyweight",
+  "battlefieldEquipmentFull": "Full Equipment"
 }

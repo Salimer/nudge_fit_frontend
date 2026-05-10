@@ -18,16 +18,24 @@ class OnboardingUseCase {
   void leaveSecondOnboardingScreen(List<String> excuses) {
     ref.read(onboardingDataStateProvider.notifier).setExcuses(excuses);
     syncSelectedDaysAndTimeWidget();
-    ref.read(routesProvider).goNamed(RouteNames.onboardingThird);
+    ref.read(routesProvider).goNamed(RouteNames.onboarding3Contract);
   }
 
   void leaveThirdOnboardingScreen() {
     syncSelectedDaysAndTimeToOnboardingState();
-    ref.read(routesProvider).goNamed(RouteNames.onboardingFourth);
+    ref.read(routesProvider).goNamed(RouteNames.onboarding4goals);
   }
 
-  void leaveFifthOnboardingScreen() {
-    ref.read(routesProvider).goNamed(RouteNames.onboardingSixth);
+  void leaveFourthOnboardingScreen(List<String> goals) {
+    ref.read(onboardingDataStateProvider.notifier).setGoals(goals);
+    ref.read(routesProvider).goNamed(RouteNames.onboarding5Battlefield);
+  }
+
+  void leaveFifthOnboardingScreen(String style, String equipment) {
+    ref
+        .read(onboardingDataStateProvider.notifier)
+        .setStyleAndEquipment(style, equipment);
+    ref.read(routesProvider).goNamed(RouteNames.onboarding6NotReq);
   }
 
   List<String> getLocalizedSelectedDays(BuildContext context) {

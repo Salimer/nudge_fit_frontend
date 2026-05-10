@@ -315,4 +315,49 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get homeSkippedNudge =>
       'اليوم كسرت عقدك، لاتنسى هذا الشعور عشان ما تكسره مرة ثانية!';
+
+  @override
+  String get goalsPrompt => 'عشان إيش قاعدين نحارب؟';
+
+  @override
+  String get goalsPlaceholder => 'عشان أبني انضباط لشغلي';
+
+  @override
+  String get goalsBuildDiscipline => 'عشان ألتزم وأبني انضباط';
+
+  @override
+  String get goalsLoseWeight => 'عشان أنزل وزني';
+
+  @override
+  String get goalsGainMuscle => 'عشان أبني عضل';
+
+  @override
+  String get goalsFeelBetter => 'عشان أحس بتحسن';
+
+  @override
+  String get battlefieldPrompt => 'كيف بنتمرن؟';
+
+  @override
+  String get battlefieldStyle => 'الأسلوب';
+
+  @override
+  String get battlefieldStyleHome => 'تمارين مقاومة بالبيت';
+
+  @override
+  String get battlefieldStyleGym => 'نادي';
+
+  @override
+  String get battlefieldStyleCalisthenics => 'وزن الجسم (كاليسثينكس)';
+
+  @override
+  String get battlefieldEquipment => 'الأدوات';
+
+  @override
+  String get battlefieldEquipmentDumbbells => 'دمبلز';
+
+  @override
+  String get battlefieldEquipmentBodyweight => 'وزن الجسم';
+
+  @override
+  String get battlefieldEquipmentFull => 'أدوات كاملة';
 }

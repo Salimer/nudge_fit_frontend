@@ -316,4 +316,49 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get homeSkippedNudge =>
       'You broke your contract. Remember the feeling so you don\'t skip again!';
+
+  @override
+  String get goalsPrompt => 'What are we fighting for?';
+
+  @override
+  String get goalsPlaceholder => 'To build discipline for my business';
+
+  @override
+  String get goalsBuildDiscipline => 'To build discipline';
+
+  @override
+  String get goalsLoseWeight => 'To lose weight';
+
+  @override
+  String get goalsGainMuscle => 'To gain muscle';
+
+  @override
+  String get goalsFeelBetter => 'To feel better';
+
+  @override
+  String get battlefieldPrompt => 'How are we training?';
+
+  @override
+  String get battlefieldStyle => 'Style';
+
+  @override
+  String get battlefieldStyleHome => 'Home Strength';
+
+  @override
+  String get battlefieldStyleGym => 'Full Gym';
+
+  @override
+  String get battlefieldStyleCalisthenics => 'Calisthenics';
+
+  @override
+  String get battlefieldEquipment => 'Equipment';
+
+  @override
+  String get battlefieldEquipmentDumbbells => 'Dumbbells';
+
+  @override
+  String get battlefieldEquipmentBodyweight => 'Bodyweight';
+
+  @override
+  String get battlefieldEquipmentFull => 'Full Equipment';
 }

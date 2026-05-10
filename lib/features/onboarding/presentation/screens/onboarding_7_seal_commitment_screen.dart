@@ -10,8 +10,8 @@ import '../../use_cases/onboarding_use_case.dart';
 import '../state/onboarding_data_state.dart';
 import '../widgets/hold_confirm_btn.dart';
 
-class Onboarding5SealCommitmentScreen extends StatelessWidget {
-  const Onboarding5SealCommitmentScreen({super.key});
+class Onboarding7SealCommitmentScreen extends StatelessWidget {
+  const Onboarding7SealCommitmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class Onboarding5SealCommitmentScreen extends StatelessWidget {
                         // Logic for next screen or snackbar here
                         ref
                             .read(routesProvider)
-                            .goNamed(RouteNames.onboarding6NotReq);
+                            .goNamed(RouteNames.onboarding8Auth);
                       },
                       child: Text(
                         context.l10n.holdToSeal,

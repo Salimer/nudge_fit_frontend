@@ -7,11 +7,11 @@ import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
-class Onboarding7PaywallScreen extends StatelessWidget {
-  const Onboarding7PaywallScreen({super.key});
+class Onboarding9PaywallScreen extends ConsumerWidget {
+  const Onboarding9PaywallScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(

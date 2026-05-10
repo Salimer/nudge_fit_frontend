@@ -94,5 +94,20 @@
   "homeLoggedLabel": "تم تسجيل العذر",
   "homeLoggedExcuse": "العذر: {excuse}",
   "homeLoggedStatusSkipped": "الحالة: سحبة (غائب)",
-  "homeSkippedNudge": "اليوم كسرت عقدك، لاتنسى هذا الشعور عشان ما تكسره مرة ثانية!"
+  "homeSkippedNudge": "اليوم كسرت عقدك، لاتنسى هذا الشعور عشان ما تكسره مرة ثانية!",
+  "goalsPrompt": "عشان إيش قاعدين نحارب؟",
+  "goalsPlaceholder": "عشان أبني انضباط لشغلي",
+  "goalsBuildDiscipline": "عشان ألتزم وأبني انضباط",
+  "goalsLoseWeight": "عشان أنزل وزني",
+  "goalsGainMuscle": "عشان أبني عضل",
+  "goalsFeelBetter": "عشان أحس بتحسن",
+  "battlefieldPrompt": "كيف بنتمرن؟",
+  "battlefieldStyle": "الأسلوب",
+  "battlefieldStyleHome": "تمارين مقاومة بالبيت",
+  "battlefieldStyleGym": "نادي",
+  "battlefieldStyleCalisthenics": "وزن الجسم (كاليسثينكس)",
+  "battlefieldEquipment": "الأدوات",
+  "battlefieldEquipmentDumbbells": "دمبلز",
+  "battlefieldEquipmentBodyweight": "وزن الجسم",
+  "battlefieldEquipmentFull": "أدوات كاملة"
 }

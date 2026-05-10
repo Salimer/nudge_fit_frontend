@@ -42,7 +42,7 @@ final class OnboardingDataStateProvider
 }
 
 String _$onboardingDataStateHash() =>
-    r'4306e1ec4e3c46e51981cb049b847f3f76077ba4';
+    r'b3774c17ac05c803d0a37befa9bcb949c2bd101c';
 
 abstract class _$OnboardingDataState extends $Notifier<OnboardingDataModel> {
   OnboardingDataModel build();

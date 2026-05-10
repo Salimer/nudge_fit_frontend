@@ -77,7 +77,7 @@ class Onboarding1WelcomeScreen extends StatelessWidget {
                             onPressed: () {
                               ref
                                   .read(routesProvider)
-                                  .goNamed(RouteNames.onboardingSecond);
+                                  .goNamed(RouteNames.onboarding2Excuses);
                             },
                           ),
                         );

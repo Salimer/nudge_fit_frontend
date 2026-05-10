@@ -18,7 +18,7 @@ class AppleSignInWidget extends StatelessWidget {
         builder: (context, ref, _) {
           return ShadButton(
             onPressed: () {
-              ref.read(routesProvider).goNamed(RouteNames.onboardingSeventh);
+              ref.read(routesProvider).goNamed(RouteNames.onboarding9Paywall);
             },
             leading: SvgPicture.asset(
               SocialMediaIcons.appleLogo,

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/constants/spaces.dart';
@@ -9,11 +10,11 @@ import '../../../../core/common/widgets/mighty.dart';
 import '../widgets/apple_sign_in_widget.dart';
 import '../../../auth/presentation/widgets/google_sign_in_widget.dart';
 
-class Onboarding6AuthScreen extends StatelessWidget {
-  const Onboarding6AuthScreen({super.key});
+class Onboarding8AuthScreen extends ConsumerWidget {
+  const Onboarding8AuthScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(

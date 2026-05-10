@@ -7,8 +7,8 @@ import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
-class Onboarding4NotReqScreen extends StatelessWidget {
-  const Onboarding4NotReqScreen({super.key});
+class Onboarding6NotReqScreen extends StatelessWidget {
+  const Onboarding6NotReqScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,7 @@ class Onboarding4NotReqScreen extends StatelessWidget {
                           onPressed: () {
                             ref
                                 .read(routesProvider)
-                                .goNamed(RouteNames.onboarding5Battlefield);
+                                .goNamed(RouteNames.onboarding7SealCommitment);
                           },
                         ),
                       ),
@@ -85,7 +85,7 @@ class Onboarding4NotReqScreen extends StatelessWidget {
                         onPressed: () {
                           ref
                               .read(routesProvider)
-                              .goNamed(RouteNames.onboarding5Battlefield);
+                              .goNamed(RouteNames.onboarding7SealCommitment);
                         },
                       ),
                     ],

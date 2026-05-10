@@ -667,6 +667,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You broke your contract. Remember the feeling so you don\'t skip again!'**
   String get homeSkippedNudge;
+
+  /// No description provided for @goalsPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'What are we fighting for?'**
+  String get goalsPrompt;
+
+  /// No description provided for @goalsPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'To build discipline for my business'**
+  String get goalsPlaceholder;
+
+  /// No description provided for @goalsBuildDiscipline.
+  ///
+  /// In en, this message translates to:
+  /// **'To build discipline'**
+  String get goalsBuildDiscipline;
+
+  /// No description provided for @goalsLoseWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'To lose weight'**
+  String get goalsLoseWeight;
+
+  /// No description provided for @goalsGainMuscle.
+  ///
+  /// In en, this message translates to:
+  /// **'To gain muscle'**
+  String get goalsGainMuscle;
+
+  /// No description provided for @goalsFeelBetter.
+  ///
+  /// In en, this message translates to:
+  /// **'To feel better'**
+  String get goalsFeelBetter;
+
+  /// No description provided for @battlefieldPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'How are we training?'**
+  String get battlefieldPrompt;
+
+  /// No description provided for @battlefieldStyle.
+  ///
+  /// In en, this message translates to:
+  /// **'Style'**
+  String get battlefieldStyle;
+
+  /// No description provided for @battlefieldStyleHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Strength'**
+  String get battlefieldStyleHome;
+
+  /// No description provided for @battlefieldStyleGym.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Gym'**
+  String get battlefieldStyleGym;
+
+  /// No description provided for @battlefieldStyleCalisthenics.
+  ///
+  /// In en, this message translates to:
+  /// **'Calisthenics'**
+  String get battlefieldStyleCalisthenics;
+
+  /// No description provided for @battlefieldEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'Equipment'**
+  String get battlefieldEquipment;
+
+  /// No description provided for @battlefieldEquipmentDumbbells.
+  ///
+  /// In en, this message translates to:
+  /// **'Dumbbells'**
+  String get battlefieldEquipmentDumbbells;
+
+  /// No description provided for @battlefieldEquipmentBodyweight.
+  ///
+  /// In en, this message translates to:
+  /// **'Bodyweight'**
+  String get battlefieldEquipmentBodyweight;
+
+  /// No description provided for @battlefieldEquipmentFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Equipment'**
+  String get battlefieldEquipmentFull;
 }
 
 class _AppLocalizationsDelegate
