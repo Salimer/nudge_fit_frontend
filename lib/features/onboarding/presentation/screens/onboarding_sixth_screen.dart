@@ -7,7 +7,7 @@ import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../widgets/apple_sign_in_widget.dart';
-import '../widgets/google_sign_in_widget.dart';
+import '../../../auth/presentation/widgets/google_sign_in_widget.dart';
 
 class OnboardingSixthScreen extends StatelessWidget {
   const OnboardingSixthScreen({super.key});

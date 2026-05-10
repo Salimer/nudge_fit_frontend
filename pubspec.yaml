@@ -49,6 +49,7 @@ dependencies:
 
   path: any
   google_sign_in: ^7.2.0
+  dio: ^5.9.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

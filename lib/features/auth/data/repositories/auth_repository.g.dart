@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'routes_state.dart';
+part of 'auth_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,43 +9,43 @@ part of 'routes_state.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(routes)
-final routesProvider = RoutesProvider._();
+@ProviderFor(authRepo)
+final authRepoProvider = AuthRepoProvider._();
 
-final class RoutesProvider
-    extends $FunctionalProvider<GoRouter, GoRouter, GoRouter>
-    with $Provider<GoRouter> {
-  RoutesProvider._()
+final class AuthRepoProvider
+    extends $FunctionalProvider<AuthRepository, AuthRepository, AuthRepository>
+    with $Provider<AuthRepository> {
+  AuthRepoProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'routesProvider',
+        name: r'authRepoProvider',
         isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$routesHash();
+  String debugGetCreateSourceHash() => _$authRepoHash();
 
   @$internal
   @override
-  $ProviderElement<GoRouter> $createElement($ProviderPointer pointer) =>
+  $ProviderElement<AuthRepository> $createElement($ProviderPointer pointer) =>
       $ProviderElement(pointer);
 
   @override
-  GoRouter create(Ref ref) {
-    return routes(ref);
+  AuthRepository create(Ref ref) {
+    return authRepo(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(GoRouter value) {
+  Override overrideWithValue(AuthRepository value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<GoRouter>(value),
+      providerOverride: $SyncValueProvider<AuthRepository>(value),
     );
   }
 }
 
-String _$routesHash() => r'3f6e5ad0fc5b3d4864d436e0fa3a3ed16c1eb74f';
+String _$authRepoHash() => r'f7d41310bc33a7f871fa3308f72ac22e29527742';

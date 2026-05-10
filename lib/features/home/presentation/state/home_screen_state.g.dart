@@ -46,4 +46,4 @@ final class HomeScreenStateProvider
   }
 }
 
-String _$homeScreenStateHash() => r'15df551f44f07fd098e649b2bac5ed1758aa5326';
+String _$homeScreenStateHash() => r'cb3fdbc19ffb953cc9ae76c26f2d7a3848ab127c';
