@@ -10,8 +10,8 @@ import '../../use_cases/onboarding_use_case.dart';
 import '../state/onboarding_data_state.dart';
 import '../widgets/hold_confirm_btn.dart';
 
-class OnboardingFifthScreen extends StatelessWidget {
-  const OnboardingFifthScreen({super.key});
+class Onboarding5SealCommitmentScreen extends StatelessWidget {
+  const Onboarding5SealCommitmentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

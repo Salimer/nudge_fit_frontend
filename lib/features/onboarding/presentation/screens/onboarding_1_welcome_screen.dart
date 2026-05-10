@@ -8,8 +8,8 @@ import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../widgets/language_switch_widget.dart';
 
-class OnboardingFirstScreen extends StatelessWidget {
-  const OnboardingFirstScreen({super.key});
+class Onboarding1WelcomeScreen extends StatelessWidget {
+  const Onboarding1WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

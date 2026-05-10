@@ -8,13 +8,13 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../../features/contract/presentation/screens/contract_screen.dart';
 import '../../../features/history/presentation/screens/history_screen.dart';
 import '../../../features/home/presentation/screens/home_screen.dart';
-import '../../../features/onboarding/presentation/screens/onboarding_fifth_screen.dart';
-import '../../../features/onboarding/presentation/screens/onboarding_first_screen.dart';
-import '../../../features/onboarding/presentation/screens/onboarding_fourth_screen.dart';
-import '../../../features/onboarding/presentation/screens/onboarding_second_screen.dart';
-import '../../../features/onboarding/presentation/screens/onboarding_seventh_screen.dart';
-import '../../../features/onboarding/presentation/screens/onboarding_sixth_screen.dart';
-import '../../../features/onboarding/presentation/screens/onboarding_third_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_5_seal_commitment_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_1_welcome_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_4_not_req_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_2_excuses_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_7_paywall_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_6_auth_screen.dart';
+import '../../../features/onboarding/presentation/screens/onboarding_3_contract_screen.dart';
 import '../../../features/profile/presentation/screens/profile_screen.dart';
 import '../../../features/settings/presentation/screens/settings_screen.dart';
 import 'navigator_key_state.dart';
@@ -32,7 +32,7 @@ GoRouter routes(Ref ref) {
         name: RouteNames.onboarding,
         path: '/onboarding_first',
         pageBuilder: (context, state) {
-          return _adaptivePageBuilder(state, const OnboardingFirstScreen());
+          return _adaptivePageBuilder(state, const Onboarding1WelcomeScreen());
         },
         routes: [
           GoRoute(
@@ -41,7 +41,7 @@ GoRouter routes(Ref ref) {
             pageBuilder: (context, state) {
               return _adaptivePageBuilder(
                 state,
-                const OnboardingSecondScreen(),
+                const Onboarding2ExcusesScreen(),
               );
             },
             routes: [
@@ -51,7 +51,7 @@ GoRouter routes(Ref ref) {
                 pageBuilder: (context, state) {
                   return _adaptivePageBuilder(
                     state,
-                    const OnboardingThirdScreen(),
+                    const Onboarding3ContractScreen(),
                   );
                 },
                 routes: [
@@ -61,7 +61,7 @@ GoRouter routes(Ref ref) {
                     pageBuilder: (context, state) {
                       return _adaptivePageBuilder(
                         state,
-                        const OnboardingFourthScreen(),
+                        const Onboarding4NotReqScreen(),
                       );
                     },
                     routes: [
@@ -71,7 +71,7 @@ GoRouter routes(Ref ref) {
                         pageBuilder: (context, state) {
                           return _adaptivePageBuilder(
                             state,
-                            const OnboardingFifthScreen(),
+                            const Onboarding5SealCommitmentScreen(),
                           );
                         },
                         routes: [
@@ -81,7 +81,7 @@ GoRouter routes(Ref ref) {
                             pageBuilder: (context, state) {
                               return _adaptivePageBuilder(
                                 state,
-                                const OnboardingSixthScreen(),
+                                const Onboarding6AuthScreen(),
                               );
                             },
                             routes: [
@@ -91,7 +91,7 @@ GoRouter routes(Ref ref) {
                                 pageBuilder: (context, state) {
                                   return _adaptivePageBuilder(
                                     state,
-                                    const OnboardingSeventhScreen(),
+                                    const Onboarding7PaywallScreen(),
                                   );
                                 },
                               ),

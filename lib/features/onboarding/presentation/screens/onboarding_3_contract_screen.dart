@@ -9,8 +9,8 @@ import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
 
-class OnboardingThirdScreen extends ConsumerWidget {
-  const OnboardingThirdScreen({super.key});
+class Onboarding3ContractScreen extends ConsumerWidget {
+  const Onboarding3ContractScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -8,16 +8,16 @@ import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
 import '../state/onboarding_data_state.dart';
 
-class OnboardingSecondScreen extends ConsumerStatefulWidget {
-  const OnboardingSecondScreen({super.key});
+class Onboarding2ExcusesScreen extends ConsumerStatefulWidget {
+  const Onboarding2ExcusesScreen({super.key});
 
   @override
-  ConsumerState<OnboardingSecondScreen> createState() =>
+  ConsumerState<Onboarding2ExcusesScreen> createState() =>
       _OnboardingSecondScreenState();
 }
 
 class _OnboardingSecondScreenState
-    extends ConsumerState<OnboardingSecondScreen> {
+    extends ConsumerState<Onboarding2ExcusesScreen> {
   late final TextEditingController _controller;
   late final Set<String> _selectedExcuses;
   final List<String> _customExcuses = [];

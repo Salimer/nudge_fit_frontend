@@ -7,8 +7,8 @@ import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
-class OnboardingFourthScreen extends StatelessWidget {
-  const OnboardingFourthScreen({super.key});
+class Onboarding4NotReqScreen extends StatelessWidget {
+  const Onboarding4NotReqScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

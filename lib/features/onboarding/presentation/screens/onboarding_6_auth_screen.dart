@@ -9,8 +9,8 @@ import '../../../../core/common/widgets/mighty.dart';
 import '../widgets/apple_sign_in_widget.dart';
 import '../../../auth/presentation/widgets/google_sign_in_widget.dart';
 
-class OnboardingSixthScreen extends StatelessWidget {
-  const OnboardingSixthScreen({super.key});
+class Onboarding6AuthScreen extends StatelessWidget {
+  const Onboarding6AuthScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

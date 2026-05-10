@@ -7,8 +7,8 @@ import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
 
-class OnboardingSeventhScreen extends StatelessWidget {
-  const OnboardingSeventhScreen({super.key});
+class Onboarding7PaywallScreen extends StatelessWidget {
+  const Onboarding7PaywallScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
