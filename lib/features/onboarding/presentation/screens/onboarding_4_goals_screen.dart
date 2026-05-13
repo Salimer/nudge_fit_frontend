@@ -27,10 +27,7 @@ class _Onboarding4GoalsScreenState
   void initState() {
     super.initState();
     _controller = TextEditingController();
-    _selectedGoals = ref
-        .read(onboardingDataStateProvider)
-        .selectedGoals
-        .toSet();
+    _selectedGoals = ref.read(onboardingDataStateProvider).goals.toSet();
   }
 
   @override
@@ -45,7 +42,7 @@ class _Onboarding4GoalsScreenState
       context.l10n.goalsLoseWeight,
       context.l10n.goalsGainMuscle,
       context.l10n.goalsFeelBetter,
-      ...ref.read(onboardingDataStateProvider).selectedGoals,
+      ...ref.read(onboardingDataStateProvider).goals,
     }.toList();
   }
 
@@ -55,7 +52,9 @@ class _Onboarding4GoalsScreenState
       ShadToaster.of(context).show(
         ShadToast.destructive(
           alignment: .topCenter,
-          description: Text(context.l10n.excuseAlreadyExists), // We can reuse this or add a new string if preferred
+          description: Text(
+            context.l10n.excuseAlreadyExists,
+          ), // We can reuse this or add a new string if preferred
           showCloseIconOnlyWhenHovered: false,
         ),
       );

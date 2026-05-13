@@ -24,9 +24,8 @@ class _Onboarding5BattlefieldScreenState
   @override
   void initState() {
     super.initState();
-    _selectedStyle = ref.read(onboardingDataStateProvider).selectedStyle;
-    _selectedEquipment =
-        ref.read(onboardingDataStateProvider).selectedEquipment;
+    _selectedStyle = ref.read(onboardingDataStateProvider).workoutStyle;
+    _selectedEquipment = ref.read(onboardingDataStateProvider).workoutEquipment;
   }
 
   Map<String, String> _getStyles(BuildContext context) {
@@ -67,9 +66,9 @@ class _Onboarding5BattlefieldScreenState
               const SizedBox(height: Spaces.xl),
               Text(
                 context.l10n.battlefieldStyle,
-                style: ShadTheme.of(context).textTheme.p.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+                style: ShadTheme.of(
+                  context,
+                ).textTheme.p.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: Spaces.sm),
               ShadSelect<String>(
@@ -99,9 +98,9 @@ class _Onboarding5BattlefieldScreenState
               const SizedBox(height: Spaces.lg),
               Text(
                 context.l10n.battlefieldEquipment,
-                style: ShadTheme.of(context).textTheme.p.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+                style: ShadTheme.of(
+                  context,
+                ).textTheme.p.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: Spaces.sm),
               ShadSelect<String>(
@@ -132,8 +131,7 @@ class _Onboarding5BattlefieldScreenState
               SizedBox(
                 width: double.infinity,
                 child: ShadButton(
-                  enabled:
-                      _selectedStyle != null && _selectedEquipment != null,
+                  enabled: _selectedStyle != null && _selectedEquipment != null,
                   onPressed: () {
                     ref
                         .read(onboardingUseCaseProvider)

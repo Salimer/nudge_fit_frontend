@@ -40,7 +40,7 @@ class Onboarding5SealCommitmentScreen extends StatelessWidget {
                         .getLocalizedSelectedDays(context);
                     final selectedTime = ref
                         .read(onboardingDataStateProvider)
-                        .selectedTime;
+                        .targetTime;
 
                     return Text(
                       '${selectedDays.map((e) => e)} ${context.l10n.at} ${selectedTime.format(context)}',

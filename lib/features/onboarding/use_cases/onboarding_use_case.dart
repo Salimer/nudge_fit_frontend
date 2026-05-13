@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/experimental/mutation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../core/common/state/routes_state.dart';
 import '../../../core/utils/get_localized_day.dart';
+import '../data/repositories/onboarding_repository.dart';
 import '../presentation/state/onboarding_data_state.dart';
 
 part 'onboarding_use_case.g.dart';
@@ -14,6 +16,8 @@ OnboardingUseCase onboardingUseCase(Ref ref) => OnboardingUseCase(ref);
 class OnboardingUseCase {
   OnboardingUseCase(this.ref);
   final Ref ref;
+
+  OnboardingRepository get repo => ref.read(onboardingRepoProvider);
 
   void leaveSecondOnboardingScreen(List<String> excuses) {
     ref.read(onboardingDataStateProvider.notifier).setExcuses(excuses);
@@ -39,7 +43,7 @@ class OnboardingUseCase {
   }
 
   List<String> getLocalizedSelectedDays(BuildContext context) {
-    final days = ref.read(onboardingDataStateProvider).selectedDays;
+    final days = ref.read(onboardingDataStateProvider).days;
     days.map((e) => debugPrint('selected day $e'));
     return getLocalizedDays(ref, days);
   }
@@ -61,4 +65,10 @@ class OnboardingUseCase {
         .read(daysAndTimePickerStateProvider.notifier)
         .setDaysAndTime(onboardingDaysAndTime);
   }
+
+  Future<void> onboard() async {
+    await repo.onboard();
+  }
 }
+
+final Mutation onboardMutation = Mutation<void>(label: 'onboard');

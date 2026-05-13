@@ -21,7 +21,7 @@ class MyApp extends ConsumerWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       theme: appTheme.lightTheme,
       darkTheme: appTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       builder: (context, child) {
         // Limit text scaling to prevent UI breakage on devices with large system fonts.
         // You can change `maxScaleFactor: 1.2` to `maxScaleFactor: 1.0` (or use `TextScaler.noScaling`)

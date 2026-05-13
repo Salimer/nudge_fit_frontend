@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nudge_fit_frontend/core/common/models/days_and_time_picker_model.dart';
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../../core/common/models/days_and_time_picker_model.dart';
 import '../../data/models/onboarding_data_model.dart';
 
 part 'onboarding_data_state.g.dart';
@@ -14,31 +15,33 @@ class OnboardingDataState extends _$OnboardingDataState {
   }
 
   void setExcuses(List<String> excuses) {
-    state = state.copyWith(selectedExcuses: excuses);
-    debugPrint('excuses: ${state.selectedExcuses}');
+    state = state.copyWith(excuses: excuses);
+    debugPrint('excuses: ${state.excuses}');
   }
 
   void setGoals(List<String> goals) {
-    state = state.copyWith(selectedGoals: goals);
-    debugPrint('goals: ${state.selectedGoals}');
+    state = state.copyWith(goals: goals);
+    debugPrint('goals: ${state.goals}');
   }
 
   void setStyleAndEquipment(String style, String equipment) {
-    state = state.copyWith(selectedStyle: style, selectedEquipment: equipment);
-    debugPrint('style: ${state.selectedStyle}, equipment: ${state.selectedEquipment}');
+    state = state.copyWith(workoutStyle: style, workoutEquipment: equipment);
+    debugPrint(
+      'style: ${state.workoutStyle}, equipment: ${state.workoutEquipment}',
+    );
   }
 
   DaysAndTimePickerModel getDaysAndTime() {
     return DaysAndTimePickerModel(
-      selectedDays: state.selectedDays,
+      selectedDays: state.days,
       selectedTime: state.selectedTimeConverted,
     );
   }
 
   void setDaysAndTime(DaysAndTimePickerModel daysAndTime) {
     state = state.copyWith(
-      selectedDays: daysAndTime.selectedDays,
-      selectedTime: daysAndTime.selectedTime,
+      days: daysAndTime.selectedDays,
+      targetTime: daysAndTime.selectedTime,
     );
   }
 }

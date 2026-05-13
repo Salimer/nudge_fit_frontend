@@ -19,28 +19,6 @@ class GoogleSignInWidget extends StatelessWidget {
       width: double.infinity,
       child: Consumer(
         builder: (context, ref, _) {
-          ref.listen(signInMutation, (_, state) {
-            if (state is MutationPending) {
-              showDialog(
-                context: context,
-                builder: (context) =>
-                    const Center(child: CircularProgressIndicator()),
-              );
-            } else if (state is MutationError) {
-              debugPrint(state.error.toString());
-              context.pop();
-              ShadToaster.of(context).show(
-                ShadToast.destructive(
-                  alignment: .topCenter,
-                  description: Text(state.error.toString()),
-                  showCloseIconOnlyWhenHovered: false,
-                  duration: const Duration(seconds: 1000),
-                ),
-              );
-            } else if (state is MutationSuccess) {
-              context.pop();
-            }
-          });
           // final mutation = ref.watch(signInMutation);
           return ShadButton.outline(
             onPressed: () {

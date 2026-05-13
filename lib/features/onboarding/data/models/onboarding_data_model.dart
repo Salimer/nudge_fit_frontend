@@ -2,49 +2,60 @@ import 'package:day_night_time_picker/lib/state/time.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingDataModel {
-  final List<String> selectedExcuses;
-  final List<String> selectedGoals;
-  final String? selectedStyle;
-  final String? selectedEquipment;
-  final List<String> selectedDays;
-  final TimeOfDay selectedTime;
+  final List<String> excuses;
+  final List<String> goals;
+  final String? workoutStyle;
+  final String? workoutEquipment;
+  final List<String> days;
+  final TimeOfDay targetTime;
 
   Time get selectedTimeConverted =>
-      Time(hour: selectedTime.hour, minute: selectedTime.minute);
+      Time(hour: targetTime.hour, minute: targetTime.minute);
 
   OnboardingDataModel({
-    required this.selectedExcuses,
-    required this.selectedGoals,
-    this.selectedStyle,
-    this.selectedEquipment,
-    required this.selectedDays,
-    required this.selectedTime,
+    required this.excuses,
+    required this.goals,
+    this.workoutStyle,
+    this.workoutEquipment,
+    required this.days,
+    required this.targetTime,
   });
 
   factory OnboardingDataModel.initial() => OnboardingDataModel(
-    selectedExcuses: [],
-    selectedGoals: [],
-    selectedStyle: null,
-    selectedEquipment: null,
-    selectedDays: [],
-    selectedTime: const TimeOfDay(hour: 08, minute: 00),
+    excuses: [],
+    goals: [],
+    workoutStyle: null,
+    workoutEquipment: null,
+    days: [],
+    targetTime: const TimeOfDay(hour: 08, minute: 00),
   );
 
   OnboardingDataModel copyWith({
-    List<String>? selectedExcuses,
-    List<String>? selectedGoals,
-    String? selectedStyle,
-    String? selectedEquipment,
-    List<String>? selectedDays,
-    TimeOfDay? selectedTime,
+    List<String>? excuses,
+    List<String>? goals,
+    String? workoutStyle,
+    String? workoutEquipment,
+    List<String>? days,
+    TimeOfDay? targetTime,
   }) {
     return OnboardingDataModel(
-      selectedExcuses: selectedExcuses ?? this.selectedExcuses,
-      selectedGoals: selectedGoals ?? this.selectedGoals,
-      selectedStyle: selectedStyle ?? this.selectedStyle,
-      selectedEquipment: selectedEquipment ?? this.selectedEquipment,
-      selectedDays: selectedDays ?? this.selectedDays,
-      selectedTime: selectedTime ?? this.selectedTime,
+      excuses: excuses ?? this.excuses,
+      goals: goals ?? this.goals,
+      workoutStyle: workoutStyle ?? this.workoutStyle,
+      workoutEquipment: workoutEquipment ?? this.workoutEquipment,
+      days: days ?? this.days,
+      targetTime: targetTime ?? this.targetTime,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'excuses': excuses,
+    'goals': goals,
+    'workout_style': workoutStyle,
+    'workout_equipment': workoutEquipment,
+    'days': days,
+    'target_time':
+        '${targetTime.hour.toString().padLeft(2, '0')}:'
+        '${targetTime.minute.toString().padLeft(2, '0')}',
+  };
 }

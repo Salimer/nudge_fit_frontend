@@ -27,10 +27,7 @@ class _OnboardingSecondScreenState
   void initState() {
     super.initState();
     _controller = TextEditingController();
-    _selectedExcuses = ref
-        .read(onboardingDataStateProvider)
-        .selectedExcuses
-        .toSet();
+    _selectedExcuses = ref.read(onboardingDataStateProvider).excuses.toSet();
   }
 
   @override
@@ -47,7 +44,7 @@ class _OnboardingSecondScreenState
       context.l10n.wokeUpLateAndRushed,
       context.l10n.notEnoughTime,
       context.l10n.isNotFunAnymore,
-      ...ref.read(onboardingDataStateProvider).selectedExcuses,
+      ...ref.read(onboardingDataStateProvider).excuses,
     }.toList();
   }
 
