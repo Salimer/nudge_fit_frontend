@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'dio_instance.dart';
+part of 'home_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,42 +9,43 @@ part of 'dio_instance.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(dioInstance)
-final dioInstanceProvider = DioInstanceProvider._();
+@ProviderFor(homeRepo)
+final homeRepoProvider = HomeRepoProvider._();
 
-final class DioInstanceProvider extends $FunctionalProvider<Dio, Dio, Dio>
-    with $Provider<Dio> {
-  DioInstanceProvider._()
+final class HomeRepoProvider
+    extends $FunctionalProvider<HomeRepository, HomeRepository, HomeRepository>
+    with $Provider<HomeRepository> {
+  HomeRepoProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'dioInstanceProvider',
+        name: r'homeRepoProvider',
         isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$dioInstanceHash();
+  String debugGetCreateSourceHash() => _$homeRepoHash();
 
   @$internal
   @override
-  $ProviderElement<Dio> $createElement($ProviderPointer pointer) =>
+  $ProviderElement<HomeRepository> $createElement($ProviderPointer pointer) =>
       $ProviderElement(pointer);
 
   @override
-  Dio create(Ref ref) {
-    return dioInstance(ref);
+  HomeRepository create(Ref ref) {
+    return homeRepo(ref);
   }
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(Dio value) {
+  Override overrideWithValue(HomeRepository value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<Dio>(value),
+      providerOverride: $SyncValueProvider<HomeRepository>(value),
     );
   }
 }
 
-String _$dioInstanceHash() => r'8defda2d1dce03cab89c9ac641a56b011d6bead4';
+String _$homeRepoHash() => r'180f6ceb05316a471d31c3e03a19bb6345f826f8';

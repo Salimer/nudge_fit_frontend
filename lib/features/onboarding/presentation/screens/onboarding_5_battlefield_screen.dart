@@ -25,7 +25,7 @@ class _Onboarding5BattlefieldScreenState
   void initState() {
     super.initState();
     _selectedStyle = ref.read(onboardingDataStateProvider).workoutStyle;
-    _selectedEquipment = ref.read(onboardingDataStateProvider).workoutEquipment;
+    _selectedEquipment = ref.read(onboardingDataStateProvider).equipment;
   }
 
   Map<String, String> _getStyles(BuildContext context) {

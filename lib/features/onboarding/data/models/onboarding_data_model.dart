@@ -5,7 +5,7 @@ class OnboardingDataModel {
   final List<String> excuses;
   final List<String> goals;
   final String? workoutStyle;
-  final String? workoutEquipment;
+  final String? equipment;
   final List<String> days;
   final TimeOfDay targetTime;
 
@@ -16,7 +16,7 @@ class OnboardingDataModel {
     required this.excuses,
     required this.goals,
     this.workoutStyle,
-    this.workoutEquipment,
+    this.equipment,
     required this.days,
     required this.targetTime,
   });
@@ -25,7 +25,7 @@ class OnboardingDataModel {
     excuses: [],
     goals: [],
     workoutStyle: null,
-    workoutEquipment: null,
+    equipment: null,
     days: [],
     targetTime: const TimeOfDay(hour: 08, minute: 00),
   );
@@ -42,7 +42,7 @@ class OnboardingDataModel {
       excuses: excuses ?? this.excuses,
       goals: goals ?? this.goals,
       workoutStyle: workoutStyle ?? this.workoutStyle,
-      workoutEquipment: workoutEquipment ?? this.workoutEquipment,
+      equipment: workoutEquipment ?? this.equipment,
       days: days ?? this.days,
       targetTime: targetTime ?? this.targetTime,
     );
@@ -52,7 +52,7 @@ class OnboardingDataModel {
     'excuses': excuses,
     'goals': goals,
     'workout_style': workoutStyle,
-    'workout_equipment': workoutEquipment,
+    'equipment': equipment,
     'days': days,
     'target_time':
         '${targetTime.hour.toString().padLeft(2, '0')}:'

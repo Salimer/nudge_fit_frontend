@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/experimental/mutation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nudge_fit_frontend/features/auth/use_cases/auth_use_case.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
 import '../../../../core/constants/spaces.dart';
-import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/extensions/build_context.dart';
 
 class GoogleSignInWidget extends StatelessWidget {

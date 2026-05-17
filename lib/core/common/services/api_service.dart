@@ -14,6 +14,15 @@ class ApiService {
 
   Dio get dio => ref.read(dioInstanceProvider);
 
+  Future<Map<String, dynamic>> get({required String endpoint}) async {
+    try {
+      final response = await dio.get(endpoint);
+      return response.data;
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
   Future<Map<String, dynamic>> post({
     required Map<String, dynamic> body,
     required String endpoint,

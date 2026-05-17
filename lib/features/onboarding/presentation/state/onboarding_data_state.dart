@@ -26,9 +26,7 @@ class OnboardingDataState extends _$OnboardingDataState {
 
   void setStyleAndEquipment(String style, String equipment) {
     state = state.copyWith(workoutStyle: style, workoutEquipment: equipment);
-    debugPrint(
-      'style: ${state.workoutStyle}, equipment: ${state.workoutEquipment}',
-    );
+    debugPrint('style: ${state.workoutStyle}, equipment: ${state.equipment}');
   }
 
   DaysAndTimePickerModel getDaysAndTime() {
