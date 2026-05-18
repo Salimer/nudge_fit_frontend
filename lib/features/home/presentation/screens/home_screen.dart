@@ -19,16 +19,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context, ref, _) {
-        final homeScreenState = ref.watch(homeScreenStateProvider);
-        return Scaffold(
-          body: AnimatedSwitcher(
-            duration: const Duration(milliseconds: 500),
-            child: Stack(
+    return Scaffold(
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 500),
+        child: Consumer(
+          builder: (context, ref, _) {
+            final homeScreenState = ref.watch(homeScreenStateProvider);
+            return Stack(
               children: [
                 homeScreenState.when(
-                  data: (state) {
+                  data: (data) {
+                    final HomeScreenEnum state = data.state;
                     switch (state) {
                       case HomeScreenEnum.setupRequired:
                         return const SetupRequiredView();
@@ -121,10 +122,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-        );
-      },
+            );
+          },
+        ),
+      ),
     );
   }
 }

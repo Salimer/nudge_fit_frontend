@@ -15,11 +15,11 @@ final homeScreenStateProvider = HomeScreenStateProvider._();
 final class HomeScreenStateProvider
     extends
         $FunctionalProvider<
-          AsyncValue<HomeScreenEnum>,
-          HomeScreenEnum,
-          FutureOr<HomeScreenEnum>
+          AsyncValue<HomeScreenModel>,
+          HomeScreenModel,
+          FutureOr<HomeScreenModel>
         >
-    with $FutureModifier<HomeScreenEnum>, $FutureProvider<HomeScreenEnum> {
+    with $FutureModifier<HomeScreenModel>, $FutureProvider<HomeScreenModel> {
   HomeScreenStateProvider._()
     : super(
         from: null,
@@ -36,14 +36,14 @@ final class HomeScreenStateProvider
 
   @$internal
   @override
-  $FutureProviderElement<HomeScreenEnum> $createElement(
+  $FutureProviderElement<HomeScreenModel> $createElement(
     $ProviderPointer pointer,
   ) => $FutureProviderElement(pointer);
 
   @override
-  FutureOr<HomeScreenEnum> create(Ref ref) {
+  FutureOr<HomeScreenModel> create(Ref ref) {
     return homeScreenState(ref);
   }
 }
 
-String _$homeScreenStateHash() => r'cb3fdbc19ffb953cc9ae76c26f2d7a3848ab127c';
+String _$homeScreenStateHash() => r'd881a33d5c6453ff80e29c01861761d4c9ed2c0c';
