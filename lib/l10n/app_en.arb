@@ -110,5 +110,7 @@
   "battlefieldEquipment": "Equipment",
   "battlefieldEquipmentDumbbells": "Dumbbells",
   "battlefieldEquipmentBodyweight": "Bodyweight",
-  "battlefieldEquipmentFull": "Full Equipment"
+  "battlefieldEquipmentFull": "Full Equipment",
+  "retry": "Retry",
+  "problemOccurred": "Sorry, there is a problem"
 }

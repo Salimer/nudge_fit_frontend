@@ -361,4 +361,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get battlefieldEquipmentFull => 'Full Equipment';
+
+  @override
+  String get retry => 'Retry';
+
+  @override
+  String get problemOccurred => 'Sorry, there is a problem';
 }

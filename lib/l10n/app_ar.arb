@@ -109,5 +109,7 @@
   "battlefieldEquipment": "الأدوات",
   "battlefieldEquipmentDumbbells": "دمبلز",
   "battlefieldEquipmentBodyweight": "وزن الجسم",
-  "battlefieldEquipmentFull": "أدوات كاملة"
+  "battlefieldEquipmentFull": "أدوات كاملة",
+  "retry": "إعادة المحاولة",
+  "problemOccurred": "عذرا، هنالك مشكلة"
 }

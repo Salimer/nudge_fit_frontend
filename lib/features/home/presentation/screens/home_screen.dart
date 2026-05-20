@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/state/routes_state.dart';
+import '../../../../core/common/widgets/retry_widget.dart';
 import '../../../../core/constants/enums.dart';
 import '../../../../core/constants/spaces.dart';
 import '../state/home_screen_state.dart';
@@ -28,6 +29,7 @@ class HomeScreen extends StatelessWidget {
             return Stack(
               children: [
                 homeScreenState.when(
+                  skipLoadingOnRefresh: false,
                   data: (data) {
                     final HomeScreenEnum state = data.state;
                     switch (state) {
@@ -44,11 +46,10 @@ class HomeScreen extends StatelessWidget {
                     }
                   },
                   error: (error, stackTrace) {
-                    return Center(
-                      child: Text(
-                        error.toString(),
-                        style: ShadTheme.of(context).textTheme.p,
-                      ),
+                    return RetryWidget(
+                      onPressed: () {
+                        ref.invalidate(homeScreenStateProvider);
+                      },
                     );
                   },
                   loading: () {

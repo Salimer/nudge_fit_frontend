@@ -757,6 +757,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Full Equipment'**
   String get battlefieldEquipmentFull;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @problemOccurred.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorry, there is a problem'**
+  String get problemOccurred;
 }
 
 class _AppLocalizationsDelegate

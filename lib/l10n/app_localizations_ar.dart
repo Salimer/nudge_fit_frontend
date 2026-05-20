@@ -360,4 +360,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get battlefieldEquipmentFull => 'أدوات كاملة';
+
+  @override
+  String get retry => 'إعادة المحاولة';
+
+  @override
+  String get problemOccurred => 'عذرا، هنالك مشكلة';
 }
