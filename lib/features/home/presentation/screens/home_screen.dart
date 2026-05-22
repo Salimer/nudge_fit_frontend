@@ -7,6 +7,7 @@ import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/retry_widget.dart';
 import '../../../../core/constants/enums.dart';
 import '../../../../core/constants/spaces.dart';
+import '../../use_cases/notification_use_case.dart';
 import '../state/home_screen_state.dart';
 import '../views/action_required_view.dart';
 import '../views/completed_view.dart';
@@ -15,8 +16,22 @@ import '../views/setup_required_view.dart';
 import '../views/skipped_view.dart';
 import '../widgets/sheet_option_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(notificationUseCaseProvider).syncFcmToken();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

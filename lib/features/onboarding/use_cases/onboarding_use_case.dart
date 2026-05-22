@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/experimental/mutation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
+import '../../../core/common/services/notification_service.dart';
 import '../../../core/common/state/days_and_time_picker_state.dart';
 import '../../../core/common/state/routes_state.dart';
 import '../../../core/utils/get_localized_day.dart';
@@ -64,6 +66,10 @@ class OnboardingUseCase {
     ref
         .read(daysAndTimePickerStateProvider.notifier)
         .setDaysAndTime(onboardingDaysAndTime);
+  }
+
+  Future<NotificationSettings> askForNotificationPermission() async {
+    return ref.read(notificationSvcProvider).askForNotificationPermission();
   }
 
   Future<void> onboard() async {

@@ -12,11 +12,11 @@ class ApiService {
   final Ref ref;
   ApiService(this.ref);
 
-  Dio get dio => ref.read(dioInstanceProvider);
+  Dio get _dio => ref.read(dioInstanceProvider);
 
   Future<Map<String, dynamic>> get({required String endpoint}) async {
     try {
-      final response = await dio.get(endpoint);
+      final response = await _dio.get(endpoint);
       return response.data;
     } catch (e) {
       throw Exception(e.toString());
@@ -28,7 +28,7 @@ class ApiService {
     required String endpoint,
   }) async {
     try {
-      final response = await dio.post(endpoint, data: body);
+      final response = await _dio.post(endpoint, data: body);
       return response.data;
     } catch (e) {
       throw Exception(e.toString());
