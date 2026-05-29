@@ -6,6 +6,7 @@ import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
+import '../../use_cases/onboarding_use_case.dart';
 
 class Onboarding6NotReqScreen extends StatelessWidget {
   const Onboarding6NotReqScreen({super.key});
@@ -72,10 +73,17 @@ class Onboarding6NotReqScreen extends StatelessWidget {
                         width: double.infinity,
                         child: ShadButton(
                           child: Text(context.l10n.btnUnderstandNag),
-                          onPressed: () {
-                            ref
-                                .read(routesProvider)
-                                .goNamed(RouteNames.onboarding7SealCommitment);
+                          onPressed: () async {
+                            await ref
+                                .read(onboardingUseCaseProvider)
+                                .askForNotificationPermission();
+                            if (context.mounted) {
+                              ref
+                                  .read(routesProvider)
+                                  .goNamed(
+                                    RouteNames.onboarding7SealCommitment,
+                                  );
+                            }
                           },
                         ),
                       ),

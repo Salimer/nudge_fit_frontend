@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart' show debugPrint;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -8,9 +10,15 @@ part 'dio_instance.g.dart';
 
 @Riverpod(keepAlive: true)
 Dio dioInstance(Ref ref) {
+  // Dynamically set the URL based on the emulator/simulator platform
+  final String localBaseUrl = Platform.isAndroid
+      ? 'http://10.0.2.2:8000/api/'
+      : 'http://127.0.0.1:8000/api/';
+      
   final instance = Dio(
     BaseOptions(
-      baseUrl: 'http://127.0.0.1:8000/api/',
+      // baseUrl: 'http://127.0.0.1:8000/api/',
+      baseUrl: localBaseUrl,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

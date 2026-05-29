@@ -28,8 +28,8 @@ class ApiService {
     required String endpoint,
   }) async {
     try {
-      final response = await _dio.post(endpoint, data: body);
-      return response.data;
+    final response = await _dio.post(endpoint, data: body);
+    return response.data;
     } catch (e) {
       throw Exception(e.toString());
     }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "785084987947",
+    "project_id": "nudge-fit-7f983",
+    "storage_bucket": "nudge-fit-7f983.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785084987947:android:840fb645d202227dc1886e",
+        "android_client_info": {
+          "package_name": "com.salimer.nudgeFit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMKIVs4M1p2GIBPeHGQ2KT0mS7nLDSNn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

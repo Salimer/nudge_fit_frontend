@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart' show debugPrint;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_riverpod/experimental/mutation.dart';
@@ -34,8 +33,11 @@ class AuthUseCase {
 
     // Perform the sign in
     final googleAccount = await signIn.authenticate();
+
+    const List<String> scopes = ['email', 'profile', 'openid'];
+
     final googleAuthorization = await googleAccount.authorizationClient
-        .authorizationForScopes([]);
+        .authorizationForScopes(scopes);
     final googleAuthentication = googleAccount.authentication;
     final idToken = googleAuthentication.idToken;
     final accessToken = googleAuthorization?.accessToken;

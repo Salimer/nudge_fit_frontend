@@ -27,8 +27,8 @@ part 'routes_state.g.dart';
 GoRouter routes(Ref ref) {
   return GoRouter(
     navigatorKey: ref.read(navigatorKeyStateProvider),
-    initialLocation: '/home_screen',
-    // initialLocation: '/onboarding_first',
+    // initialLocation: '/home_screen',
+    initialLocation: '/onboarding_first',
     routes: [
       GoRoute(
         name: RouteNames.onboarding1Welcome,

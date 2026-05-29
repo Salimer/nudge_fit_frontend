@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart' show debugPrint;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../core/common/services/notification_service.dart';
@@ -13,9 +14,13 @@ class NotificationUseCase {
   NotificationUseCase(this.ref);
 
   Future syncFcmToken() async {
-    final token = await ref.read(notificationSvcProvider).getToken();
-    if (token != null) {
-      ref.read(notificationRepoProvider).syncFcmToken(token);
+    try {
+      final token = await ref.read(notificationSvcProvider).getToken();
+      if (token != null) {
+        await ref.read(notificationRepoProvider).syncFcmToken(token);
+      }
+    } catch (e) {
+      debugPrint('Error syncing FCM token: $e');
     }
   }
 }
