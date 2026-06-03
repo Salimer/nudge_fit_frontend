@@ -13,7 +13,10 @@ class AuthTokenState extends _$AuthTokenState {
     await persist(
       ref.watch(localStorageProvider.future),
       key: 'auth_token',
-      options: const StorageOptions(cacheTime: StorageCacheTime.unsafe_forever),
+      options: const StorageOptions(
+        cacheTime: StorageCacheTime.unsafe_forever,
+        destroyKey: '1.1.2',
+      ),
       encode: (state) => state,
       decode: (value) => value,
     ).future;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nudge_fit_frontend/features/home/presentation/state/home_screen_state.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../data/models/home_screen_model.dart';
+import '../state/home_screen_state.dart';
 import '../widgets/started_widget.dart';
 import '../widgets/streak_widget.dart';
 

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nudge_fit_frontend/features/auth/use_cases/auth_use_case.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/assets/social_media_icons.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
+import '../../use_cases/auth_use_case.dart';
 
 class GoogleSignInWidget extends StatelessWidget {
   const GoogleSignInWidget({super.key});
@@ -17,12 +18,16 @@ class GoogleSignInWidget extends StatelessWidget {
       child: Consumer(
         builder: (context, ref, _) {
           // final mutation = ref.watch(signInMutation);
+          final bool isFromLogin = ref
+              .read(authUseCaseProvider)
+              .isLoginRoute(GoRouterState.of(context));
+
           return ShadButton.outline(
             onPressed: () {
               // context.goNamed(RouteNames.onboardingSeventh);
               signInMutation
                   .run(ref, (tsx) async {
-                    await tsx.get(authUseCaseProvider).googleSignIn();
+                    await tsx.get(authUseCaseProvider).googleSignIn(loginOrFail: isFromLogin);
                   })
                   .catchError((_) {});
             },

@@ -366,4 +366,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get problemOccurred => 'عذرا، هنالك مشكلة';
+
+  @override
+  String get welcomeBack => 'مرحبا بك مجدداً';
 }

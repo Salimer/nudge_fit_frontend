@@ -367,4 +367,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get problemOccurred => 'Sorry, there is a problem';
+
+  @override
+  String get welcomeBack => 'Welcome Back';
 }

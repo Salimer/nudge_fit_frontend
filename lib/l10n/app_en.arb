@@ -112,5 +112,6 @@
   "battlefieldEquipmentBodyweight": "Bodyweight",
   "battlefieldEquipmentFull": "Full Equipment",
   "retry": "Retry",
-  "problemOccurred": "Sorry, there is a problem"
+  "problemOccurred": "Sorry, there is a problem",
+  "welcomeBack": "Welcome Back"
 }

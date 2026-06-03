@@ -170,3 +170,19 @@ class CryingMighty extends StatelessWidget {
     );
   }
 }
+
+class HappyMighty extends StatelessWidget {
+  const HappyMighty({super.key, this.maxHeight, this.maxWidth});
+
+  final double? maxHeight;
+  final double? maxWidth;
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedMighty(
+      assetName: MightyAssets.happy,
+      maxHeight: maxHeight,
+      maxWidth: maxWidth,
+    );
+  }
+}

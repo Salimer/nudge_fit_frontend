@@ -20,7 +20,11 @@ class Onboarding8AuthScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    _listeners(ref, context);
+    final bool isFromLogin = ref
+        .read(authUseCaseProvider)
+        .isLoginRoute(GoRouterState.of(context));
+    _listeners(ref, context, isFromLogin);
+
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -30,20 +34,24 @@ class Onboarding8AuthScreen extends ConsumerWidget {
             padding: const EdgeInsets.all(Spaces.all),
             child: Column(
               children: [
-                const ProudMighty(),
+                isFromLogin ? const HappyMighty() : const ProudMighty(),
 
                 const SizedBox(height: Spaces.lg),
                 Text(
-                  context.l10n.contractSealed,
+                  isFromLogin
+                      ? context.l10n.welcomeBack
+                      : context.l10n.contractSealed,
                   style: ShadTheme.of(context).textTheme.h1Large,
                   textAlign: .center,
                 ),
                 const SizedBox(height: Spaces.lg),
-                Text(
-                  context.l10n.createAccountText,
-                  style: ShadTheme.of(context).textTheme.h4,
-                  textAlign: .center,
-                ),
+                isFromLogin
+                    ? const SizedBox.shrink()
+                    : Text(
+                        context.l10n.createAccountText,
+                        style: ShadTheme.of(context).textTheme.h4,
+                        textAlign: .center,
+                      ),
 
                 const SizedBox(height: Spaces.lg),
 
@@ -61,7 +69,7 @@ class Onboarding8AuthScreen extends ConsumerWidget {
     );
   }
 
-  void _listeners(WidgetRef ref, BuildContext context) {
+  void _listeners(WidgetRef ref, BuildContext context, bool isFromLogin) {
     ref.listen(signInMutation, (_, state) async {
       if (state is MutationPending) {
         showDialog(
@@ -84,6 +92,10 @@ class Onboarding8AuthScreen extends ConsumerWidget {
       } else if (state is MutationSuccess) {
         context.pop();
         await Future.delayed(const Duration(milliseconds: 500));
+        if (isFromLogin) {
+          ref.read(routesProvider).goNamed(RouteNames.homeScreen);
+          return;
+        }
         onboardMutation
             .run(ref, (tsx) async {
               await tsx.get(onboardingUseCaseProvider).onboard();

@@ -1,10 +1,12 @@
 import 'dart:async';
 
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_riverpod/experimental/mutation.dart';
 
+import '../../../core/common/state/routes_state.dart';
 import '../data/repositories/auth_repository.dart';
+import '../presentation/state/auth_token_state.dart';
 
 part 'auth_use_case.g.dart';
 
@@ -17,41 +19,23 @@ class AuthUseCase {
 
   AuthRepository get authRepo => ref.read(authRepoProvider);
 
-  Future googleSignIn() async {
-    const String iosClientId =
-        '366691556307-rp12tbvigocn5aand8l71k8mb0a7qglg.apps.googleusercontent.com';
-    const String webClientId =
-        '366691556307-a8pkac5rsb3ur2mhok1353mbs74knc6m.apps.googleusercontent.com';
-    // Your Google Sign-In Logic
-
-    final GoogleSignIn signIn = GoogleSignIn.instance;
-
-    // At the start of your app, initialize the GoogleSignIn instance
-    unawaited(
-      signIn.initialize(clientId: iosClientId, serverClientId: webClientId),
-    );
-
-    // Perform the sign in
-    final googleAccount = await signIn.authenticate();
-
-    const List<String> scopes = ['email', 'profile', 'openid'];
-
-    final googleAuthorization = await googleAccount.authorizationClient
-        .authorizationForScopes(scopes);
-    final googleAuthentication = googleAccount.authentication;
-    final idToken = googleAuthentication.idToken;
-    final accessToken = googleAuthorization?.accessToken;
-
-    // debugPrint(idToken);
-    // debugPrint(accessToken);
-
-    if (idToken == null || accessToken == null) {
-      throw 'No ID Token found.';
-    }
+  Future googleSignIn({required bool loginOrFail}) async {
+    final accessToken = await ref.read(authRepoProvider).getGoogleAccessToken();
 
     await ref
         .read(authRepoProvider)
-        .googleSignIn(accessToken: accessToken, idToken: idToken);
+        .authenticateWithGoogleToken(
+          accessToken: accessToken,
+          loginOrFail: loginOrFail,
+        );
+  }
+
+  bool isLoggedIn() {
+    return ref.read(authTokenStateProvider.notifier).hasToken();
+  }
+
+  bool isLoginRoute(GoRouterState state) {
+    return state.name == RouteNames.login;
   }
 }
 

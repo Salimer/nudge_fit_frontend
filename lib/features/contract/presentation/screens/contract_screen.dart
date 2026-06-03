@@ -54,9 +54,9 @@ class _ContractScreenState extends State<ContractScreen> {
 
   void _signContract() {
     // TODO: Send updated contract to Rails backend
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Contract Amendment Signed.')));
+    // ScaffoldMessenger.of(
+    //   context,
+    // ).showSnackBar(const SnackBar(content: Text('Contract Amendment Signed.')));
   }
 
   @override

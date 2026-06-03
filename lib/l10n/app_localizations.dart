@@ -769,6 +769,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sorry, there is a problem'**
   String get problemOccurred;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back'**
+  String get welcomeBack;
 }
 
 class _AppLocalizationsDelegate

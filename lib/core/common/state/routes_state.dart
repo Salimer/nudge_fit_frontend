@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../features/auth/presentation/screens/splash_screen.dart';
 import '../../../features/contract/presentation/screens/contract_screen.dart';
 import '../../../features/history/presentation/screens/history_screen.dart';
 import '../../../features/home/presentation/screens/home_screen.dart';
@@ -28,8 +29,16 @@ GoRouter routes(Ref ref) {
   return GoRouter(
     navigatorKey: ref.read(navigatorKeyStateProvider),
     // initialLocation: '/home_screen',
-    initialLocation: '/onboarding_first',
+    // initialLocation: '/onboarding_first',
+    initialLocation: '/splash_screen',
     routes: [
+      GoRoute(
+        name: RouteNames.splashScreen,
+        path: '/splash_screen',
+        pageBuilder: (context, state) {
+          return _adaptivePageBuilder(state, const SplashScreen());
+        },
+      ),
       GoRoute(
         name: RouteNames.onboarding1Welcome,
         path: '/onboarding_first',
@@ -37,6 +46,13 @@ GoRouter routes(Ref ref) {
           return _adaptivePageBuilder(state, const Onboarding1WelcomeScreen());
         },
         routes: [
+          GoRoute(
+            name: RouteNames.login,
+            path: 'login',
+            pageBuilder: (context, state) {
+              return _adaptivePageBuilder(state, const Onboarding8AuthScreen());
+            },
+          ),
           GoRoute(
             name: RouteNames.onboarding2Excuses,
             path: 'onboarding_second',
@@ -181,6 +197,7 @@ Page<void> _adaptivePageBuilder(GoRouterState state, Widget child) {
 }
 
 class RouteNames {
+  static const splashScreen = 'splashScreen';
   static const onboarding1Welcome = 'onBorading';
   static const onboarding2Excuses = 'onBoradingSecond';
   static const onboarding3Contract = 'onBoradingThird';
@@ -195,4 +212,5 @@ class RouteNames {
   static const history = 'history';
   static const profile = 'profile';
   static const contract = 'contract';
+  static const login = 'login';
 }

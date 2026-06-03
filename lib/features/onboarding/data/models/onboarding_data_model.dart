@@ -42,7 +42,7 @@ class OnboardingDataModel {
       excuses: excuses ?? this.excuses,
       goals: goals ?? this.goals,
       workoutStyle: workoutStyle ?? this.workoutStyle,
-      equipment: workoutEquipment ?? this.equipment,
+      equipment: workoutEquipment ?? equipment,
       days: days ?? this.days,
       targetTime: targetTime ?? this.targetTime,
     );
