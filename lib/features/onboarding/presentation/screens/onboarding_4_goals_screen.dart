@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -56,6 +57,7 @@ class _Onboarding4GoalsScreenState
             context.l10n.excuseAlreadyExists,
           ), // We can reuse this or add a new string if preferred
           showCloseIconOnlyWhenHovered: false,
+          duration: Constants.errorToastDuration,
         ),
       );
       return;

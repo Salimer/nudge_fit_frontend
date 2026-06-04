@@ -17,19 +17,24 @@ class AuthRepository {
   final Ref ref;
   AuthRepository(this.ref);
 
+  ApiService get _svc => ref.read(apiServiceProvider);
+
   Future authenticateWithGoogleToken({
     required String accessToken,
     required bool loginOrFail,
   }) async {
     final String endpoint = loginOrFail
-        ? Endpoints.googleLoginOrFail
-        : Endpoints.googleLoginOrCreate;
+        ? Endpoints.auth.googleLoginOrFail
+        : Endpoints.auth.googleLoginOrCreate;
 
-    final response = await ref
-        .read(apiServiceProvider)
+    final response = await _svc
         .post(body: {'access_token': accessToken}, endpoint: endpoint);
 
     ref.read(authTokenStateProvider.notifier).set(response['token']);
+  }
+
+  Future logout() async {
+    await _svc.post(body: {}, endpoint: Endpoints.auth.logout);
   }
 
   Future<String> getGoogleAccessToken() async {

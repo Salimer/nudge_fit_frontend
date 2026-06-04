@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
+
+import '../../../../core/common/state/routes_state.dart';
+import '../../../../core/constants/constants.dart';
+import '../../../auth/use_cases/auth_use_case.dart';
+import '../../use_cases/settings_use_case.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -130,12 +137,46 @@ class _SettingsScreenState extends State<SettingsScreen> {
             theme,
             color: colorScheme.destructive,
           ),
-          _buildSettingsTile(
-            theme: theme,
-            icon: LucideIcons.logOut,
-            title: 'Log Out',
-            textColor: colorScheme.mutedForeground,
-            iconColor: colorScheme.mutedForeground,
+          Consumer(
+            builder: (context, ref, _) {
+              return _buildSettingsTile(
+                theme: theme,
+                icon: LucideIcons.logOut,
+                title: 'Log Out',
+                textColor: colorScheme.mutedForeground,
+                iconColor: colorScheme.mutedForeground,
+                onTap: () {
+                  final mutation = settingsMutation;
+                  mutation
+                      .run(ref, (tsx) async {
+                        showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (context) => const Center(
+                            child: CircularProgressIndicator(color: Colors.red),
+                          ),
+                        );
+                        await tsx.get(authUseCaseProvider).logout();
+                        if (context.mounted) {
+                          context.goNamed(RouteNames.onboarding1Welcome);
+                        }
+                      })
+                      .catchError((e, stackTrace) {
+                        if (context.mounted) {
+                          context.pop();
+                          ShadToaster.of(context).show(
+                            ShadToast.destructive(
+                              alignment: .topCenter,
+                              description: Text(e.toString()),
+                              showCloseIconOnlyWhenHovered: false,
+                              duration: Constants.errorToastDuration,
+                            ),
+                          );
+                        }
+                      });
+                },
+              );
+            },
           ),
           _buildSettingsTile(
             theme: theme,
@@ -207,6 +248,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     required ShadThemeData theme,
     required IconData icon,
     required String title,
+    void Function()? onTap,
     String? trailingText,
     Color? trailingTextColor,
     Color? iconColor,
@@ -214,9 +256,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     bool hideArrow = false,
   }) {
     return InkWell(
-      onTap: () {
-        // TODO: Implement navigation context.goNamed(...)
-      },
+      onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),

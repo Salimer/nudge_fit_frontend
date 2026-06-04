@@ -44,6 +44,8 @@ Dio dioInstance(Ref ref) {
           ref.read(authTokenStateProvider.notifier).clear();
           ref.read(routesProvider).goNamed(RouteNames.onboarding1Welcome);
         }
+
+        return handler.next(e);
       }
     ),
   );

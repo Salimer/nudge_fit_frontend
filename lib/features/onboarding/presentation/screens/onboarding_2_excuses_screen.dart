@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -57,6 +58,7 @@ class _OnboardingSecondScreenState
           alignment: .topCenter,
           description: Text(context.l10n.excuseAlreadyExists),
           showCloseIconOnlyWhenHovered: false,
+          duration: Constants.errorToastDuration,
         ),
       );
       return;

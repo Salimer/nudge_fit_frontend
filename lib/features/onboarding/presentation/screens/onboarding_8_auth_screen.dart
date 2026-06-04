@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../../../../core/common/state/routes_state.dart';
+import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
@@ -86,7 +87,7 @@ class Onboarding8AuthScreen extends ConsumerWidget {
             alignment: .topCenter,
             description: Text(state.error.toString()),
             showCloseIconOnlyWhenHovered: false,
-            duration: const Duration(seconds: 1000),
+            duration: Constants.errorToastDuration,
           ),
         );
       } else if (state is MutationSuccess) {
@@ -120,7 +121,7 @@ class Onboarding8AuthScreen extends ConsumerWidget {
             alignment: .topCenter,
             description: Text(state.error.toString()),
             showCloseIconOnlyWhenHovered: false,
-            duration: const Duration(seconds: 1000),
+            duration: Constants.errorToastDuration,
           ),
         );
       } else if (state is MutationSuccess) {

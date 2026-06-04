@@ -22,12 +22,10 @@ class AuthUseCase {
   Future googleSignIn({required bool loginOrFail}) async {
     final accessToken = await ref.read(authRepoProvider).getGoogleAccessToken();
 
-    await ref
-        .read(authRepoProvider)
-        .authenticateWithGoogleToken(
-          accessToken: accessToken,
-          loginOrFail: loginOrFail,
-        );
+    await authRepo.authenticateWithGoogleToken(
+      accessToken: accessToken,
+      loginOrFail: loginOrFail,
+    );
   }
 
   bool isLoggedIn() {
@@ -36,6 +34,13 @@ class AuthUseCase {
 
   bool isLoginRoute(GoRouterState state) {
     return state.name == RouteNames.login;
+  }
+
+  Future logout() async {
+    // throw 'hi';
+    await authRepo.logout();
+    ref.read(authTokenStateProvider.notifier).clear();
+    ref.read(routesProvider).go(RouteNames.onboarding1Welcome);
   }
 }
 
