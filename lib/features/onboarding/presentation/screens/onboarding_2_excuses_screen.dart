@@ -74,6 +74,8 @@ class _OnboardingSecondScreenState
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(onboardingDataStateProvider, (_, _) {});
+
     allExcuses = {..._getInitialExcuses(context), ..._customExcuses}.toList();
     final shadTheme = ShadTheme.of(context).colorScheme;
 
@@ -140,17 +142,16 @@ class _OnboardingSecondScreenState
               ),
               // Extra space so content doesn't get hidden behind the bottom buttons
               const SizedBox(height: Spaces.lg),
-              SizedBox(
+              ShadButton(
                 width: double.infinity,
-                child: ShadButton(
-                  enabled: _selectedExcuses.isNotEmpty,
-                  onPressed: () {
-                    ref
-                        .read(onboardingUseCaseProvider)
-                        .leaveSecondOnboardingScreen(_selectedExcuses.toList());
-                  },
-                  child: Text(context.l10n.next),
-                ),
+                height: Spaces.buttonHeight,
+                enabled: _selectedExcuses.isNotEmpty,
+                onPressed: () {
+                  ref
+                      .read(onboardingUseCaseProvider)
+                      .leaveSecondOnboardingScreen(_selectedExcuses.toList());
+                },
+                child: Text(context.l10n.next),
               ),
             ],
           ),

@@ -12,26 +12,25 @@ class AppleSignInWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Consumer(
-        builder: (context, ref, _) {
-          return ShadButton(
-            onPressed: () {
-              ref.read(routesProvider).goNamed(RouteNames.onboarding9Paywall);
-            },
-            leading: SvgPicture.asset(
-              SocialMediaIcons.appleLogo,
-              height: Spaces.lg,
-              colorFilter: ColorFilter.mode(
-                ShadTheme.of(context).colorScheme.secondary,
-                BlendMode.srcIn,
-              ),
+    return Consumer(
+      builder: (context, ref, _) {
+        return ShadButton(
+          height: Spaces.buttonHeight,
+          width: double.infinity,
+          onPressed: () {
+            ref.read(routesProvider).goNamed(RouteNames.onboarding9Paywall);
+          },
+          leading: SvgPicture.asset(
+            SocialMediaIcons.appleLogo,
+            height: Spaces.lg,
+            colorFilter: ColorFilter.mode(
+              ShadTheme.of(context).colorScheme.secondary,
+              BlendMode.srcIn,
             ),
-            child: Text(context.l10n.signInWithApple),
-          );
-        },
-      ),
+          ),
+          child: Text(context.l10n.signInWithApple),
+        );
+      },
     );
   }
 }

@@ -8,12 +8,15 @@ import '../../../../core/common/widgets/days_and_time_picker_widget.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
+import '../state/onboarding_data_state.dart';
 
 class Onboarding3ContractScreen extends ConsumerWidget {
   const Onboarding3ContractScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(onboardingDataStateProvider, (_, _) {});
+
     final selectedDays = ref.watch(
       daysAndTimePickerStateProvider.select((state) => state.selectedDays),
     );
@@ -41,17 +44,16 @@ class Onboarding3ContractScreen extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(
                   horizontal: Spaces.horizontal,
                 ),
-                child: SizedBox(
+                child: ShadButton(
                   width: double.infinity,
-                  child: ShadButton(
-                    enabled: selectedDays.isNotEmpty,
-                    onPressed: () {
-                      ref
-                          .read(onboardingUseCaseProvider)
-                          .leaveThirdOnboardingScreen();
-                    },
-                    child: Text(context.l10n.next),
-                  ),
+                  height: Spaces.buttonHeight,
+                  enabled: selectedDays.isNotEmpty,
+                  onPressed: () {
+                    ref
+                        .read(onboardingUseCaseProvider)
+                        .leaveThirdOnboardingScreen();
+                  },
+                  child: Text(context.l10n.next),
                 ),
               ),
             ],

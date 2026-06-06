@@ -35,6 +35,8 @@ class Onboarding7SealCommitmentScreen extends StatelessWidget {
                 const SizedBox(height: Spaces.lg),
                 Consumer(
                   builder: (context, ref, _) {
+                    ref.listen(onboardingDataStateProvider, (_, _) {});
+
                     final selectedDays = ref
                         .read(onboardingUseCaseProvider)
                         .getLocalizedSelectedDays(context);

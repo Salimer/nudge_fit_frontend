@@ -13,32 +13,33 @@ class GoogleSignInWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Consumer(
-        builder: (context, ref, _) {
-          // final mutation = ref.watch(signInMutation);
-          final bool isFromLogin = ref
-              .read(authUseCaseProvider)
-              .isLoginRoute(GoRouterState.of(context));
+    return Consumer(
+      builder: (context, ref, _) {
+        // final mutation = ref.watch(signInMutation);
+        final bool isFromLogin = ref
+            .read(authUseCaseProvider)
+            .isLoginRoute(GoRouterState.of(context));
 
-          return ShadButton.outline(
-            onPressed: () {
-              // context.goNamed(RouteNames.onboardingSeventh);
-              signInMutation
-                  .run(ref, (tsx) async {
-                    await tsx.get(authUseCaseProvider).googleSignIn(loginOrFail: isFromLogin);
-                  })
-                  .catchError((_) {});
-            },
-            leading: SvgPicture.asset(
-              SocialMediaIcons.googleLogo,
-              height: Spaces.lg,
-            ),
-            child: Text(context.l10n.continueWithGoogle),
-          );
-        },
-      ),
+        return ShadButton.outline(
+          height: Spaces.buttonHeight,
+          width: double.infinity,
+          onPressed: () {
+            // context.goNamed(RouteNames.onboardingSeventh);
+            signInMutation
+                .run(ref, (tsx) async {
+                  await tsx
+                      .get(authUseCaseProvider)
+                      .googleSignIn(loginOrFail: isFromLogin);
+                })
+                .catchError((_) {});
+          },
+          leading: SvgPicture.asset(
+            SocialMediaIcons.googleLogo,
+            height: Spaces.lg,
+          ),
+          child: Text(context.l10n.continueWithGoogle),
+        );
+      },
     );
   }
 }

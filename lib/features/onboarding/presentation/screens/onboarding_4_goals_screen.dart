@@ -73,6 +73,8 @@ class _Onboarding4GoalsScreenState
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(onboardingDataStateProvider, (_, _) {});
+
     allGoals = {..._getInitialGoals(context), ..._customGoals}.toList();
     final shadTheme = ShadTheme.of(context).colorScheme;
 
@@ -135,17 +137,16 @@ class _Onboarding4GoalsScreenState
                 onSubmitted: (value) => _addCustomGoal(value),
               ),
               const SizedBox(height: Spaces.lg),
-              SizedBox(
+              ShadButton(
                 width: double.infinity,
-                child: ShadButton(
-                  enabled: _selectedGoals.isNotEmpty,
-                  onPressed: () {
-                    ref
-                        .read(onboardingUseCaseProvider)
-                        .leaveFourthOnboardingScreen(_selectedGoals.toList());
-                  },
-                  child: Text(context.l10n.next),
-                ),
+                height: Spaces.buttonHeight,
+                enabled: _selectedGoals.isNotEmpty,
+                onPressed: () {
+                  ref
+                      .read(onboardingUseCaseProvider)
+                      .leaveFourthOnboardingScreen(_selectedGoals.toList());
+                },
+                child: Text(context.l10n.next),
               ),
             ],
           ),

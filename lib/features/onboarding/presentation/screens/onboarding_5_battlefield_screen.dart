@@ -46,6 +46,8 @@ class _Onboarding5BattlefieldScreenState
 
   @override
   Widget build(BuildContext context) {
+    ref.listen(onboardingDataStateProvider, (_, _) {});
+
     final styles = _getStyles(context);
     final equipments = _getEquipments(context);
 
@@ -128,20 +130,19 @@ class _Onboarding5BattlefieldScreenState
                 },
               ),
               const SizedBox(height: Spaces.xxl),
-              SizedBox(
+              ShadButton(
                 width: double.infinity,
-                child: ShadButton(
-                  enabled: _selectedStyle != null && _selectedEquipment != null,
-                  onPressed: () {
-                    ref
-                        .read(onboardingUseCaseProvider)
-                        .leaveFifthOnboardingScreen(
-                          _selectedStyle!,
-                          _selectedEquipment!,
-                        );
-                  },
-                  child: Text(context.l10n.next),
-                ),
+                height: Spaces.buttonHeight,
+                enabled: _selectedStyle != null && _selectedEquipment != null,
+                onPressed: () {
+                  ref
+                      .read(onboardingUseCaseProvider)
+                      .leaveFifthOnboardingScreen(
+                        _selectedStyle!,
+                        _selectedEquipment!,
+                      );
+                },
+                child: Text(context.l10n.next),
               ),
             ],
           ),

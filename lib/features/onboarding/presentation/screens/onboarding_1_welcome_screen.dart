@@ -7,6 +7,7 @@ import '../../../../core/constants/spaces.dart';
 import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
+import '../state/onboarding_data_state.dart';
 import '../widgets/language_switch_widget.dart';
 
 class Onboarding1WelcomeScreen extends StatelessWidget {
@@ -71,16 +72,16 @@ class Onboarding1WelcomeScreen extends StatelessWidget {
                     const SizedBox(height: Spaces.xxl),
                     Consumer(
                       builder: (context, ref, _) {
-                        return SizedBox(
+                        ref.listen(onboardingDataStateProvider, (_, _) {});
+                        return ShadButton(
+                          height: Spaces.buttonHeight,
                           width: double.infinity,
-                          child: ShadButton(
-                            child: Text(context.l10n.getStarted),
-                            onPressed: () {
-                              ref
-                                  .read(routesProvider)
-                                  .goNamed(RouteNames.onboarding2Excuses);
-                            },
-                          ),
+                          child: Text(context.l10n.getStarted),
+                          onPressed: () {
+                            ref
+                                .read(routesProvider)
+                                .goNamed(RouteNames.onboarding2Excuses);
+                          },
                         );
                       },
                     ),
@@ -88,7 +89,8 @@ class Onboarding1WelcomeScreen extends StatelessWidget {
                       onPressed: () {
                         context.goNamed(RouteNames.login);
                       },
-                      child: Text('I have an account')),
+                      child: Text('I have an account'),
+                    ),
                     const SizedBox(height: Spaces.lg),
                   ],
                 ),

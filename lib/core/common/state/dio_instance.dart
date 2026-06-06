@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart' show debugPrint;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../features/auth/presentation/state/auth_token_state.dart';
+import 'locale_state.dart';
 import 'routes_state.dart';
 
 part 'dio_instance.g.dart';
@@ -31,9 +32,13 @@ Dio dioInstance(Ref ref) {
     InterceptorsWrapper(
       onRequest: (options, handler) {
         final token = ref.read(authTokenStateProvider.notifier).token();
+
         if (token.isNotEmpty) {
           options.headers['Authorization'] = 'Bearer $token';
         }
+
+        final localeStr = ref.read(localeStateProvider.notifier).localeStr();
+        options.headers['Accept-Language'] = localeStr;
 
         debugPrint('The header token is: $token');
         return handler.next(options);
@@ -46,7 +51,7 @@ Dio dioInstance(Ref ref) {
         }
 
         return handler.next(e);
-      }
+      },
     ),
   );
 

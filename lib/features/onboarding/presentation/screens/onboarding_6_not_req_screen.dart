@@ -7,6 +7,7 @@ import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/state/routes_state.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../use_cases/onboarding_use_case.dart';
+import '../state/onboarding_data_state.dart';
 
 class Onboarding6NotReqScreen extends StatelessWidget {
   const Onboarding6NotReqScreen({super.key});
@@ -66,26 +67,25 @@ class Onboarding6NotReqScreen extends StatelessWidget {
 
               Consumer(
                 builder: (context, ref, _) {
+                  ref.listen(onboardingDataStateProvider, (_, _) {});
+
                   return Column(
                     mainAxisSize: .min,
                     children: [
-                      SizedBox(
+                      ShadButton(
                         width: double.infinity,
-                        child: ShadButton(
-                          child: Text(context.l10n.btnUnderstandNag),
-                          onPressed: () async {
-                            await ref
-                                .read(onboardingUseCaseProvider)
-                                .askForNotificationPermission();
-                            if (context.mounted) {
-                              ref
-                                  .read(routesProvider)
-                                  .goNamed(
-                                    RouteNames.onboarding7SealCommitment,
-                                  );
-                            }
-                          },
-                        ),
+                        height: Spaces.buttonHeight,
+                        child: Text(context.l10n.btnUnderstandNag),
+                        onPressed: () async {
+                          await ref
+                              .read(onboardingUseCaseProvider)
+                              .askForNotificationPermission();
+                          if (context.mounted) {
+                            ref
+                                .read(routesProvider)
+                                .goNamed(RouteNames.onboarding7SealCommitment);
+                          }
+                        },
                       ),
                       // SizedBox(height: Spaces.xs),
                       ShadButton.link(

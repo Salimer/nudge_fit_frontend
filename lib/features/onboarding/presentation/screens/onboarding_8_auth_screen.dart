@@ -13,6 +13,7 @@ import '../../../../core/extensions/build_context.dart';
 import '../../../../core/common/widgets/mighty.dart';
 import '../../../auth/use_cases/auth_use_case.dart';
 import '../../use_cases/onboarding_use_case.dart';
+import '../state/onboarding_data_state.dart';
 import '../widgets/apple_sign_in_widget.dart';
 import '../../../auth/presentation/widgets/google_sign_in_widget.dart';
 
@@ -21,6 +22,8 @@ class Onboarding8AuthScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(onboardingDataStateProvider, (_, _) {});
+
     final bool isFromLogin = ref
         .read(authUseCaseProvider)
         .isLoginRoute(GoRouterState.of(context));
@@ -126,7 +129,7 @@ class Onboarding8AuthScreen extends ConsumerWidget {
         );
       } else if (state is MutationSuccess) {
         context.pop();
-        context.goNamed(RouteNames.homeScreen);
+        context.goNamed(RouteNames.onboarding9Paywall);
       }
     });
   }

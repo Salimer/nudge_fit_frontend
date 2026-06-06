@@ -7,7 +7,7 @@ import '../../data/models/onboarding_data_model.dart';
 
 part 'onboarding_data_state.g.dart';
 
-@Riverpod(keepAlive: true)
+@Riverpod(keepAlive: false) // Make this autoDispose and add listners on onboarding screens
 class OnboardingDataState extends _$OnboardingDataState {
   @override
   OnboardingDataModel build() {

@@ -35,4 +35,8 @@ class LocaleState extends _$LocaleState {
     final code = languageCode == 'ar' ? 'ar' : 'en';
     state = AsyncValue.data(Locale(code));
   }
+
+  String localeStr() {
+    return state.value?.languageCode ?? 'en';
+  }
 }

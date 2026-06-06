@@ -20,7 +20,7 @@ final class OnboardingDataStateProvider
         argument: null,
         retry: null,
         name: r'onboardingDataStateProvider',
-        isAutoDispose: false,
+        isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -42,7 +42,7 @@ final class OnboardingDataStateProvider
 }
 
 String _$onboardingDataStateHash() =>
-    r'a6d5e41ce89d195e86840496e60e25ddecdbe96d';
+    r'ee48ee8bb8d4aa97e8c63ee337a1ce25cf43537b';
 
 abstract class _$OnboardingDataState extends $Notifier<OnboardingDataModel> {
   OnboardingDataModel build();
